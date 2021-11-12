@@ -15,6 +15,7 @@ public class ActualizarPrecios extends javax.swing.JFrame {
     /**
      * Creates new form CrearProducto
      */
+    //pruebas actualicion
     public ActualizarPrecios() {
         initComponents();
          
