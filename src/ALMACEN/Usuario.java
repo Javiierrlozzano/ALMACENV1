@@ -43,7 +43,7 @@ public class Usuario extends javax.swing.JFrame {
         initComponents();
              Querys=BodegasInicio;
              ini= inic;
-             
+             //Pruebas
              activa(inic);
              ProveedoreAction(ini);
              JTextField TextUB1[] ={NDocumento,Nombre};
