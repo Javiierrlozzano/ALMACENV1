@@ -63,7 +63,7 @@ public class Usuario extends javax.swing.JFrame {
         EMails.setEnabled(x);
         ReIVA.setEnabled(x);
         AutRete.setEnabled(x);
-
+//pruebas
     }
     public Usuario() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
