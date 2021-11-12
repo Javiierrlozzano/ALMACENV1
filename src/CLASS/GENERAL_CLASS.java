@@ -109,20 +109,27 @@ public class GENERAL_CLASS {
     
     }
      //Funcion para limpiar las casillas de textos 
-    public void LimpiarFieldText(JTextField tex[]){
-        int in = tex.length;
-        for (int i = 0; i < in; i++) {
-            tex[i].setText("");
-        }
-    }
- 
-    //Limpiar los CheckBox
-    public void LimpiarCheckBox(JCheckBox chex[]){
-         int in = chex.length;
-        for (int i = 0; i < in; i++) {
-            chex[i].setSelected(false);
-        }
-    }
+
+ public void LimpiarTodo(Object todo[]	){
+     for (int i = 0; i < todo.length; i++) {
+         if (todo[i].getClass() ==JTextField.class) {
+             JTextField ex = (JTextField) todo[i];
+             ex.setText("");
+         }if (todo[i].getClass() ==JCheckBox.class) {
+             JCheckBox chk= (JCheckBox)todo[i];
+             chk.setSelected(false);
+         }if (todo[i].getClass() ==JTable .class) {
+             JTable Table = (JTable) todo[i];
+            DefaultTableModel modelo =(DefaultTableModel) Table.getModel();
+            modelo.setRowCount(0);
+         }if (todo[i].getClass() ==JComboBox .class) {
+             JComboBox com = (JComboBox) todo[i];
+             com.setSelectedIndex(0);//
+         }
+     }
+     
+ }
+
      //Permitir Solo numeros
     public void  SoloNumeros(java.awt.event.KeyEvent evt,JPanel x){
     char validar = evt.getKeyChar();
@@ -188,13 +195,7 @@ public class GENERAL_CLASS {
         }
         
     }
-     //Limpiar ComboBOX
-    public void LimpiarCombobox(JComboBox[] ListComx){
-      int in = ListComx.length;
-        for (int i = 0; i < in; i++) {
-            ListComx[i].setSelectedIndex(0);
-        }
-    }
+ 
     //Insertar Imagenes a un Label 
       public void InsertarImagenLabel(byte[] imagen, JLabel Label){
             if (imagen.length != 0 || imagen !=null ) {
