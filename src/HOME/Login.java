@@ -24,6 +24,7 @@ import CLASS.GENERAL_CLASS;
 import CLASS.MySQL_Query;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 /**
  *
@@ -37,7 +38,7 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() throws InterruptedException {
         initComponents();
-           
+        UIManager.put( "nimbusOrange", new Color( 0, 163, 0) );
     }
 
     public static void CargarVentanas(FAMILIA1 WinFm_1,FAMILIA2 WinFm_2,FAMILIA3 WinFm_3,UNDMEDIDA WindFnidad_,CrearBodegas WinCrearBG_,Usuario WinUser_,Configuracion WinConf_){
@@ -118,13 +119,13 @@ public class Login extends javax.swing.JFrame {
                 loadingbarVetoableChange(evt);
             }
         });
-        getContentPane().add(loadingbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 510, 490, 10));
+        getContentPane().add(loadingbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 510, 490, 16));
 
         loadingnum.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         loadingnum.setForeground(new java.awt.Color(255, 255, 255));
         loadingnum.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         loadingnum.setText("99  %");
-        getContentPane().add(loadingnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 520, -1, 20));
+        getContentPane().add(loadingnum, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 530, -1, 20));
 
         Texto_Contraseña.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
         Texto_Contraseña.setForeground(new java.awt.Color(255, 255, 255));
@@ -291,11 +292,11 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel2MouseClicked
 
     private void loadingbarVetoableChange(java.beans.PropertyChangeEvent evt)throws java.beans.PropertyVetoException {//GEN-FIRST:event_loadingbarVetoableChange
-              // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_loadingbarVetoableChange
 
     private void loadingbarStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_loadingbarStateChanged
-      // TODO add your handling code here:
+        // TODO add your handling code here:
     }//GEN-LAST:event_loadingbarStateChanged
 
     /**
@@ -361,14 +362,15 @@ public class Login extends javax.swing.JFrame {
                 if(i==70){
                 st= new Startt(WinFm1, WinFm2, WinFm3, WindFnidad, WinCrearBG, WinUser, WinConf,win);
                 }
-                 
+                
                 loadingnum.setText(Integer.toString(i)+"%");// Acà se incrementan los nùmeros de porcentaje de cargando, hay un error, los nùmeros no para de cargar
-                loadingbar.setValue(i); //Con esta parte se llena la barra de cargando
+                loadingbar.setValue(i);
+
                 if(i==100){
                    try{
                      //  CargarVentanas(WinFm1, WinFm2, WinFm3, WindFnidad, WinCrearBG, WinUser, WinConf);
                        Ingresar.setEnabled(true);
-                       loadingbar.setBackground(Color.GREEN);
+                       //loadingbar.setBackground(Color.GREEN);
                          //Acà oculta la pantalla de Intro o Splash nombrada "Screen"
 
                    }catch(Exception ex){
