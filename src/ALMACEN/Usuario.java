@@ -98,8 +98,8 @@ public class Usuario extends javax.swing.JFrame {
       public void LimbiarUB(){
         JTextField text [] ={NDocumento,Nombre,Email,NCuenta};
         JComboBox com [] ={TipoDocumento,NBanco,EstadoPro};
-        general.LimpiarFieldText(text);
-        general.LimpiarCombobox(com);
+        general.LimpiarTodo(text);
+        general.LimpiarTodo(com);
         activa(false);
         Ahorros.setSelected(false);
         Corriente.setSelected(false);
@@ -110,7 +110,7 @@ public class Usuario extends javax.swing.JFrame {
     }
       private void LimpiarPro(){
        JTextField text [] ={RazonSocial,Direccion,Telefono,EMails};
-       general.LimpiarFieldText(text);
+       general.LimpiarTodo(text);
        ReIVA.setSelected(false);
        AutRete.setSelected(false);
        
@@ -877,7 +877,7 @@ public class Usuario extends javax.swing.JFrame {
                 sClienteActionPerformed(evt);
             }
         });
-        jPanel12.add(sCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 230, -1, -1));
+        jPanel12.add(sCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 270, -1, -1));
 
         NCuenta.setEnabled(false);
         NCuenta.addActionListener(new java.awt.event.ActionListener() {
