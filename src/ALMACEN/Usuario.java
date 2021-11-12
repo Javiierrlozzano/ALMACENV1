@@ -250,7 +250,6 @@ public class Usuario extends javax.swing.JFrame {
         Cuenta = new javax.swing.JCheckBox();
         Ahorros = new javax.swing.JRadioButton();
         Corriente = new javax.swing.JRadioButton();
-        sCliente1 = new javax.swing.JCheckBox();
 
         jMenu1.setText("jMenu1");
 
@@ -878,7 +877,7 @@ public class Usuario extends javax.swing.JFrame {
                 sClienteActionPerformed(evt);
             }
         });
-        jPanel12.add(sCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 270, -1, -1));
+        jPanel12.add(sCliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 230, -1, -1));
 
         NCuenta.setEnabled(false);
         NCuenta.addActionListener(new java.awt.event.ActionListener() {
@@ -1141,17 +1140,6 @@ public class Usuario extends javax.swing.JFrame {
             }
         });
         jPanel12.add(Corriente, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 220, -1, -1));
-
-        sCliente1.setBackground(new java.awt.Color(255, 255, 255));
-        sCliente1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        sCliente1.setText("CLIENTE");
-        sCliente1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        sCliente1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                sCliente1ActionPerformed(evt);
-            }
-        });
-        jPanel12.add(sCliente1, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 230, -1, -1));
 
         getContentPane().add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 680));
 
@@ -1859,10 +1847,6 @@ String Idusuario =IdUsuario;
         }        // TODO add your handling code here:
     }//GEN-LAST:event_jLabel1MouseClicked
 
-    private void sCliente1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sCliente1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_sCliente1ActionPerformed
-
     /**
      * @param args the command line arguments
      */
@@ -2054,7 +2038,6 @@ String Idusuario =IdUsuario;
     private javax.swing.JTabbedPane jTabbedPane6;
     private java.awt.PopupMenu popupMenu1;
     private javax.swing.JCheckBox sCliente;
-    private javax.swing.JCheckBox sCliente1;
     // End of variables declaration//GEN-END:variables
     private JTextField TextEm [];
     private JComboBox ComboboxUB[];
