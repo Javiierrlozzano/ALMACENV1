@@ -43,7 +43,7 @@ public class GENERAL_CLASS {
         DefaultTableModel  modelo ;
         modelo =(DefaultTableModel) table.getModel();
         modelo.addRow(arry);
-    }
+    }//probandos
     public void  newRowJTable(JTable table,java.awt.event.KeyEvent evt){
         DefaultTableModel  modelo =(DefaultTableModel) table.getModel();
         try {
