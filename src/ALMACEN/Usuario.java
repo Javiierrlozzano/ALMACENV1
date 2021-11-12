@@ -36,6 +36,7 @@ import javax.swing.table.DefaultTableModel;
 public class Usuario extends javax.swing.JFrame {
 
     /**
+     * 
      * Creates new form Proveedores
      */
     
@@ -45,7 +46,7 @@ public class Usuario extends javax.swing.JFrame {
              ini= inic;
              //Pruebas
              activa(inic); 
-             //Pruebas
+             //Pruebas3
              ProveedoreAction(ini);
              JTextField TextUB1[] ={NDocumento,Nombre};
              JTextField TextProveedor1[]={RazonSocial,Direccion,Telefono,EMails};
