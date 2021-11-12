@@ -44,7 +44,8 @@ public class Usuario extends javax.swing.JFrame {
              Querys=BodegasInicio;
              ini= inic;
              //Pruebas
-             activa(inic);
+             activa(inic); 
+             //Pruebas
              ProveedoreAction(ini);
              JTextField TextUB1[] ={NDocumento,Nombre};
              JTextField TextProveedor1[]={RazonSocial,Direccion,Telefono,EMails};
