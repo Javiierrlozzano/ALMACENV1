@@ -45,8 +45,8 @@ public class FAMILIA2 extends javax.swing.JFrame {
         JTextField text [] ={Descripcion};
         JComboBox com [] ={EstadoPro,SelectTc};
         idEstado.setText("");
-        general.LimpiarFieldText(text);
-        general.LimpiarCombobox(com);
+        general.LimpiarTodo(text);
+        general.LimpiarTodo(com);
     }
     //Inicia los componentes 
     public void IniciarData() throws SQLException{
