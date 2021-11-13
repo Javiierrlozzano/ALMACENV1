@@ -47,8 +47,8 @@ public class FAMILIA3 extends javax.swing.JFrame {
        JTextField tx[]={ Descripcion};
        JComboBox com [] ={EstadoPro};
        idEstado.setText("");
-        general.LimpiarFieldText(tx);
-        general.LimpiarCombobox(com);
+        general.LimpiarTodo(tx);
+        general.LimpiarTodo(com);
     }
     
     private void activar(Boolean x){
