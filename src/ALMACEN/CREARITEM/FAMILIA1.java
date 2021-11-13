@@ -61,8 +61,8 @@ public class FAMILIA1 extends javax.swing.JFrame {
         JTextField text [] ={Descripcion};
         JComboBox com [] ={EstadoPro,SelectTc};
         idEstado.setText("");
-        general.LimpiarFieldText(text);
-        general.LimpiarCombobox(com);
+        general.LimpiarTodo(text);
+        general.LimpiarTodo(com);
     }
      /**
      * This method is called from within the constructor to initialize the form.
