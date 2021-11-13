@@ -1805,7 +1805,7 @@ btAdicionar1.setVisible(!x);
                 btAdicionar1KeyReleased(evt);
             }
         });
-        jPanel1.add(btAdicionar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 580, 150, 40));
+        jPanel1.add(btAdicionar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 570, 150, 40));
 
         btModificar1.setBackground(new java.awt.Color(255, 255, 255));
         btModificar1.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
@@ -1827,6 +1827,11 @@ btAdicionar1.setVisible(!x);
         btGuardar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btGuardar1ActionPerformed(evt);
+            }
+        });
+        btGuardar1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                btGuardar1KeyReleased(evt);
             }
         });
         jPanel1.add(btGuardar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 590, -1, 40));
@@ -2083,8 +2088,13 @@ btAdicionar1.setVisible(!x);
     }else{
         JOptionPane.showMessageDialog(null, "LLenar todos los datos Basicos");}
     }
+    private void Guardar(){
+    InsertarDatos();
+    
+    }
+            
     private void btGuardar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGuardar1ActionPerformed
-     InsertarDatos();
+     Guardar();
     }//GEN-LAST:event_btGuardar1ActionPerformed
 
     private void BuscarDescuentosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarDescuentosActionPerformed
@@ -2922,12 +2932,14 @@ Incer();       // TODO add your handling code here:
         if (evt.getKeyCode() == 112) {
             Adicionar();
         }if (evt.getKeyCode()== 113) {
-            //Guadar();
+            Guardar();
         }if (evt.getKeyCode()==27) {
             //cancelar 
         }if (evt.getKeyCode()==114) {
             //Buscar
-        }
+        }if (evt.getKeyCode()==27) {
+            Actualizar();
+        }  
 }
     
     private void btAdicionar1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btAdicionar1KeyReleased
@@ -2953,11 +2965,14 @@ Teclas(evt);        // TODO add your handling code here:
     private void idProveedorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idProveedorActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_idProveedorActionPerformed
-
-    private void btActualizar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btActualizar1ActionPerformed
-        Act=true;
+private void Actualizar() {
+      Act=true;
         activar(Act) ;
-        InicioProducto(); 
+        InicioProducto();
+    
+}
+    private void btActualizar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btActualizar1ActionPerformed
+       Actualizar();
     }//GEN-LAST:event_btActualizar1ActionPerformed
 
     private void CodigoPadreFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CodigoPadreFocusLost
@@ -3077,6 +3092,10 @@ TablaCombos(evt);          // TODO add your handling code here:
         ActualizarTablaCombos = false;
         }        // TODO add your handling code here:
     }//GEN-LAST:event_TableCombosKeyReleased
+
+    private void btGuardar1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btGuardar1KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btGuardar1KeyReleased
     public void ActivoPrecio(boolean x){
         Utilidad.setEnabled(x);
         ValorUtilidad.setEnabled(x);
