@@ -62,9 +62,9 @@ public class UNDMEDIDA extends javax.swing.JFrame {
         
         JComboBox com [] ={EstadoPro};
         idEstado.setText("");
-        general.LimpiarFieldText(text);
+        general.LimpiarTodo(text);
         Valor.setText("1.0");
-        general.LimpiarCombobox(com);
+        general.LimpiarTodo(com);
     }
     
     //Inicia los componentes 
