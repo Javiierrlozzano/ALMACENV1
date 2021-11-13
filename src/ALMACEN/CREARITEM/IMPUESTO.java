@@ -347,8 +347,8 @@ public class IMPUESTO extends javax.swing.JFrame {
         JTextField text [] ={Valor,Descripcion};
         JComboBox com [] ={EstadoPro};
         idEstado.setText("");
-        general.LimpiarFieldText(text);
-        general.LimpiarCombobox(com);
+        general.LimpiarTodo(text);
+        general.LimpiarTodo(com);
     }
     private void btCancelarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btCancelarKeyReleased
         Keys(evt);          // TODO add your handling code here:
