@@ -977,7 +977,7 @@ public class Usuario extends javax.swing.JFrame {
                 btAdicionarKeyReleased(evt);
             }
         });
-        jPanel12.add(btAdicionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 590, 150, 50));
+        jPanel12.add(btAdicionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 600, 150, 50));
 
         btModificar.setBackground(new java.awt.Color(255, 255, 255));
         btModificar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -994,7 +994,7 @@ public class Usuario extends javax.swing.JFrame {
                 btModificarKeyReleased(evt);
             }
         });
-        jPanel12.add(btModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 600, 150, 50));
+        jPanel12.add(btModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 600, 150, 50));
 
         btGuardar.setBackground(new java.awt.Color(255, 255, 255));
         btGuardar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -1246,8 +1246,11 @@ public class Usuario extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_EmailActionPerformed
 
-    private void btAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarActionPerformed
-//PanelProveedor.setEnabled(false);  
+    
+    
+    
+    
+  private void Adicionar (){
         activa(true); 
      ResultSet resultado=   Querys.InicioUsuario() ;
      try     {
@@ -1262,18 +1265,46 @@ public class Usuario extends javax.swing.JFrame {
     
  btActualizar.setVisible(false);   
  btModificar.setVisible(false);
+    
+    
+}
+    private void btAdicionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btAdicionarActionPerformed
+//PanelProveedor.setEnabled(false);  
+    Adicionar(); 
     }//GEN-LAST:event_btAdicionarActionPerformed
-  
+  private void Teclas  (java.awt.event.KeyEvent evt){
+      if (evt.getKeyCode()==112){
+          Adicionar();
+      }
+      if (evt.getKeyCode()==112){
+          Actualizar();
+      }
+      if (evt.getKeyCode()==112){
+          Informe();
+      }
+      if (evt.getKeyCode()==112){
+          Guardar();
+      }
+      if (evt.getKeyCode()==112){
+          Cancelar();
+      }
+      if (evt.getKeyCode()==112){
+          Buscar();
+      }
+     
+  }
     private void btAdicionarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btAdicionarKeyReleased
-         // TODO add your handling code here:
+Teclas(evt);         // TODO add your handling code here:
     }//GEN-LAST:event_btAdicionarKeyReleased
-
-    private void btModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btModificarActionPerformed
+private void Informe(){
        Map hm1 =new HashMap ();
        hm1.put("IdValor",NDocumento.getText());
         Generar_Informes inf = new Generar_Informes("src\\Informes\\report2.jasper",hm1);
         general.OpenWindows(inf, null);
 
+}
+    private void btModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btModificarActionPerformed
+    Informe();
     }//GEN-LAST:event_btModificarActionPerformed
     //Insertar Proveedor a Mysql 
     public void DatosProveedor(){
@@ -1409,11 +1440,10 @@ public class Usuario extends javax.swing.JFrame {
                               
     }
     private void btModificarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btModificarKeyReleased
-             // TODO add your handling code here:
+Teclas(evt);             // TODO add your handling code here:
     }//GEN-LAST:event_btModificarKeyReleased
-
-    private void btGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGuardarActionPerformed
-   boolean ValidarVacioUB = general.VaciosText(TextUB);
+private void Guardar (){
+     boolean ValidarVacioUB = general.VaciosText(TextUB);
         boolean ValirdarVacioUBC= general.VaciosCombobox(ComboboxUB);
        
         if (ValidarVacioUB&&ValirdarVacioUBC&& ValirdarBancos()) { 
@@ -1426,11 +1456,14 @@ public class Usuario extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Llenar todos los datos de datos Usuario Basicos");
         }
      
+}
+    private void btGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGuardarActionPerformed
+  Guardar();
 
     }//GEN-LAST:event_btGuardarActionPerformed
 
     private void btGuardarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btGuardarKeyReleased
-        // TODO add your handling code here:
+Teclas(evt);        // TODO add your handling code here:
     }//GEN-LAST:event_btGuardarKeyReleased
  public void ModificarProveedor(){
  
@@ -1460,8 +1493,8 @@ public class Usuario extends javax.swing.JFrame {
            GetTextUsuarioBD();
            Querys.ModificarUsuarioBD(TipoDoc, NumeroDocumento, NombreCompleto, Emailusuario,NCuentaBancaria , NombreBanco, Estado, ChecKPro, ChecKCli, ChecKEm,id,CheakBanco,ChecKCorriente,ChecKAhorro,imagen);
         }
-    private void btActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btActualizarActionPerformed
-        try {
+    private void Actualizar(){
+            try {
             
          ModificarUsuarioBD();
          ModificarProveedor();
@@ -1471,26 +1504,34 @@ public class Usuario extends javax.swing.JFrame {
         } catch (Exception ex) {
         }
      
+    }
+    private void btActualizarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btActualizarActionPerformed
+    Actualizar();
     }//GEN-LAST:event_btActualizarActionPerformed
 
     private void btActualizarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btActualizarKeyReleased
-         // TODO add your handling code here:
+Teclas(evt);         // TODO add your handling code here:
     }//GEN-LAST:event_btActualizarKeyReleased
-
-    private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
-        
-        
+private void Cancelar (){
+             
         int conf = general.ValdarCerrar();
         if (conf == 0) {
             LimbiarUB();
             activa(false);
             btGuardar.setVisible(true);
-        }
+    
+    
+}
+}
+    private void btCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btCancelarActionPerformed
+        
+        Cancelar();
+        
       
     }//GEN-LAST:event_btCancelarActionPerformed
 
     private void btCancelarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btCancelarKeyReleased
-          // TODO add your handling code here:
+Teclas(evt);          // TODO add your handling code here:
     }//GEN-LAST:event_btCancelarKeyReleased
 
     private void EstadoProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstadoProActionPerformed
@@ -1533,14 +1574,17 @@ public class Usuario extends javax.swing.JFrame {
     private void EstadoCivilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstadoCivilActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EstadoCivilActionPerformed
-
+private void Buscar (){
+    general.OpenWindows(usuario, null);
+    
+}
     private void btModificar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btModificar1ActionPerformed
-general.OpenWindows(usuario, null);
+Buscar();
         // TODO add your handling code here:
     }//GEN-LAST:event_btModificar1ActionPerformed
 
     private void btModificar1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btModificar1KeyReleased
-        // TODO add your handling code here:
+Teclas(evt);        // TODO add your handling code here:
     }//GEN-LAST:event_btModificar1KeyReleased
 
     private void ReIVAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReIVAActionPerformed
