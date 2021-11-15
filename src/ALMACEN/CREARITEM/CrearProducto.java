@@ -73,7 +73,7 @@ public class CrearProducto extends javax.swing.JFrame {
         Descuentopro.setEnabled(x);
         ValorDescuento.setEnabled(x);
         Valor2.setEnabled(x);
-        jTable1.setEnabled(x);
+        TablaDescuento.setEnabled(x);
         jPanel4.setEnabled(x);
         jTabbedPane1.setEnabled(x);
 btAdicionar1.setVisible(!x);
@@ -187,7 +187,7 @@ btAdicionar1.setVisible(!x);
         btModificar = new javax.swing.JButton();
         btGuardar = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        TablaDescuento = new javax.swing.JTable();
         btCancelar = new javax.swing.JButton();
         BSD = new javax.swing.JLabel();
         btActualizar = new javax.swing.JButton();
@@ -222,6 +222,8 @@ btAdicionar1.setVisible(!x);
         ValorUtilidadD = new javax.swing.JLabel();
         jSeparator10 = new javax.swing.JSeparator();
         jSeparator11 = new javax.swing.JSeparator();
+        btActualizar2 = new javax.swing.JButton();
+        btGuardar2 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jPanel11 = new javax.swing.JPanel();
         jButton7 = new javax.swing.JButton();
@@ -1055,13 +1057,10 @@ btAdicionar1.setVisible(!x);
         });
         jPanel6.add(btGuardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 270, 110, 60));
 
-        jTable1.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        TablaDescuento.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        TablaDescuento.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+
             },
             new String [] {
                 "CODIGO", "%DESCUENTO", "VLDESCUENTO", "CANT", "NV PRECIO"
@@ -1075,22 +1074,22 @@ btAdicionar1.setVisible(!x);
                 return canEdit [columnIndex];
             }
         });
-        jTable1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jTable1.setFocusable(false);
-        jTable1.setGridColor(new java.awt.Color(0, 0, 0));
-        jTable1.setRowHeight(25);
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+        TablaDescuento.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        TablaDescuento.setFocusable(false);
+        TablaDescuento.setGridColor(new java.awt.Color(0, 0, 0));
+        TablaDescuento.setRowHeight(25);
+        TablaDescuento.getTableHeader().setReorderingAllowed(false);
+        TablaDescuento.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
+                TablaDescuentoMouseClicked(evt);
             }
         });
-        jTable1.addKeyListener(new java.awt.event.KeyAdapter() {
+        TablaDescuento.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
-                jTable1KeyReleased(evt);
+                TablaDescuentoKeyReleased(evt);
             }
         });
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(TablaDescuento);
 
         jPanel6.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 50, 560, 210));
 
@@ -1170,12 +1169,12 @@ btAdicionar1.setVisible(!x);
                 EstadoDescuentoKeyReleased(evt);
             }
         });
-        jPanel13.add(EstadoDescuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, 140, 30));
+        jPanel13.add(EstadoDescuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 140, 30));
 
         jLabel19.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("ESTADO");
-        jPanel13.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 20, 70, -1));
+        jPanel13.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, 70, -1));
 
         Descripcion_Descuento.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
         Descripcion_Descuento.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(231, 231, 245), new java.awt.Color(231, 233, 240), new java.awt.Color(216, 215, 236), new java.awt.Color(228, 229, 243)));
@@ -1190,12 +1189,12 @@ btAdicionar1.setVisible(!x);
                 Descripcion_DescuentoKeyReleased(evt);
             }
         });
-        jPanel13.add(Descripcion_Descuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 130, 30));
+        jPanel13.add(Descripcion_Descuento, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 10, 130, 30));
 
         jLabel40.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel40.setForeground(new java.awt.Color(255, 255, 255));
         jLabel40.setText("DESCRIPCIPCON");
-        jPanel13.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, -1, -1));
+        jPanel13.add(jLabel40, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
 
         jPanel6.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1050, 50));
 
@@ -1319,6 +1318,44 @@ btAdicionar1.setVisible(!x);
         jPanel6.add(ValorUtilidadD, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 90, 120, -1));
         jPanel6.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 130, 20));
         jPanel6.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 130, 20));
+
+        btActualizar2.setBackground(new java.awt.Color(255, 255, 255));
+        btActualizar2.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        btActualizar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Actualizar.png"))); // NOI18N
+        btActualizar2.setText("ACTUALIZAR");
+        btActualizar2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btActualizar2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btActualizar2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btActualizar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btActualizar2ActionPerformed(evt);
+            }
+        });
+        btActualizar2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                btActualizar2KeyReleased(evt);
+            }
+        });
+        jPanel6.add(btActualizar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 280, 130, 60));
+
+        btGuardar2.setBackground(new java.awt.Color(255, 255, 255));
+        btGuardar2.setFont(new java.awt.Font("Georgia", 0, 14)); // NOI18N
+        btGuardar2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Guardar.png"))); // NOI18N
+        btGuardar2.setText("GUARDAR");
+        btGuardar2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btGuardar2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        btGuardar2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        btGuardar2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btGuardar2ActionPerformed(evt);
+            }
+        });
+        btGuardar2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                btGuardar2KeyReleased(evt);
+            }
+        });
+        jPanel6.add(btGuardar2, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 270, 110, 60));
 
         jTabbedPane1.addTab("DESCUENTO", jPanel6);
 
@@ -2503,20 +2540,21 @@ private void Adicionar(){
     }//GEN-LAST:event_btModificarKeyReleased
 
     private void btGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGuardarActionPerformed
-
+        String  text []={Descuentopro.getText(),ValorDescuento.getText(),Valor2.getText(),PrecioNvPublic.getText()};
+        general.AgregarDatosJTableArry(TablaDescuento, text);
     }//GEN-LAST:event_btGuardarActionPerformed
 
     private void btGuardarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btGuardarKeyReleased
         //Keys(evt);          // TODO add your handling code here:
     }//GEN-LAST:event_btGuardarKeyReleased
 
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
+    private void TablaDescuentoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_TablaDescuentoMouseClicked
  
-    }//GEN-LAST:event_jTable1MouseClicked
+    }//GEN-LAST:event_TablaDescuentoMouseClicked
 
-    private void jTable1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTable1KeyReleased
+    private void TablaDescuentoKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_TablaDescuentoKeyReleased
       //  Keys(evt);          // TODO add your handling code here:
-    }//GEN-LAST:event_jTable1KeyReleased
+    }//GEN-LAST:event_TablaDescuentoKeyReleased
 
     private void EstadoDescuentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstadoDescuentoActionPerformed
         // TODO add your handling code here:
@@ -3096,6 +3134,22 @@ TablaCombos(evt);          // TODO add your handling code here:
     private void btGuardar1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btGuardar1KeyReleased
         // TODO add your handling code here:
     }//GEN-LAST:event_btGuardar1KeyReleased
+
+    private void btActualizar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btActualizar2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btActualizar2ActionPerformed
+
+    private void btActualizar2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btActualizar2KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btActualizar2KeyReleased
+
+    private void btGuardar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btGuardar2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btGuardar2ActionPerformed
+
+    private void btGuardar2KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btGuardar2KeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btGuardar2KeyReleased
     public void ActivoPrecio(boolean x){
         Utilidad.setEnabled(x);
         ValorUtilidad.setEnabled(x);
@@ -3236,6 +3290,7 @@ TablaCombos(evt);          // TODO add your handling code here:
     private javax.swing.JTextField StockMin;
     private javax.swing.JTextField SubCode;
     private javax.swing.JTable TabSubCodes;
+    private javax.swing.JTable TablaDescuento;
     private javax.swing.JTable TableCombos;
     private javax.swing.JLabel TextMar;
     private javax.swing.JLabel TextMar1;
@@ -3268,11 +3323,13 @@ TablaCombos(evt);          // TODO add your handling code here:
     private javax.swing.JTextField VendedorUtilpro;
     private javax.swing.JButton btActualizar;
     private javax.swing.JButton btActualizar1;
+    private javax.swing.JButton btActualizar2;
     private javax.swing.JButton btAdicionar;
     private javax.swing.JButton btAdicionar1;
     private javax.swing.JButton btCancelar;
     private javax.swing.JButton btGuardar;
     private javax.swing.JButton btGuardar1;
+    private javax.swing.JButton btGuardar2;
     private javax.swing.JButton btModificar;
     private javax.swing.JButton btModificar1;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -3368,6 +3425,5 @@ TablaCombos(evt);          // TODO add your handling code here:
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
