@@ -5,7 +5,7 @@
  */
 package HOME;
 
-import ALMACEN.Usuario;
+import USUARIO.Usuario;
 
 /**
  *

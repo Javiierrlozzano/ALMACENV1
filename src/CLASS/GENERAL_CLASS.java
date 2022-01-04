@@ -6,7 +6,15 @@
 package CLASS;
 
 
+
+import HOME.EsperarCargar;
+import com.gargoylesoftware.htmlunit.WebClient;
+import com.gargoylesoftware.htmlunit.html.HtmlInput;
+import com.gargoylesoftware.htmlunit.html.HtmlPage;
+import com.gargoylesoftware.htmlunit.html.HtmlSpan;
 import java.awt.Color;
+import static java.awt.Frame.ICONIFIED;
+import static java.awt.Frame.MAXIMIZED_BOTH;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 
@@ -38,6 +46,18 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author JAVIER
  */
 public class GENERAL_CLASS {
+  
+    //Agregar  Text 
+    public void TextProp(JTextField TxtField[] ,String PropText[]){
+            TextPrompt Tx;
+            for (int i = 0; i < TxtField.length; i++) {
+            Tx = new TextPrompt(PropText[i],TxtField[i]);
+        }
+    }
+
+    
+    //Buscar Usuario en Dian
+    
     //Funcion para agregar nueva fila en JTable con Enter
     public void AgregarDatosJTableArry(JTable table,Object arry[] ){
         DefaultTableModel  modelo ;
@@ -54,6 +74,32 @@ public class GENERAL_CLASS {
         }catch(Exception ex ){
             System.out.println(ex.getMessage());
         }
+    }
+    public int[] GetXGetY(java.awt.event.MouseEvent evt)
+    {
+        int XY []={0,0};
+      if (evt.getButton() == java.awt.event.MouseEvent.BUTTON1)//
+        {
+            XY[0] = evt.getX();
+            XY[1] = evt.getY();
+        }
+      return XY;
+    }
+    //Mover la ventana
+    public void MoverPanel(JFrame ventana,java.awt.event.MouseEvent evt,int LayoutX,int LayoutY){
+        ventana.setLocation(evt.getXOnScreen()-LayoutX,evt.getYOnScreen()-LayoutY);
+    }
+    //Minimizar ventana
+    public void Minimizar(JFrame ventana){
+    ventana.setState(ICONIFIED);
+    }
+    //Maximizar ventana
+    public void Maximizar (JFrame ventana){
+    ventana.setExtendedState(MAXIMIZED_BOTH);
+    }
+    //Cerrar ventana
+    public void Salir(JFrame ventana){
+        ventana.dispose();
     }
     //Funcion para abrir ventanas 
     public void OpenWindows(JFrame win, JPanel x){
@@ -316,5 +362,38 @@ public class GENERAL_CLASS {
         }
          return icono;
     }
+    
+    //Buscar Nit en la BD de la DIAN
+     public String[] BuscarNITDian(String Nit) throws Exception {
+        WebClient webClient = new WebClient();
+        webClient.getOptions().setThrowExceptionOnScriptError(false);//Se anula los errores de JavaScript 
+        
+        HtmlPage page = webClient.getPage("https://muisca.dian.gov.co/WebRutMuisca/DefConsultaEstadoRUT.faces");//Ingresa a la pagina de la DIAN 
+        HtmlInput searchBox = page.getElementByName("vistaConsultaEstadoRUT:formConsultaEstadoRUT:numNit");
+        //Selecciona el InputText 
+        searchBox.setValueAttribute(Nit);//Se ingresa el valor NIT
+        HtmlInput googleSearchSubmitButton = 
+        page.getElementByName("vistaConsultaEstadoRUT:formConsultaEstadoRUT:btnBuscar"); 
+        page=googleSearchSubmitButton.click();//Click en el Boton Buscar
+        //LLama los datos necesarios que proporciona la DIAN
+        HtmlSpan Nombre = (HtmlSpan) page.getElementById("vistaConsultaEstadoRUT:formConsultaEstadoRUT:primerNombre");
+        HtmlSpan Nombre2 = (HtmlSpan) page.getElementById("vistaConsultaEstadoRUT:formConsultaEstadoRUT:otrosNombres");
+        HtmlSpan Apellido1 = (HtmlSpan) page.getElementById("vistaConsultaEstadoRUT:formConsultaEstadoRUT:primerApellido");
+        HtmlSpan Apellido2 = (HtmlSpan) page.getElementById("vistaConsultaEstadoRUT:formConsultaEstadoRUT:segundoApellido");
+    
+        HtmlSpan DV = (HtmlSpan) page.getElementById("vistaConsultaEstadoRUT:formConsultaEstadoRUT:dv");
+        HtmlSpan Estado = (HtmlSpan) page.getElementById("vistaConsultaEstadoRUT:formConsultaEstadoRUT:estado");
+        
+        String Persona []={
+            Nit,DV.getTextContent(),
+            Nombre.getTextContent(),
+            Nombre2.getTextContent(),
+            Apellido1.getTextContent(),
+            Apellido2.getTextContent(),
+            Estado.getTextContent()};
+         
+            return Persona;
+    }
+   
 }
 

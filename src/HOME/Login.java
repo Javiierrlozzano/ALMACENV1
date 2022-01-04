@@ -7,18 +7,18 @@ package HOME;
 
 import ALMACEN.ActualizarPrecios;
 import ALMACEN.AjusteInventario;
-import ALMACEN.CREARITEM.CrearBodegas;
-import ALMACEN.CREARITEM.CrearInventario;
-import ALMACEN.CREARITEM.CrearProducto;
-import ALMACEN.CREARITEM.FAMILIA1;
-import ALMACEN.CREARITEM.FAMILIA2;
-import ALMACEN.CREARITEM.FAMILIA3;
-import ALMACEN.CREARITEM.IMPUESTO;
-import ALMACEN.CREARITEM.UNDMEDIDA;
+import ALMACEN.CrearBodegas;
+import ALMACEN.CrearInventario;
+import Producto.CrearProducto;
+import Producto.FAMILIA1;
+import Producto.FAMILIA2;
+import Producto.FAMILIA3;
+import Producto.IMPUESTO;
+import Producto.UNDMEDIDA;
 import ALMACEN.EntradaMercancia;
 import ALMACEN.InventarioGeneral;
 import ALMACEN.OrdenesPedido;
-import ALMACEN.Usuario;
+import USUARIO.Usuario;
 
 import CLASS.GENERAL_CLASS;
 import CLASS.MySQL_Query;
@@ -330,16 +330,17 @@ public class Login extends javax.swing.JFrame {
         new Login().setVisible(true); 
         
         Ingresar.setEnabled(false);
-        try {
+
+        
             
             for (int i = 0; i <= 100; i++) {
                 Thread.sleep(20);
                  if(i==1){
                     Querys = new MySQL_Query(Dtas);
                 }
-                if (i==5) {
+             if (i==5) {
                   WindFnidad  = new UNDMEDIDA(Querys,true);
-                }
+                }  
                 if (i==10) {
                     WinCrearBG =new CrearBodegas(Querys,false);
                 }
@@ -379,9 +380,7 @@ public class Login extends javax.swing.JFrame {
             
                 }
             }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null,"Error "+ e.getMessage() );
-        }
+       
     }
         public static MySQL_Query Querys ;
         public static FAMILIA1 WinFm1;

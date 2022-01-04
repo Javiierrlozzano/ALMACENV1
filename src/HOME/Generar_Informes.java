@@ -32,7 +32,7 @@ public class Generar_Informes extends javax.swing.JFrame {
         jLabel10.setVisible(false);
     }
 
-    Generar_Informes(Startt aThis, boolean b) {
+    Generar_Informes(Startt2 aThis, boolean b) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

@@ -6,6 +6,21 @@
 
 package ALMACEN;
 
+
+
+
+
+
+
+
+
+import Proveedor.AgregarProveedoresProductos;
+import CLASS.GENERAL_CLASS;
+import HOME.EsperarCargar;
+
+
+
+
 /**
  *
  * @author JAVIER
@@ -16,11 +31,13 @@ public class ActualizarPrecios extends javax.swing.JFrame {
      * Creates new form CrearProducto
      */
     //pruebas actualicion.
+
+    String Cookes =null;
     public ActualizarPrecios() {
         initComponents();
          
     }
-
+  
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -64,7 +81,7 @@ public class ActualizarPrecios extends javax.swing.JFrame {
         Bodegas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Unidad", "Mostrar todos" }));
         Bodegas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         org.jdesktop.swingx.autocomplete.AutoCompleteDecorator.decorate(Bodegas);
-        jPanel1.add(Bodegas, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 90, 191, 30));
+        jPanel1.add(Bodegas, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 90, 191, 30));
 
         jLabel3.setFont(new java.awt.Font("Georgia", 0, 16)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
@@ -74,13 +91,18 @@ public class ActualizarPrecios extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Georgia", 0, 16)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Vista Productos");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 60, -1, -1));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 60, -1, -1));
 
         jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Agregar.png"))); // NOI18N
         jButton2.setText("ADICIONAR");
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, 150, 50));
 
         jButton3.setBackground(new java.awt.Color(255, 255, 255));
@@ -190,6 +212,16 @@ public class ActualizarPrecios extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton4ActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        try {
+               EsperarCargar windo = new EsperarCargar();
+        general.OpenWindows(windo, null);  
+            // TODO add your handling code here:
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -231,7 +263,7 @@ public class ActualizarPrecios extends javax.swing.JFrame {
             }
         });
     }
-
+GENERAL_CLASS general= new GENERAL_CLASS();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> Bodegas;
     private javax.swing.JTable TabSubCodes;

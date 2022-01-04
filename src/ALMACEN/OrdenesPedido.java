@@ -6,8 +6,6 @@
 
 package ALMACEN;
 
-import ALMACEN.CREARITEM.CrearInventario;
-
 /**
  *
  * @author JAVIER

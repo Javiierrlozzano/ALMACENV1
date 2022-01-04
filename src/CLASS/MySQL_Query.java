@@ -33,19 +33,23 @@ public class MySQL_Query extends CONEXION_MySQL  {
         TextCarga.setText("Abriendo Conexion...");
     }
     public void InsertarBodegas(String Estado,String Descip,String DrBg,String Ciudad,String Suc){
-      String idEstados = null ;  
+     
       String Empresa = null;
         try {
             ResultSet empresa = Buscar(" SELECT   `idEmpresa` FROM `almacen.pos`.`empresa` WHERE  NombreEmpresa ='"+Suc+"'  LIMIT 1000 ;");
             while(empresa.next()){
                 Empresa = empresa.getString(1);
             };
-            ResultSet  resultado  =Buscar("SELECT idEstado   FROM estados  WHERE  NombreEstado = '"+Estado+"' LIMIT 1");
+            /* 
+              String idEstados = null ; 
+               ResultSet  resultado  =Buscar("SELECT idEstado   FROM estados  WHERE  NombreEstado = '"+Estado+"' LIMIT 1");
                 while (resultado.next()){
                    idEstados =  resultado.getString(1);}
+            */
+         
                    Ingresar("INSERT INTO `almacen.pos`.`bodegas` "
                            + "(`DescripcionBodega`, `DireccionBodega`, `Ciudad`, `Sucursal`, `Estado`) "
-                           + "VALUES ('"+Descip+"', '"+DrBg+"', '"+Ciudad+"', '"+Empresa+"', '"+idEstados+"');");
+                           + "VALUES ('"+Descip+"', '"+DrBg+"', '"+Ciudad+"', '"+Empresa+"', '"+Estado+"');");
             }catch(Exception ex){
                 System.out.println( ex.getMessage());
         JOptionPane.showMessageDialog(null,"Error" + ex.getMessage());
@@ -100,9 +104,13 @@ public void InsertarCosto(String id,String  ImpuestoQuerys ,String  ValorImpuest
     public  ResultSet Impuestos(String Impuesto){
         ResultSet resultado = null;
         try{
-            resultado = Buscar("SELECT im.`Valor%Impuesto`  FROM `almacen.pos`.`impuestos` AS im\n" +
+            /* 
+             resultado = Buscar("SELECT im.`Valor%Impuesto`  FROM `almacen.pos`.`impuestos` AS im\n" +
             "INNER JOIN `almacen.pos`.`estados` as es \n" +
             "ON es.idEstado = im.Estado  WHERE Descripcion ='"+Impuesto+"' AND es.NombreEstado  ='Activo' LIMIT 1;");
+            */
+            resultado = Buscar("SELECT `Valor%Impuesto`  FROM `almacen.pos`.`impuestos` " +
+            " WHERE Descripcion ='"+Impuesto+"' AND Estado  ='Activo' LIMIT 1;");
         return resultado ;
         }catch(Exception ex){
         
@@ -118,22 +126,34 @@ public void InsertarCosto(String id,String  ImpuestoQuerys ,String  ValorImpuest
     public ResultSet BuscarUsuarioNit(){
          ResultSet resultado = null ;
          try{
-         resultado = Buscar ("SELECT us.NombreUsuari , us.NDocumento FROM `almacen.pos`.`proveedor`  AS pro   \n" +
+             /* 
+              resultado = Buscar ("SELECT us.NombreUsuari , us.NDocumento FROM `almacen.pos`.`proveedor`  AS pro   \n" +
         "INNER JOIN `almacen.pos`.`usuariobasico` AS us ON us.IdUsuario = pro.UsuarioBasico_IdUsuario \n" +
         "INNER JOIN  `almacen.pos`.`estados` as es  ON \n" +
         "us.Estado = es.idEstado WHERE es.NombreEstado ='Activo' \n" +
         "\n" +
         "ORDER BY `NombreUsuari` DESC, `UsuarioBasico_IdUsuario` ASC LIMIT 1000;");
+             */
+         resultado = Buscar ("SELECT us.NombreUsuari , us.NDocumento FROM `almacen.pos`.`proveedor`  AS pro   \n" +
+        "INNER JOIN `almacen.pos`.`usuariobasico` AS us ON us.IdUsuario = pro.UsuarioBasico_IdUsuario \n" +
+        "WHERE  us.Estado ='Activo' ORDER BY `NombreUsuari` DESC, `UsuarioBasico_IdUsuario` ASC LIMIT 1000;");
          }catch(Exception ex ){}
         return resultado;
     }
     //Inicio Bodega
+    
     public ResultSet BodegasInicio(){
         ResultSet resultado ;
+        
         try {
-            resultado  =Buscar("SELECT idBodegas , DescripcionBodega,DireccionBodega, Ciudad,em.NombreEmpresa  ,es.NombreEstado\n" +
+            /*
+               resultado  =Buscar("SELECT idBodegas , DescripcionBodega,DireccionBodega, Ciudad,em.NombreEmpresa  ,es.NombreEstado\n" +
 " FROM `almacen.pos`.`bodegas`  \n" +
 " INNER JOIN `almacen.pos`.`estados` AS es ON  Estado = es.IdEstado \n" +
+" INNER JOIN `almacen.pos`.`empresa` AS em ON  Sucursal =em.idEmpresa   LIMIT 1000");
+            */
+            resultado  =Buscar("SELECT idBodegas , DescripcionBodega,DireccionBodega, Ciudad,em.NombreEmpresa  ,Estado\n" +
+" FROM `almacen.pos`.`bodegas`  \n" +
 " INNER JOIN `almacen.pos`.`empresa` AS em ON  Sucursal =em.idEmpresa   LIMIT 1000");
              TextCarga.setText("Iniciando Bodegas...");
             return resultado;
@@ -143,30 +163,33 @@ public void InsertarCosto(String id,String  ImpuestoQuerys ,String  ValorImpuest
         return resultado = null;
     }
     public void UpdateBodega(String Estado,String Descripcions,String DireccionBodega,String Ciudad,String Sucursals,String Id){
-         String idEstados = null ;    
          String Sucursales= null;
         try {
-            ResultSet  resultado  =Buscar("SELECT idEstado   FROM estados  WHERE  NombreEstado = '"+Estado+"' LIMIT 1");
+            /*
+             ResultSet  resultado  =Buscar("SELECT idEstado   FROM estados  WHERE  NombreEstado = '"+Estado+"' LIMIT 1");
                 while (resultado.next()){
                    idEstados =  resultado.getString(1);
                 }
+            */
             ResultSet  Sucursal  =Buscar("SELECT  `idEmpresa`FROM `almacen.pos`.`empresa` WHERE `NombreEmpresa` ='"+Sucursals+"';");
                 while (Sucursal.next()){
                    Sucursales =  Sucursal.getString(1);
                 }
             Ingresar("UPDATE `almacen.pos`.`bodegas`"
                     + "SET `DescripcionBodega`='"+Descripcions+"', `DireccionBodega`='"+DireccionBodega+"', "
-                    + "`Ciudad`='"+Ciudad+"', `Sucursal`='"+Sucursales+"' ,`Estado`='"+idEstados+"'"
+                    + "`Ciudad`='"+Ciudad+"', `Sucursal`='"+Sucursales+"' ,`Estado`='"+Estado+"'"
                     + " WHERE  `idBodegas`="+Id+";");
             }catch(Exception ex){
         JOptionPane.showMessageDialog(null,"Error" + ex.getMessage());
         }
     }
+    
+    
     public ResultSet IniImpuesto(){
             ResultSet resultado ;
         try {
-            resultado  =Buscar("SELECT `idImpuestos`, `Descripcion`, `Valor%Impuesto`, estado.NombreEstado FROM `almacen.pos`.`impuestos`\n" +
-"AS Undad INNER JOIN `almacen.pos`.`estados`  AS estado ON estado.idEstado = Undad.Estado ");
+            resultado  =Buscar("SELECT `idImpuestos`, `Descripcion`, `Valor%Impuesto`, Estado FROM `almacen.pos`.`impuestos`");
+            
            TextCarga.setText("Iniciando Unidad de Impuesto....");
             return resultado;
         }catch(Exception ex){
@@ -179,9 +202,7 @@ public void InsertarCosto(String id,String  ImpuestoQuerys ,String  ValorImpuest
     public ResultSet IniUnidad(){
             ResultSet resultado ;
         try {
-            resultado  =Buscar("SELECT idUnidadMedida ,Undad.Descripcion, Undad.Valor ,estado.NombreEstado FROM `almacen.pos`.`unidadmedida`\n" +
-                                "AS Undad INNER JOIN `almacen.pos`.`estados`  AS estado ON estado.idEstado = Undad.IdEstado\n" +
-                                "ORDER BY `idUnidadMedida` ASC LIMIT 1000;  ");
+            resultado  =Buscar("SELECT idUnidadMedida ,Descripcion, Valor , Estado FROM `almacen.pos`.`unidadmedida`");
            TextCarga.setText("Iniciando Unidad de Medida....");
             return resultado;
         }catch(Exception ex){
@@ -191,24 +212,26 @@ public void InsertarCosto(String id,String  ImpuestoQuerys ,String  ValorImpuest
     }
     //ingresar datos 
     public void InsertUnidad(String Estado,String Valor,String Descripcion){
-          String idEstados = null ;    
+             
         try {
-            ResultSet  resultado  =Buscar("SELECT idEstado   FROM estados  WHERE  NombreEstado = '"+Estado+"' LIMIT 1");
+            /*  ResultSet  resultado  =Buscar("SELECT idEstado   FROM estados  WHERE  NombreEstado = '"+Estado+"' LIMIT 1");
                 while (resultado.next()){
-                   idEstados =  resultado.getString(1);}
-            Ingresar("INSERT INTO unidadmedida(Descripcion, Valor, IdEstado) VALUES ('"+Descripcion+"', '"+Valor+"', "+idEstados+");");
+                   idEstados =  resultado.getString(1);}*/
+          
+            Ingresar("INSERT INTO unidadmedida(Descripcion, Valor, Estado) VALUES ('"+Descripcion+"', '"+Valor+"', '"+Estado+"');");
             }catch(Exception ex){
                 System.out.println( ex.getMessage());
         JOptionPane.showMessageDialog(null,"Error" + ex.getMessage());
         }
     }
        public void InsertarImpuesto(String Estado,String Valor,String Descripcion){
-          String idEstados = null ;    
+            
         try {
-            ResultSet  resultado  =Buscar("SELECT idEstado   FROM estados  WHERE  NombreEstado = '"+Estado+"' LIMIT 1");
+            /*  ResultSet  resultado  =Buscar("SELECT idEstado   FROM estados  WHERE  NombreEstado = '"+Estado+"' LIMIT 1");
                 while (resultado.next()){
-                   idEstados =  resultado.getString(1);}
-            Ingresar("INSERT INTO `almacen.pos`.`impuestos` (`Descripcion`, `Valor%Impuesto`, `Estado`) VALUES  ('"+Descripcion+"', '"+Valor+"', "+idEstados+");");
+                   idEstados =  resultado.getString(1);}*/
+          
+            Ingresar("INSERT INTO `almacen.pos`.`impuestos` (`Descripcion`, `Valor%Impuesto`, `Estado`) VALUES  ('"+Descripcion+"', '"+Valor+"', '"+Estado+"');");
             }catch(Exception ex){
                 System.out.println( ex.getMessage());
         JOptionPane.showMessageDialog(null,"Error" + ex.getMessage());
@@ -217,13 +240,11 @@ public void InsertarCosto(String id,String  ImpuestoQuerys ,String  ValorImpuest
         public void UpdateImpuestos(String id,String Estado,String Valor,String Descripcion){
      String idEstados = null ;    
         try {
-            ResultSet  resultado  =Buscar("SELECT idEstado   FROM estados  WHERE  NombreEstado = '"+Estado+"' LIMIT 1");
-                while (resultado.next()){
-                   idEstados =  resultado.getString(1);}
+          
             Ingresar("UPDATE `almacen.pos`.`impuestos` SET " +
                         "`Descripcion`='"+Descripcion+"' ," +
                         "`Valor%Impuesto` = '"+Valor+"' ," +
-                        "Estado = '"+idEstados+"' " +
+                        "Estado = '"+Estado+"' " +
                         "WHERE `idImpuestos`="+id+";");
             }catch(Exception ex){
         JOptionPane.showMessageDialog(null,"Error" + ex.getMessage());
@@ -231,14 +252,14 @@ public void InsertarCosto(String id,String  ImpuestoQuerys ,String  ValorImpuest
     //Actualizar Datos 
     public void UpdateUnidad(String id,String Estado,String Valor,String Descripcion){
      String idEstados = null ;    
-        try {
-            ResultSet  resultado  =Buscar("SELECT idEstado   FROM estados  WHERE  NombreEstado = '"+Estado+"' LIMIT 1");
+        try {/*
+            ResultSet  resultado  =Buscar("SELECT Estado   FROM estados  WHERE  NombreEstado = '"+Estado+"' LIMIT 1");
                 while (resultado.next()){
-                   idEstados =  resultado.getString(1);}
+                   idEstados =  resultado.getString(1);}*/
             Ingresar("UPDATE `almacen.pos`.`unidadmedida` SET " +
                         "`Descripcion`='"+Descripcion+"' ," +
                         "`Valor` = '"+Valor+"' ," +
-                        "IdEstado = '"+idEstados+"'" +
+                        "Estado = '"+Estado+"'" +
                         "WHERE `idUnidadMedida`="+id+";");
             }catch(Exception ex){
         JOptionPane.showMessageDialog(null,"Error" + ex.getMessage());
@@ -299,7 +320,7 @@ public void InsertarCosto(String id,String  ImpuestoQuerys ,String  ValorImpuest
          String Fami1="SELECT  idFamilia1 FROM `almacen.pos`.`familia1` WHERE Descripcion ='"+Familia1+"' LIMIT 1;";
          String Fami2 ="SELECT idFamilia2 FROM `almacen.pos`.`familia2` WHERE Descripcion ='"+Familia2+"' LIMIT 1;";
          String Fami3="SELECT  idFamilia1 FROM `almacen.pos`.`familia3` WHERE Descripcion ='"+Familia3+"' LIMIT 1;";
-         String Estado ="SELECT  idEstado FROM `almacen.pos`.`estados` WHERE  `NombreEstado` ='"+Estados+"' LIMIT 1;";
+         String Estado =Estados;
          String UnidadMedida ="SELECT  idUnidadMedida FROM `almacen.pos`.`unidadmedida` WHERE  `Descripcion` ='"+UndiadMedida+"' LIMIT 1;";
          String Querys []={Fami1,Fami2,Fami3,UnidadMedida,Estado};
    
@@ -373,12 +394,8 @@ public void InsertarCosto(String id,String  ImpuestoQuerys ,String  ValorImpuest
     public ResultSet InicioFamilia3(){
         ResultSet resultado ;
         try {
-            resultado  =Buscar("SELECT Undad.idFamilia1,Undad.Descripcion,estado.NombreEstado FROM `almacen.pos`.`familia1`  \n" +
-                "AS Undad \n" +
-                "INNER JOIN \n" +
-                "`almacen.pos`.`estados`  AS estado ON \n" +
-                "estado.idEstado = Undad.Estado ORDER BY `idFamilia1` ASC LIMIT 1000;");
-                         TextCarga.setText("Iniciando Unidad de Familia 3 ....");
+            resultado  =Buscar("SELECT * FROM `almacen.pos`.`familia1` LIMIT 1000;");
+                         TextCarga.setText("Iniciando  Familia 3 ....");
             return resultado;
         }catch(Exception ex){
         JOptionPane.showMessageDialog(null,"Error" + ex.getMessage());
@@ -389,12 +406,10 @@ public void InsertarCosto(String id,String  ImpuestoQuerys ,String  ValorImpuest
     public void InsertarFamilia3(String Descripcion,String Estado){
       String idEstados = null ;    
         try {
-            ResultSet  resultado  =Buscar("SELECT idEstado   FROM estados  WHERE  NombreEstado = '"+Estado+"' LIMIT 1");
-                while (resultado.next()){
-                   idEstados =  resultado.getString(1);}
+         
                    Ingresar("INSERT INTO `almacen.pos`.`familia1` (`Descripcion`, `Estado`) "
                            + "VALUES "
-                           + "('"+Descripcion+"', '"+idEstados+"');");
+                           + "('"+Descripcion+"', '"+Estado+"');");
             }catch(Exception ex){
                 System.out.println( ex.getMessage());
         JOptionPane.showMessageDialog(null,"Error" + ex.getMessage());
@@ -402,12 +417,10 @@ public void InsertarCosto(String id,String  ImpuestoQuerys ,String  ValorImpuest
    }
     //Actualizar Datos
     public void UpdateFamilia3(String id,String Descripcion, String Estado){
-    String idEstados = null ;    
+
         try {
-            ResultSet  resultado  =Buscar("SELECT idEstado   FROM estados  WHERE  NombreEstado = '"+Estado+"' LIMIT 1");
-                while (resultado.next()){
-                   idEstados =  resultado.getString(1);}
-            Ingresar("UPDATE `almacen.pos`.`familia1` SET `Descripcion`='"+Descripcion+"', `Estado`='"+idEstados+"' WHERE  `idFamilia1`="+id+";");
+            
+            Ingresar("UPDATE `almacen.pos`.`familia1` SET `Descripcion`='"+Descripcion+"', `Estado`='"+Estado+"' WHERE  `idFamilia1`="+id+";");
             }catch(Exception ex){
         System.out.println( ex.getMessage());
         JOptionPane.showMessageDialog(null,"Error" + ex.getMessage());
@@ -419,14 +432,11 @@ public void InsertarCosto(String id,String  ImpuestoQuerys ,String  ValorImpuest
        ResultSet resultado ;
         try {
             resultado  =Buscar("SELECT fami2.idFamilia2, \n" +
-                                "fami2.Descripcion, \n" +
-                                "esta.NombreEstado,\n" +
+                                "fami2.Descripcion,fami2.Estado,\n" +
                                 "fami1.Descripcion\n" +
                                 "FROM familia2\n" +
                                 "AS fami2 INNER JOIN familia1\n" +
                                 "AS fami1 ON fami1.idFamilia1 =fami2.Familia1_Familia2\n" +
-                                "INNER JOIN estados\n" +
-                                "AS esta ON esta.idEstado =fami2.Estado\n" +
                                 "LIMIT 1000;");
              TextCarga.setText("Iniciando Unidad de Familia 2 ....");
             return resultado;
@@ -446,12 +456,10 @@ public void InsertarCosto(String id,String  ImpuestoQuerys ,String  ValorImpuest
                    Tipo1 =  resultado1.getString(1);
                 }
                 
-            ResultSet  resultado  =Buscar("SELECT idEstado   FROM estados  WHERE  NombreEstado = '"+Estado+"' LIMIT 1");
-                while (resultado.next()){
-                   idEstados =  resultado.getString(1);}
+      
             Ingresar("UPDATE `almacen.pos`.`familia2` SET "
                     + "`Descripcion`='"+Descripcion+"', "
-                    + "`Estado`='"+idEstados+"', "
+                    + "`Estado`='"+Estado+"', "
                     + "`Familia1_Familia2`='"+Tipo1 +"' "
                     + "WHERE  `idFamilia2`="+id+";");
             }catch(Exception ex){
@@ -466,8 +474,7 @@ public void InsertarCosto(String id,String  ImpuestoQuerys ,String  ValorImpuest
 "from `almacen.pos`.`familia2` AS fm2\n" +
 "INNER JOIN `almacen.pos`.`familia1` AS fm1  \n" +
 "ON fm2.Familia1_Familia2 = fm1.idFamilia1\n" +
-"INNER JOIN  `almacen.pos`.`estados` AS es ON fm2.Estado = es.idEstado\n" +
-"WHERE  fm1.Descripcion = '"+Familia1+"' AND es.NombreEstado='Activo'"); 
+"WHERE  fm1.Descripcion = '"+Familia1+"' AND fm2.Estado ='Activo'"); 
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null,"Error" + ex.getMessage());
         }
@@ -482,8 +489,7 @@ return resultado;
 "from `almacen.pos`.`familia3` AS fm3\n" +
 "INNER JOIN `almacen.pos`.`familia2` AS fm1  \n" +
 "ON fm3.Familia2_idFamilia2 = fm1.idFamilia2\n" +
-"INNER JOIN  `almacen.pos`.`estados` AS es ON fm3.Estado = es.idEstado\n" +
-"WHERE  fm1.Descripcion = '"+Familia1+"' AND es.NombreEstado='Activo'"); 
+"WHERE  fm1.Descripcion = '"+Familia1+"' AND fm3.Estado='Activo'"); 
         }catch(Exception ex){
             JOptionPane.showMessageDialog(null,"Error" + ex.getMessage());
         }
@@ -499,12 +505,10 @@ return resultado;
                 while (resultado1.next()){
                    Tipo1 =  resultado1.getString(1);
                 }
-            ResultSet  resultado  =Buscar("SELECT idEstado   FROM estados  WHERE  NombreEstado = '"+Estado+"' LIMIT 1");
-                while (resultado.next()){
-                   idEstados =  resultado.getString(1);}
+    
                 Ingresar("INSERT INTO `almacen.pos`.`familia2` "
                         + "(`Descripcion`, `Estado`, `Familia1_Familia2`) "
-                        + "VALUES ('"+Descripcion+"', '"+idEstados+"', '"+Tipo1+"');"
+                        + "VALUES ('"+Descripcion+"', '"+Estado+"', '"+Tipo1+"');"
                         );
         }catch(Exception ex){
             System.out.println( ex.getMessage());
@@ -516,14 +520,13 @@ return resultado;
     public  ResultSet InicioFamilia1(){
        ResultSet resultado ;
         try {
-            resultado  =Buscar("SELECT Fami3.`idFamilia1`, Fami3.`Descripcion`, esta.NombreEstado, fami2.Descripcion\n" +
+            resultado  =Buscar("SELECT Fami3.`idFamilia1`, Fami3.`Descripcion`, Fami3.`Estado`, fami2.Descripcion\n" +
 "FROM `almacen.pos`.`familia3` AS Fami3 INNER JOIN familia2 \n" +
-"AS fami2 ON Fami3.Familia2_idFamilia2 =fami2.idFamilia2 INNER JOIN estados \n" +
-"AS esta ON Fami3.Estado = esta.idEstado");
+"AS fami2 ON Fami3.Familia2_idFamilia2 =fami2.idFamilia2 ");
                TextCarga.setText("Iniciando Familia 1....");
             return resultado;
         }catch(Exception ex){
-        JOptionPane.showMessageDialog(null,"Error" + ex.getMessage());
+        JOptionPane.showMessageDialog(null,"Error Inicio Familia 1" + ex.getMessage());
         }
         return resultado = null;
         
@@ -537,12 +540,10 @@ return resultado;
                 while (resultado1.next()){
                    Tipo1 =  resultado1.getString(1);
                 }
-            ResultSet  resultado  =Buscar("SELECT idEstado   FROM estados  WHERE  NombreEstado = '"+Estado+"' LIMIT 1");
-                while (resultado.next()){
-                   idEstados =  resultado.getString(1);}
+          
             Ingresar("UPDATE `almacen.pos`.`familia3` SET "
                     + "`Descripcion`='"+Descripcion+"', "
-                    + "`Estado`='"+idEstados+"',"
+                    + "`Estado`='"+Estado+"',"
                     + "`Familia2_idFamilia2`='"+Tipo1+"' "
                     + "WHERE  `idFamilia1`="+id+";");
             }catch(Exception ex){
@@ -558,13 +559,11 @@ return resultado;
                 while (resultado1.next()){
                    Tipo1 =  resultado1.getString(1);
                 }
-            ResultSet  resultado  =Buscar("SELECT idEstado   FROM estados  WHERE  NombreEstado = '"+Estado+"' LIMIT 1");
-                while (resultado.next()){
-                   idEstados =  resultado.getString(1);}
+           
                 Ingresar("INSERT INTO `almacen.pos`.`familia3` "
                         + "(`Descripcion`, `Estado`, `Familia2_idFamilia2`)"
 
-                        + "VALUES ('"+Descripcion+"', '"+idEstados+"', '"+Tipo1+"');"
+                        + "VALUES ('"+Descripcion+"', '"+Estado+"', '"+Tipo1+"');"
                         );
         }catch(Exception ex){
             System.out.println( ex.getMessage());
@@ -617,14 +616,11 @@ return resultado;
     }
     
     public void InsertarUsuarioBC(String id,String TipoDOC,String NDocumento,String NombreUsuario,String Email,String NumeroCuenta,String NomCuenta,String Estado,Boolean Pro,Boolean Cli,Boolean Em,Boolean Banco,Boolean Corrien,Boolean Ahorro,byte[] Foto ){
-            String idEstados = null ;    
+              
         try {
-            ResultSet  resultado  =Buscar("SELECT idEstado   FROM estados  WHERE  NombreEstado = '"+Estado+"' LIMIT 1");
-                while (resultado.next()){
-                   idEstados =  resultado.getString(1);}
                    String sql="INSERT INTO `almacen.pos`.`usuariobasico` "
         + "(`IdUsuario`,`TipoDoc`, `NDocumento`, `NombreUsuari`, `Email`, `NCuentaBancaria`, `NombreCuenta`, `Estado`, `Proveedor`, `Cliente`, `Empleado`, `Banco`, `Corriente`, `Ahorro`,`Foto`) VALUES "
-        + "('"+id+"','"+TipoDOC+"', '"+ NDocumento+"', '"+NombreUsuario+"', '"+ Email+"', '"+ NumeroCuenta+"', '"+NomCuenta+"', '"+idEstados+"', '"+Pro+"', '"+Cli+"', '"+Em+"', '"+Banco+"', '"+Corrien+"', '"+Ahorro+"',?);";
+        + "('"+id+"','"+TipoDOC+"', '"+ NDocumento+"', '"+NombreUsuario+"', '"+ Email+"', '"+ NumeroCuenta+"', '"+NomCuenta+"', '"+Estado+"', '"+Pro+"', '"+Cli+"', '"+Em+"', '"+Banco+"', '"+Corrien+"', '"+Ahorro+"',?);";
  PreparedStatement ps = null;
     try{
         ps = con.prepareStatement(sql);
@@ -653,13 +649,12 @@ return resultado;
     ResultSet  resultado  =Buscar("SELECT  BC.IdUsuario, \n" +
         "BC.NDocumento, BC.TipoDoc,BC.NombreUsuari,\n" +
         "BC.Email,BC.NCuentaBancaria,\n" +
-        "BC.NombreCuenta, ES.NombreEstado\n" +
+        "BC.NombreCuenta, BC.Estado\n" +
         ",BC.Proveedor,BC.Empleado,BC.Cliente,BC.Banco,BC.Corriente,BC.Ahorro,\n" +
         "PRO.RazonSocial,PRO.Direccion,\n" +
         "PRO.Telefono,PRO.CorreoFactura,\n" +
         "PRO.ResponsableIva,PRO.AutoRenedor , BC.Foto\n" +
         "FROM `almacen.pos`.`usuariobasico` AS BC \n" +
-        "LEFT JOIN `almacen.pos`.`estados` AS ES ON ES.IdEstado = BC.Estado \n" +
         "LEFT JOIN `almacen.pos`.`proveedor` AS PRO ON PRO.UsuarioBasico_IdUsuario=BC.IdUsuario \n" +
         "WHERE  `"+Id+"`='"+idBusqueda+"';");
     return resultado;
@@ -669,11 +664,11 @@ return resultado;
     ResultSet  resultado  =Buscar("SELECT  BC.IdUsuario, \n" +
         "BC.NDocumento,BC.NombreUsuari,\n" +
         "BC.Email,BC.NCuentaBancaria,\n" +
-        "BC.NombreCuenta, ES.NombreEstado\n" +
+        "BC.NombreCuenta, BC.Estado\n" +
         ",if(BC.Proveedor = 'true','Proveedor',null) AS `Proveedor` ,\n" +
 "if(BC.Empleado = 'true','Empleado',null) AS `Empleado`, if(BC.Cliente  = 'true','Cliente',null) AS `Cliente`" +
         "FROM `almacen.pos`.`usuariobasico` AS BC \n" +
-        "LEFT JOIN `almacen.pos`.`estados` AS ES ON ES.IdEstado = BC.Estado \n" +
+        
         "WHERE  "+idBusqueda+" REGEXP  '^"+Where+"' ;");
     return resultado;
     } 
@@ -682,16 +677,14 @@ return resultado;
                 String NombreUsuario,String Email,String NumeroCuenta,
                 String NomCuenta,String Estado,Boolean Pro,Boolean Cli,Boolean Em,String id,
                 Boolean CheakBanco, Boolean ChecKCorriente,Boolean ChecKAhorro,byte[] Foto){
-      String idEstados = null ; 
+      
         try {
-            ResultSet  resultado  =Buscar("SELECT idEstado   FROM estados  WHERE  NombreEstado = '"+Estado+"' LIMIT 1");
-                while (resultado.next()){
-                   idEstados =  resultado.getString(1);}
+        
                 String SQL=
                    "UPDATE `almacen.pos`.`usuariobasico` SET `TipoDoc`='"+TipoDOC+"', "
                            + "`NDocumento`='"+NDocumento+"', `NombreUsuari`='"+NombreUsuario+"', "
                            + "`Email`='"+Email+"', `NCuentaBancaria`='"+NumeroCuenta+"', "
-                           + "`NombreCuenta`='"+NomCuenta+"', `Estado`='"+idEstados+"', "
+                           + "`NombreCuenta`='"+NomCuenta+"', `Estado`='"+Estado+"', "
                            + "`Proveedor`='"+Pro+"', `Cliente`='"+Cli+"', `Empleado`='"+Em+"' ,`Banco`='"+CheakBanco+"', `Corriente`='"+ChecKCorriente+"', `Ahorro`='"+ChecKAhorro+"',`Foto` = ? "
                            + " WHERE  `IdUsuario`="+id+";";
                 PreparedStatement ps = null;
