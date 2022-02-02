@@ -5,26 +5,11 @@
  */
 package HOME;
 
-import Producto.*;
+
 import HOME.*;
-import ALMACEN.CrearBodegas;
-import Producto.CrearProducto;
-import Producto.FAMILIA1;
-import Producto.FAMILIA2;
-import Producto.FAMILIA3;
-import Producto.UNDMEDIDA;
-import USUARIO.Usuario;
-import java.awt.Color;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import javax.swing.JButton;
-import javax.swing.plaf.basic.BasicButtonUI;
-import AppPackage.AnimationClass;//Acá importé la librería para los nombres desplazables de los botones
 import CLASS.GENERAL_CLASS;
-import HOME.*;
-import java.awt.Dimension;
 import desplazable.Desface;//ACÁ IMPORTÉ LA LIBRERÍA PARA EL MENÚ DESPLAZABLE DE LA DERECHA
-import javax.swing.JPanel;
+
 
 /**
  *

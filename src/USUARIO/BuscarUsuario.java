@@ -5,8 +5,7 @@
  */
 package USUARIO;
 
-import USUARIO.Usuario;
-import CLASS.CONEXION_MySQL;
+
 import CLASS.GENERAL_CLASS;
 import HOME.Generar_Informes;
 import java.util.HashMap;
@@ -23,7 +22,7 @@ public class BuscarUsuario extends javax.swing.JFrame {
     /**
      * Creates new form BuscarUsuario
      */
-    public BuscarUsuario(Usuario bd1) {
+    public BuscarUsuario(CrearUsuario bd1) {
         initComponents();
         bd= bd1;
         //CONEXION_MySQL Con = new CONEXION_MySQL();
@@ -959,7 +958,7 @@ public class BuscarUsuario extends javax.swing.JFrame {
     }
     GENERAL_CLASS general= new GENERAL_CLASS();
     Generar_Informes inf;
-    Usuario bd;
+    CrearUsuario bd;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField BusNombreUsuario;
     private javax.swing.JRadioButton BuscarCliente;

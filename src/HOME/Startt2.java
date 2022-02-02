@@ -5,7 +5,6 @@
  */
 package HOME;
 
-
 import ALMACEN.CrearBodegas;
 import java.awt.Color;
 import java.awt.event.MouseEvent;
@@ -14,16 +13,24 @@ import javax.swing.JButton;
 import javax.swing.plaf.basic.BasicButtonUI;
 import AppPackage.AnimationClass;//Acá importé la librería para los nombres desplazables de los botones
 import CLASS.GENERAL_CLASS;
-import  HOME.*;
+import HOME.*;
 import Producto.CrearProducto;
 import Producto.FAMILIA1;
 import Producto.FAMILIA2;
 import Producto.FAMILIA3;
 import Producto.UNDMEDIDA;
-import USUARIO.Usuario;
+import USUARIO.CrearUsuario;
+
 import java.awt.Dimension;
 import desplazable.Desface;//ACÁ IMPORTÉ LA LIBRERÍA PARA EL MENÚ DESPLAZABLE DE LA DERECHA
+import javax.swing.JDesktopPane;
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+
+import javax.swing.plaf.basic.BasicScrollBarUI;
+import javax.swing.JSeparator;
+import javax.swing.UIManager;
 
 /**
  *
@@ -32,10 +39,10 @@ import javax.swing.JPanel;
 public class Startt2 extends javax.swing.JFrame {
 
     Desface desplace;// ACÁ INSTANCIÉ EL COMPONENTE de la libreria desplazable
-    
 
     /**
      * Creates new form Startt
+     *
      * @param WinFm1
      * @param WinFm2
      * @param WinFm3
@@ -44,25 +51,132 @@ public class Startt2 extends javax.swing.JFrame {
      * @param WinUser
      * @param WinConf
      */
-    public Startt2(FAMILIA1 WinFm1,FAMILIA2 WinFm2,FAMILIA3 WinFm3,UNDMEDIDA WindFnidad,CrearBodegas WinCrearBG,Usuario WinUser,Configuracion WinConf,CrearProducto win) {
-        initComponents();
-            WinFm1_1 =WinFm1;
-            WinFm2_1= WinFm2 ;
-            WinFm3_1  =WinFm3;
-            WindFnidad_1 =WindFnidad ;
-            WinCrearBG_1  =WinCrearBG;
-            WinUser_1 =WinUser ;
-            WinConf_1=WinConf;
-            CrearProducto =win;
+    public Startt2(FAMILIA1 WinFm1, FAMILIA2 WinFm2, FAMILIA3 WinFm3, UNDMEDIDA WindFnidad, CrearBodegas WinCrearBG,  
+            Configuracion WinConf, CrearProducto win, Estadisticas es1 ) {
+       
+            initComponents();
+      
+            Estadistica =es1;
+       // JScrollBar barra  = new ScrollBar( );
+        ScrollDesktop.getVerticalScrollBar().setUnitIncrement(15);
+            ScrollDesktop.getHorizontalScrollBar().setUnitIncrement(15);
+            WinFm1_1 = WinFm1;
+            WinFm2_1 = WinFm2;
+            WinFm3_1 = WinFm3;
+            WindFnidad_1 = WindFnidad;
+            WinCrearBG_1 = WinCrearBG;
+        
+            WinConf_1 = WinConf;
+            CrearProducto = win;
+          JLabel txtEstadisticas1[]={
+            jLabel6,jLabel5,Estadistica.jLabel10,
+            Estadistica.jLabel13,Estadistica.jLabel4,Estadistica.jLabel17,
+            Estadistica.jLabel18,Estadistica.jLabel25,Estadistica.
+            jLabel15,Estadistica.jLabel29,Estadistica.jLabel33,
+            Estadistica.jLabel34,Estadistica.jLabel28,Estadistica.jLabel26,
+            Estadistica.jLabel38,Estadistica.jLabel37,Estadistica.jLabel42
+            ,Estadistica.jLabel39, Estadistica.jLabel11,Estadistica.jLabel24,Estadistica.jLabel22,
+            Estadistica.jLabel12,Estadistica.jLabel36,Estadistica.jLabel30,Estadistica.jLabel3
+        };
+        txtEstadisticas=txtEstadisticas1;
+        JSeparator Separador1[]={
+            jSeparator3,jSeparator1,
+            Estadistica.jSeparator6,Estadistica.jSeparator7,
+            Estadistica.jSeparator5,Estadistica.jSeparator8,
+            Estadistica.jSeparator9,Estadistica.jSeparator10
+        };
+          Separador=Separador1;
+                
+            JLabel Estrellas1[]={Estadistica.ESTRELLA_4,Estadistica.ESTRELLAS_1,
+            Estadistica.ESTRELLA_2,Estadistica.ESTRELLA_3,Estadistica.ESTRELLA_4,
+            Estadistica.ESTRELLA_5,Estadistica.ESTRELLA_6,Estadistica. ESTRELLA_7,
+            Estadistica.ESTRELLA_8, Estadistica.ESTRELLA_9,Estadistica.ESTRELLA_10,Estadistica. ESTRELLA_11,
+            Estadistica.ESTRELLA_12,Estadistica.ESTRELLA_13,Estadistica.ESTRELLA_14,Estadistica.
+            ESTRELLA_15, Estadistica.ESTRELLA_16, Estadistica.ESTRELLA_17,
+            estrella_1,estrella_2,estrella_3,
+            estrella4, estrella_5,estrella_6,
+            estrella_7, estrella_8, estrella_9};
+            Extrellas=Estrellas1;
+            JLabel Hojas1[]={Estadistica.HOJA_3,Estadistica.HOJA_4,Estadistica.HOJA_5,Estadistica.HOJA_6,
+            Estadistica.HOJA_7, Estadistica.HOJA_8,Estadistica.HOJA_9,Estadistica.HOJA_10,Estadistica.HOJA_11,Estadistica.
+            HOJA_12,Estadistica. HOJA_13,Estadistica.HOJA_14,
+            Estadistica.HOJA_15,Estadistica.HOJA_16,Estadistica.HOJA_17,
+            hoja_1,hoja_2, hoja_3,
+            hoja_4, hoja_5, hoja_6,
+            hoja_7,hoja_8,hoja_9,
+            estrella_10,Estadistica.HOJA_1,Estadistica.HOJA_2,};
+            Hojas =Hojas1;
+            
+            JButton BTN1[]={
+            Estadistica.BTN_HOY,
+            Estadistica.BTN_AYER,
+            Estadistica.BTN_SEMANA,
+            Estadistica.BTN_MES,
+            Estadistica.BTN_TODO,
+            Estadistica.BTN_USUARIOS,
+            Estadistica.BTN_FECHA,
+            Estadistica.BTN_BUSCAR};
+            BTN=BTN1;
+           
+            JLabel Text1[]={
+            Estadistica.jLabel14,
+            Estadistica.jLabel4,
+            Estadistica.jLabel1,
+            Estadistica.jLabel20,
+            Estadistica.jLabel23,
+            Estadistica.jLabel21,
+            Estadistica.jLabel16,
+            Estadistica.jLabel15,
+            Estadistica.jLabel31,
+            Estadistica.jLabel32,
+            Estadistica.jLabel35,
+            Estadistica.jLabel34
+        };
+             Text=Text1;
+            JButton Botones_Panel1[]={
+            BtLicencia,
+            jButton2,
+            BTN_CLIENTES,
+            BTN_VENTAS,
+            BTN_ALMACEN,
+            BTN_PRODUCTOS,
+            jButton7,
+           // txt_CONFIGURACION,
+            //txt_CHATBOT,
+            //txt_BUSQUEDA
+            };
+        Botones_Panel=Botones_Panel1;
+            JPanel PanelEstadisticas1[]={
+            Estadistica.Panel_Ganancias,
+            Estadistica.jPanel10,
+            Estadistica.jPanel8,
+            Estadistica.jPanel9,
+            Estadistica.jPanel8,
+            Estadistica.jPanel7,
+            Estadistica.jPanel12,
+            Estadistica.jPanel13,
+            Estadistica.jPanel11,
+            Estadistica.jPanel14,
+            Estadistica.jPanel15
+        };
+        PanelEstadisticas=PanelEstadisticas1;
+        JPanel Lateal1[]={
+            Menu_deslizable_Panel_Contenedor_Botones,
+            Menu_Lateral_Izquierdo,
+            jPanel3
+        };
+        Lateal=Lateal1;
+        
+        ActivarHojas(false);
+        Iconos_Off.setVisible(true);
+        Iconos_True.setVisible(false);
+        //////////////
+  
         desplace = new Desface();// ESTA TAMBIÉN ES DEL MENÚ DESPLAZABLE
         setExtendedState(MAXIMIZED_BOTH);//ACÁ MAXIMIZA LA VENTANA PRINCIPAL
-        BTN_MODO_NOCHE.setEnabled(false);//DESACTIVA EL BOTON MODO OSCURO
-        TXT_NOCHE.setEnabled(false);//DESACTIVA EL TEXTO MODO OSCURO
-        BTN_MODO_NOCHE.setVisible(false);//OCULTA EL BOTON MODO OSCURO
-        TXT_NOCHE.setVisible(false);//OCULTA EL TEXTO MODO OSCURO
-        setExtendedState(MAXIMIZED_BOTH);//ACÁ MAXIMIZA LA VENTANA PRINCIPAL
-        JButton[] btns = {jButton1, jButton2, jButton3, jButton4, jButton5, jButton6, jButton7};
-        for (JButton btn : btns) {
+        
+    
+        for (JButton btn : Botones_Panel) {
             btn.setBackground(new Color(21, 25, 28));
             btn.setUI(new BasicButtonUI());
             btn.addMouseListener(new MouseListener() {
@@ -92,15 +206,98 @@ public class Startt2 extends javax.swing.JFrame {
                 }
             });
         }
+        CambiarModo(false, BTN, Text, Botones_Panel, PanelEstadisticas, txtEstadisticas, Estadistica.Home, Lateal,Separador);
     }
+    
+    //Funcion para ModoClaro_Oscuro
+       public void CambiarModo(boolean Activador,JButton BTN [],JLabel Text[],JButton Botones_Panel[],
+        JPanel PanelEstadisticas[],JLabel txtEstadisticas[],JPanel Fondo,JPanel Lateal[],JSeparator Separador[])
+       {
+            for(int i=0; i< Botones_Panel.length;i++){
+                Botones_Panel[i].setBackground(null);
+            }
+            if (Iconos_True.isVisible()) {
+               ActivarHojas(true);
+            ActivarEstrellas(false);
+           }else{
+                     ActivarHojas(false);
+                    ActivarEstrellas(false);
+                }
+            
+               BTN_MODO_NOCHE.setVisible(Activador);//OCULTA EL BOTON MODO OSCURO
+               TXT_NOCHE.setVisible(Activador);//OCULTA EL TEXTO MODO OSCURO
+               BTN_MODO_DIA.setVisible(!Activador);//OCULTA EL BOTON MODO OSCURO
+               TXT_DIA.setVisible(!Activador);//OCULTA EL TEXTO MODO OSCURO
+               Estadistica.logo_oscuro.setVisible(Activador);
+              Estadistica. logo_claro.setVisible(!Activador);
+            if(Activador ==true){
+                IconosModo=true;
+                for (int i = 0; i < BTN.length ; i++) {
+                    BTN[i].setBackground(new Color(153, 153, 153));
+                    BTN[i].setForeground(Color.black);
+                }
+                for(int i =0;i<Text.length ;i++){
+                    Text[i].setForeground(new Color(255, 255, 7));
+                }for(int i =0;i<PanelEstadisticas.length ;i++){
+                    PanelEstadisticas[i].setBackground(Color.lightGray);
+                }for(int i =0;i<txtEstadisticas.length ;i++){
+                    txtEstadisticas[i].setForeground(Color.BLACK);
+                }
+                HomePrincipal.setBackground(Color.white);
+                Estadistica.Home.setBackground(Color.white);
+                for (int i = 0; i < Lateal.length ; i++) {
+                    Lateal[i].setBackground(Color.GRAY);
+                }for(int i = 0; i < Separador.length ; i++){
+                     Separador[i].setBackground(Color.BLACK);
+                     Separador[i].setForeground(Color.BLACK);
+                }
 
+            }else{
+                if (Iconos_True.isVisible()) {
+                    ActivarHojas(false);
+                    ActivarEstrellas(true);}else{
+                     ActivarHojas(false);
+                    ActivarEstrellas(false);
+                }
+                    IconosModo=false;
+                for (int i = 0; i < BTN.length ; i++) {
+                    BTN[i].setBackground(new Color(11, 24, 29));
+                    BTN[i].setForeground(Color.WHITE);
+                }
+                for(int i =0;i<Text.length ;i++){
+                    Text[i].setForeground(new Color(255, 255, 7));
+                }for(int i =0;i<PanelEstadisticas.length ;i++){
+                    PanelEstadisticas[i].setBackground(new Color(1, 1, 1));
+                }for(int i =0;i<txtEstadisticas.length ;i++){
+                    txtEstadisticas[i].setForeground(Color.WHITE);
+                }
+                HomePrincipal.setBackground(new Color(10, 15, 42));
+                Estadistica.Home.setBackground(new Color(10, 15, 42));
+                for (int i = 0; i < Lateal.length ; i++) {
+                    Lateal[i].setBackground(new Color(7, 16, 19));
+                }for(int i = 0; i < Separador.length ; i++){
+                     Separador[i].setBackground(Color.WHITE);
+                     Separador[i].setForeground(Color.WHITE);
+                }
+            }
+        }
+    //ActivarHojas
+    public void ActivarHojas(boolean x){
+        for (int i = 0; i < Hojas.length ; i++) {
+            Hojas[i].setVisible(x);
+        }
+    }
+    //Activar Estrellas
+    public void ActivarEstrellas(boolean x){
+    for (int i = 0; i < Extrellas.length ; i++) {
+            Extrellas[i].setVisible(x);
+        }
+    }
+    //Activar Modo Oscuro
+       
     private Startt2() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-  
-
-
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -112,29 +309,28 @@ public class Startt2 extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        HomePrincipal = new javax.swing.JPanel();
         Menu_Lateral_Izquierdo = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        BTN_CLIENTES = new javax.swing.JButton();
+        BTN_VENTAS = new javax.swing.JButton();
+        BTN_ALMACEN = new javax.swing.JButton();
+        BTN_PRODUCTOS = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jSeparator3 = new javax.swing.JSeparator();
         BTN_MODO_NOCHE = new javax.swing.JLabel();
+        BTN_MODO_DIA = new javax.swing.JLabel();
         TXT_NOCHE = new javax.swing.JLabel();
         TXT_DIA = new javax.swing.JLabel();
-        BTN_MODO_DIA = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         estrella_6 = new javax.swing.JLabel();
         estrella_2 = new javax.swing.JLabel();
         estrella_5 = new javax.swing.JLabel();
-        hoja_10 = new javax.swing.JLabel();
         estrella_9 = new javax.swing.JLabel();
         estrella_8 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        BtLicencia = new javax.swing.JButton();
         estrella_1 = new javax.swing.JLabel();
         estrella_3 = new javax.swing.JLabel();
         estrella4 = new javax.swing.JLabel();
@@ -149,143 +345,23 @@ public class Startt2 extends javax.swing.JFrame {
         hoja_8 = new javax.swing.JLabel();
         hoja_9 = new javax.swing.JLabel();
         estrella_10 = new javax.swing.JLabel();
-        LBL_ON_ESTRELLAS = new javax.swing.JLabel();
-        LBL_OFF_ESTRELLAS = new javax.swing.JLabel();
-        LBL_ON_HOJAS = new javax.swing.JLabel();
-        LBL_OFF_HOJAS = new javax.swing.JLabel();
-        Menu_Central = new javax.swing.JPanel();
-        txt_Estadisticos = new javax.swing.JLabel();
-        txt_CLIENTES = new javax.swing.JLabel();
-        txt_VENTAS = new javax.swing.JLabel();
-        txt_ALMACEN = new javax.swing.JLabel();
-        txt_Producto = new javax.swing.JLabel();
-        txt_Informes = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jPanel5 = new javax.swing.JPanel();
-        OPCIONES_PANEL_DESLIZABLE = new javax.swing.JPanel();
-        CLIENTES_PANEL1 = new javax.swing.JPanel();
-        CLIENTES_jDesktopPane1 = new javax.swing.JDesktopPane();
-        jLabel69 = new javax.swing.JLabel();
-        logo_claro2 = new javax.swing.JLabel();
-        ESTRELLA_35 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jSeparator11 = new javax.swing.JSeparator();
-        Panel_Ganancias = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel13 = new javax.swing.JLabel();
-        jLabel14 = new javax.swing.JLabel();
-        jSeparator6 = new javax.swing.JSeparator();
-        ESTRELLA_14 = new javax.swing.JLabel();
-        HOJA_14 = new javax.swing.JLabel();
-        jPanel7 = new javax.swing.JPanel();
-        jLabel22 = new javax.swing.JLabel();
-        jLabel12 = new javax.swing.JLabel();
-        ESTRELLA_16 = new javax.swing.JLabel();
-        HOJA_16 = new javax.swing.JLabel();
-        jPanel8 = new javax.swing.JPanel();
-        jLabel21 = new javax.swing.JLabel();
-        jLabel19 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        jPanel9 = new javax.swing.JPanel();
-        jLabel11 = new javax.swing.JLabel();
-        jSeparator5 = new javax.swing.JSeparator();
-        jLabel15 = new javax.swing.JLabel();
-        jLabel16 = new javax.swing.JLabel();
-        jLabel25 = new javax.swing.JLabel();
-        ESTRELLA_15 = new javax.swing.JLabel();
-        HOJA_15 = new javax.swing.JLabel();
-        jPanel10 = new javax.swing.JPanel();
-        jLabel17 = new javax.swing.JLabel();
-        jLabel18 = new javax.swing.JLabel();
-        jSeparator7 = new javax.swing.JSeparator();
-        jLabel20 = new javax.swing.JLabel();
-        jLabel23 = new javax.swing.JLabel();
-        jPanel11 = new javax.swing.JPanel();
-        jLabel26 = new javax.swing.JLabel();
-        jLabel28 = new javax.swing.JLabel();
-        jLabel44 = new javax.swing.JLabel();
-        jLabel45 = new javax.swing.JLabel();
-        jPanel12 = new javax.swing.JPanel();
-        jLabel29 = new javax.swing.JLabel();
-        jLabel30 = new javax.swing.JLabel();
-        jSeparator8 = new javax.swing.JSeparator();
-        jLabel31 = new javax.swing.JLabel();
-        jLabel32 = new javax.swing.JLabel();
-        jPanel13 = new javax.swing.JPanel();
-        jLabel33 = new javax.swing.JLabel();
-        jSeparator9 = new javax.swing.JSeparator();
-        jLabel34 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
-        jPanel14 = new javax.swing.JPanel();
-        jLabel37 = new javax.swing.JLabel();
-        jLabel38 = new javax.swing.JLabel();
-        jLabel46 = new javax.swing.JLabel();
-        jLabel47 = new javax.swing.JLabel();
-        jPanel15 = new javax.swing.JPanel();
-        jLabel42 = new javax.swing.JLabel();
-        jLabel39 = new javax.swing.JLabel();
-        jSeparator10 = new javax.swing.JSeparator();
-        ESTRELLA_17 = new javax.swing.JLabel();
-        HOJA_17 = new javax.swing.JLabel();
-        BTN_HOY = new javax.swing.JButton();
-        BTN_AYER = new javax.swing.JButton();
-        BTN_SEMANA = new javax.swing.JButton();
-        BTN_MES = new javax.swing.JButton();
-        BTN_FECHA = new javax.swing.JButton();
-        BTN_TODO = new javax.swing.JButton();
-        BTN_USUARIOS = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        LBL_CERRAR = new javax.swing.JLabel();
-        lbl_buscar = new javax.swing.JLabel();
-        LBL_MAXIMIZAR = new javax.swing.JLabel();
-        LBL_MINIMIZAR = new javax.swing.JLabel();
-        LBL_REDIMENCIONAR = new javax.swing.JLabel();
-        BTN_BUSCAR = new javax.swing.JButton();
-        jLabel10 = new javax.swing.JLabel();
-        BOX_BUSCAR = new javax.swing.JTextField();
-        ESTRELLA_10 = new javax.swing.JLabel();
-        HOJA_10 = new javax.swing.JLabel();
-        ESTRELLA_6 = new javax.swing.JLabel();
-        HOJA_6 = new javax.swing.JLabel();
-        ESTRELLA_12 = new javax.swing.JLabel();
-        HOJA_12 = new javax.swing.JLabel();
-        ESTRELLA_13 = new javax.swing.JLabel();
-        HOJA_13 = new javax.swing.JLabel();
-        ESTRELLA_4 = new javax.swing.JLabel();
-        HOJA_4 = new javax.swing.JLabel();
-        ESTRELLA_3 = new javax.swing.JLabel();
-        HOJA_3 = new javax.swing.JLabel();
-        ESTRELLA_5 = new javax.swing.JLabel();
-        HOJA_5 = new javax.swing.JLabel();
-        ESTRELLA_11 = new javax.swing.JLabel();
-        HOJA_11 = new javax.swing.JLabel();
-        ESTRELLA_2 = new javax.swing.JLabel();
-        HOJA_1 = new javax.swing.JLabel();
-        ESTRELLA_9 = new javax.swing.JLabel();
-        HOJA_9 = new javax.swing.JLabel();
-        ESTRELLA_7 = new javax.swing.JLabel();
-        HOJA_7 = new javax.swing.JLabel();
-        ESTRELLAS_1 = new javax.swing.JLabel();
-        ESTRELLA_8 = new javax.swing.JLabel();
-        HOJA_8 = new javax.swing.JLabel();
-        HOJA_2 = new javax.swing.JLabel();
-        logo_claro = new javax.swing.JLabel();
-        logo_oscuro = new javax.swing.JLabel();
+        Iconos_True = new javax.swing.JLabel();
+        Iconos_Off = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         BTN_MENU = new javax.swing.JLabel();
         Menu_deslizable_Panel_Contenedor_Botones = new javax.swing.JPanel();
         txt_CONFIGURACION = new javax.swing.JLabel();
         txt_CHATBOT = new javax.swing.JLabel();
         txt_BUSQUEDA = new javax.swing.JLabel();
+        ScrollDesktop = new javax.swing.JScrollPane();
+        jDesktopPane1 = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setLayout(new java.awt.BorderLayout());
 
-        jPanel2.setBackground(new java.awt.Color(10, 15, 42));
+        HomePrincipal.setBackground(new java.awt.Color(10, 15, 42));
 
         Menu_Lateral_Izquierdo.setBackground(new java.awt.Color(7, 16, 19));
         Menu_Lateral_Izquierdo.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -295,11 +371,8 @@ public class Startt2 extends javax.swing.JFrame {
         jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton2.setPreferredSize(new java.awt.Dimension(40, 40));
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton2MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton2MouseExited(evt);
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
             }
         });
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -309,103 +382,81 @@ public class Startt2 extends javax.swing.JFrame {
         });
         Menu_Lateral_Izquierdo.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 20, 40, 40));
 
-        jButton3.setBackground(new java.awt.Color(7, 16, 19));
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/AAgregar_Usuario.png"))); // NOI18N
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.setPreferredSize(new java.awt.Dimension(40, 40));
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+        BTN_CLIENTES.setBackground(new java.awt.Color(7, 16, 19));
+        BTN_CLIENTES.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/AAgregar_Usuario.png"))); // NOI18N
+        BTN_CLIENTES.setMnemonic('C');
+        BTN_CLIENTES.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BTN_CLIENTES.setPreferredSize(new java.awt.Dimension(40, 40));
+        BTN_CLIENTES.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton3MouseEntered(evt);
+                BTN_CLIENTESMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton3MouseExited(evt);
+                BTN_CLIENTESMouseExited(evt);
             }
         });
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        BTN_CLIENTES.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                BTN_CLIENTESActionPerformed(evt);
             }
         });
-        Menu_Lateral_Izquierdo.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 140, 40, 40));
+        Menu_Lateral_Izquierdo.add(BTN_CLIENTES, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 140, 40, 40));
 
-        jButton4.setBackground(new java.awt.Color(7, 16, 19));
-        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Money_42PX.png"))); // NOI18N
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton4.setPreferredSize(new java.awt.Dimension(40, 40));
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
-            }
+        BTN_VENTAS.setBackground(new java.awt.Color(7, 16, 19));
+        BTN_VENTAS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Money_42PX.png"))); // NOI18N
+        BTN_VENTAS.setMnemonic('V');
+        BTN_VENTAS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BTN_VENTAS.setPreferredSize(new java.awt.Dimension(40, 40));
+        BTN_VENTAS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton4MouseEntered(evt);
+                BTN_VENTASMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton4MouseExited(evt);
+                BTN_VENTASMouseExited(evt);
             }
         });
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        BTN_VENTAS.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                BTN_VENTASActionPerformed(evt);
             }
         });
-        Menu_Lateral_Izquierdo.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 190, 40, 40));
+        Menu_Lateral_Izquierdo.add(BTN_VENTAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 190, 40, 40));
 
-        jButton5.setBackground(new java.awt.Color(7, 16, 19));
-        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Bodega_42Px.png"))); // NOI18N
-        jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton5.setPreferredSize(new java.awt.Dimension(40, 40));
-        jButton5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton5MouseClicked(evt);
-            }
+        BTN_ALMACEN.setBackground(new java.awt.Color(7, 16, 19));
+        BTN_ALMACEN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Bodega_42Px.png"))); // NOI18N
+        BTN_ALMACEN.setMnemonic('A');
+        BTN_ALMACEN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BTN_ALMACEN.setPreferredSize(new java.awt.Dimension(40, 40));
+        BTN_ALMACEN.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton5MouseEntered(evt);
+                BTN_ALMACENMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton5MouseExited(evt);
+                BTN_ALMACENMouseExited(evt);
             }
         });
-        Menu_Lateral_Izquierdo.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 240, 40, 40));
+        Menu_Lateral_Izquierdo.add(BTN_ALMACEN, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 240, 40, 40));
 
-        jButton6.setBackground(new java.awt.Color(7, 16, 19));
-        jButton6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Producto_New_32Px.png"))); // NOI18N
-        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton6.setPreferredSize(new java.awt.Dimension(40, 40));
-        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton6MouseClicked(evt);
-            }
+        BTN_PRODUCTOS.setBackground(new java.awt.Color(7, 16, 19));
+        BTN_PRODUCTOS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Producto_New_32Px.png"))); // NOI18N
+        BTN_PRODUCTOS.setMnemonic('P');
+        BTN_PRODUCTOS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BTN_PRODUCTOS.setPreferredSize(new java.awt.Dimension(40, 40));
+        BTN_PRODUCTOS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton6MouseEntered(evt);
+                BTN_PRODUCTOSMouseEntered(evt);
             }
             public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton6MouseExited(evt);
+                BTN_PRODUCTOSMouseExited(evt);
             }
         });
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton6ActionPerformed(evt);
-            }
-        });
-        Menu_Lateral_Izquierdo.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 290, 40, 40));
+        Menu_Lateral_Izquierdo.add(BTN_PRODUCTOS, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 290, 40, 40));
 
         jButton7.setBackground(new java.awt.Color(7, 16, 19));
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Resumen.png"))); // NOI18N
         jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton7.setPreferredSize(new java.awt.Dimension(40, 40));
-        jButton7.addAncestorListener(new javax.swing.event.AncestorListener() {
-            public void ancestorMoved(javax.swing.event.AncestorEvent evt) {
-            }
-            public void ancestorAdded(javax.swing.event.AncestorEvent evt) {
-                jButton7AncestorAdded(evt);
-            }
-            public void ancestorRemoved(javax.swing.event.AncestorEvent evt) {
-            }
-        });
         jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton7MouseClicked(evt);
-            }
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 jButton7MouseEntered(evt);
             }
@@ -413,20 +464,14 @@ public class Startt2 extends javax.swing.JFrame {
                 jButton7MouseExited(evt);
             }
         });
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
-            }
-        });
         Menu_Lateral_Izquierdo.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 340, 40, 40));
         Menu_Lateral_Izquierdo.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 390, 50, 10));
         Menu_Lateral_Izquierdo.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 50, 10));
         Menu_Lateral_Izquierdo.add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, 50, 10));
 
-        BTN_MODO_NOCHE.setBackground(new java.awt.Color(64, 64, 64));
-        BTN_MODO_NOCHE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/IMAGENES/icons8_toggle_on_32px.png"))); // NOI18N
+        BTN_MODO_NOCHE.setBackground(new java.awt.Color(7, 16, 19));
+        BTN_MODO_NOCHE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_toggle_on_32px.png"))); // NOI18N
         BTN_MODO_NOCHE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BTN_MODO_NOCHE.setOpaque(true);
         BTN_MODO_NOCHE.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BTN_MODO_NOCHEMouseClicked(evt);
@@ -434,29 +479,12 @@ public class Startt2 extends javax.swing.JFrame {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 BTN_MODO_NOCHEMouseEntered(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                BTN_MODO_NOCHEMouseExited(evt);
-            }
         });
-        Menu_Lateral_Izquierdo.add(BTN_MODO_NOCHE, new org.netbeans.lib.awtextra.AbsoluteConstraints(17, 460, 40, -1));
-
-        TXT_NOCHE.setBackground(new java.awt.Color(21, 25, 28));
-        TXT_NOCHE.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        TXT_NOCHE.setForeground(new java.awt.Color(255, 255, 255));
-        TXT_NOCHE.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        TXT_NOCHE.setText("A NOCHE");
-        TXT_NOCHE.setOpaque(true);
-        Menu_Lateral_Izquierdo.add(TXT_NOCHE, new org.netbeans.lib.awtextra.AbsoluteConstraints(9, 500, 60, 20));
-
-        TXT_DIA.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
-        TXT_DIA.setForeground(new java.awt.Color(255, 255, 255));
-        TXT_DIA.setText(" A DIA");
-        Menu_Lateral_Izquierdo.add(TXT_DIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(16, 500, 40, 20));
+        Menu_Lateral_Izquierdo.add(BTN_MODO_NOCHE, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 40, 40));
 
         BTN_MODO_DIA.setBackground(new java.awt.Color(21, 25, 28));
-        BTN_MODO_DIA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/IMAGENES/icons8_toggle_off_32px.png"))); // NOI18N
+        BTN_MODO_DIA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_toggle_off_32px.png"))); // NOI18N
         BTN_MODO_DIA.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        BTN_MODO_DIA.setOpaque(true);
         BTN_MODO_DIA.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BTN_MODO_DIAMouseClicked(evt);
@@ -464,19 +492,28 @@ public class Startt2 extends javax.swing.JFrame {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
                 BTN_MODO_DIAMouseEntered(evt);
             }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                BTN_MODO_DIAMouseExited(evt);
-            }
         });
-        Menu_Lateral_Izquierdo.add(BTN_MODO_DIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 463, -1, -1));
+        Menu_Lateral_Izquierdo.add(BTN_MODO_DIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 440, 40, 40));
+
+        TXT_NOCHE.setBackground(new java.awt.Color(21, 25, 28));
+        TXT_NOCHE.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        TXT_NOCHE.setForeground(new java.awt.Color(255, 255, 255));
+        TXT_NOCHE.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        TXT_NOCHE.setText("A NOCHE");
+        Menu_Lateral_Izquierdo.add(TXT_NOCHE, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 480, 60, 20));
+
+        TXT_DIA.setFont(new java.awt.Font("Century Gothic", 1, 11)); // NOI18N
+        TXT_DIA.setForeground(new java.awt.Color(255, 255, 255));
+        TXT_DIA.setText(" A DIA");
+        Menu_Lateral_Izquierdo.add(TXT_DIA, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 480, 40, 20));
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("CAMBIAR");
-        Menu_Lateral_Izquierdo.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 440, -1, -1));
+        Menu_Lateral_Izquierdo.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 420, -1, -1));
 
         estrella_6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_star_filled_15px.png"))); // NOI18N
-        Menu_Lateral_Izquierdo.add(estrella_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 590, 20, 40));
+        Menu_Lateral_Izquierdo.add(estrella_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 550, 20, 40));
 
         estrella_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_comet_15px.png"))); // NOI18N
         Menu_Lateral_Izquierdo.add(estrella_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 20, 40));
@@ -484,28 +521,22 @@ public class Startt2 extends javax.swing.JFrame {
         estrella_5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_comet_15px.png"))); // NOI18N
         Menu_Lateral_Izquierdo.add(estrella_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 20, 40));
 
-        hoja_10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/IMAGENES/icons8_comet_15px.png"))); // NOI18N
-        Menu_Lateral_Izquierdo.add(hoja_10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 910, 20, 40));
-
         estrella_9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_comet_15px_1.png"))); // NOI18N
-        Menu_Lateral_Izquierdo.add(estrella_9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 870, 20, 40));
+        Menu_Lateral_Izquierdo.add(estrella_9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 680, 20, 40));
 
         estrella_8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_comet_15px_1.png"))); // NOI18N
-        Menu_Lateral_Izquierdo.add(estrella_8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 740, 20, 40));
+        Menu_Lateral_Izquierdo.add(estrella_8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 630, 20, 40));
 
-        jButton1.setBackground(new java.awt.Color(7, 16, 19));
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Licencia_32PX.png"))); // NOI18N
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setPreferredSize(new java.awt.Dimension(40, 40));
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                jButton1MouseEntered(evt);
-            }
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                jButton1MouseExited(evt);
+        BtLicencia.setBackground(new java.awt.Color(7, 16, 19));
+        BtLicencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Licencia_32PX.png"))); // NOI18N
+        BtLicencia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtLicencia.setPreferredSize(new java.awt.Dimension(40, 40));
+        BtLicencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BtLicenciaActionPerformed(evt);
             }
         });
-        Menu_Lateral_Izquierdo.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 700, 40, 50));
+        Menu_Lateral_Izquierdo.add(BtLicencia, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 570, 40, 50));
 
         estrella_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_star_filled_15px.png"))); // NOI18N
         Menu_Lateral_Izquierdo.add(estrella_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 20, 40));
@@ -517,685 +548,68 @@ public class Startt2 extends javax.swing.JFrame {
         Menu_Lateral_Izquierdo.add(estrella4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 20, 40));
 
         estrella_7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_star_filled_15px.png"))); // NOI18N
-        Menu_Lateral_Izquierdo.add(estrella_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 660, 20, 40));
+        Menu_Lateral_Izquierdo.add(estrella_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 610, 20, 40));
 
-        hoja_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/IMAGENES/icons8_bug_15px.png"))); // NOI18N
+        hoja_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_bug_15px.png"))); // NOI18N
         Menu_Lateral_Izquierdo.add(hoja_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 20, 40));
 
-        hoja_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/IMAGENES/icons8_cactus_15px.png"))); // NOI18N
+        hoja_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_cactus_15px.png"))); // NOI18N
         Menu_Lateral_Izquierdo.add(hoja_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 20, 40));
 
-        hoja_3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/IMAGENES/icons8_bug_15px.png"))); // NOI18N
+        hoja_3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_bug_15px.png"))); // NOI18N
         Menu_Lateral_Izquierdo.add(hoja_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 20, 40));
 
-        hoja_4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/IMAGENES/icons8_bug_15px.png"))); // NOI18N
+        hoja_4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_bug_15px.png"))); // NOI18N
         Menu_Lateral_Izquierdo.add(hoja_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 310, 20, 40));
 
-        hoja_5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/IMAGENES/icons8_cactus_15px.png"))); // NOI18N
+        hoja_5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_cactus_15px.png"))); // NOI18N
         Menu_Lateral_Izquierdo.add(hoja_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 390, 20, 40));
+        Menu_Lateral_Izquierdo.add(hoja_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 570, 20, 40));
 
-        hoja_6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/IMAGENES/icons8_bug_15px.png"))); // NOI18N
-        Menu_Lateral_Izquierdo.add(hoja_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 550, 20, 40));
+        hoja_7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_bug_15px.png"))); // NOI18N
+        Menu_Lateral_Izquierdo.add(hoja_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 610, 20, 40));
 
-        hoja_7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/IMAGENES/icons8_bug_15px.png"))); // NOI18N
-        Menu_Lateral_Izquierdo.add(hoja_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 660, 20, 40));
+        hoja_8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_bug_15px.png"))); // NOI18N
+        Menu_Lateral_Izquierdo.add(hoja_8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 670, 20, 40));
 
-        hoja_8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/IMAGENES/icons8_bug_15px.png"))); // NOI18N
-        Menu_Lateral_Izquierdo.add(hoja_8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 740, 20, 40));
-
-        hoja_9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/IMAGENES/icons8_bug_15px.png"))); // NOI18N
+        hoja_9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_bug_15px.png"))); // NOI18N
         Menu_Lateral_Izquierdo.add(hoja_9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 870, 20, 40));
 
         estrella_10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_cactus_15px.png"))); // NOI18N
         Menu_Lateral_Izquierdo.add(estrella_10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 910, 20, 40));
 
-        LBL_ON_ESTRELLAS.setForeground(new java.awt.Color(255, 255, 255));
-        LBL_ON_ESTRELLAS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LBL_ON_ESTRELLAS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/IMAGENES/icons8_toggle_on_32px.png"))); // NOI18N
-        LBL_ON_ESTRELLAS.setToolTipText("APAGAR ICONOS");
-        LBL_ON_ESTRELLAS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        LBL_ON_ESTRELLAS.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        LBL_ON_ESTRELLAS.addMouseListener(new java.awt.event.MouseAdapter() {
+        Iconos_True.setForeground(new java.awt.Color(255, 255, 255));
+        Iconos_True.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Iconos_True.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_checked_checkbox_32px.png"))); // NOI18N
+        Iconos_True.setToolTipText("APAGAR ICONOS");
+        Iconos_True.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Iconos_True.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        Iconos_True.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                LBL_ON_ESTRELLASMouseClicked(evt);
+                Iconos_TrueMouseClicked(evt);
             }
         });
-        Menu_Lateral_Izquierdo.add(LBL_ON_ESTRELLAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 530, -1, -1));
+        Menu_Lateral_Izquierdo.add(Iconos_True, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, 40, 40));
 
-        LBL_OFF_ESTRELLAS.setForeground(new java.awt.Color(255, 255, 255));
-        LBL_OFF_ESTRELLAS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LBL_OFF_ESTRELLAS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/IMAGENES/icons8_toggle_off_32px.png"))); // NOI18N
-        LBL_OFF_ESTRELLAS.setToolTipText("ENCENDER ICONOS");
-        LBL_OFF_ESTRELLAS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        LBL_OFF_ESTRELLAS.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        LBL_OFF_ESTRELLAS.addMouseListener(new java.awt.event.MouseAdapter() {
+        Iconos_Off.setForeground(new java.awt.Color(255, 255, 255));
+        Iconos_Off.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Iconos_Off.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_unchecked_checkbox_32px.png"))); // NOI18N
+        Iconos_Off.setToolTipText("ENCENDER ICONOS");
+        Iconos_Off.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Iconos_Off.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
+        Iconos_Off.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                LBL_OFF_ESTRELLASMouseClicked(evt);
+                Iconos_OffMouseClicked(evt);
             }
         });
-        Menu_Lateral_Izquierdo.add(LBL_OFF_ESTRELLAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 530, -1, -1));
-
-        LBL_ON_HOJAS.setForeground(new java.awt.Color(255, 255, 255));
-        LBL_ON_HOJAS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LBL_ON_HOJAS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/IMAGENES/icons8_toggle_on_32px.png"))); // NOI18N
-        LBL_ON_HOJAS.setToolTipText("APAGAR ICONOS");
-        LBL_ON_HOJAS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        LBL_ON_HOJAS.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        LBL_ON_HOJAS.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                LBL_ON_HOJASMouseClicked(evt);
-            }
-        });
-        Menu_Lateral_Izquierdo.add(LBL_ON_HOJAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 530, -1, -1));
-
-        LBL_OFF_HOJAS.setForeground(new java.awt.Color(255, 255, 255));
-        LBL_OFF_HOJAS.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        LBL_OFF_HOJAS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/IMAGENES/icons8_toggle_off_32px.png"))); // NOI18N
-        LBL_OFF_HOJAS.setToolTipText("ENCENDER ICONOS");
-        LBL_OFF_HOJAS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        LBL_OFF_HOJAS.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
-        LBL_OFF_HOJAS.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                LBL_OFF_HOJASMouseClicked(evt);
-            }
-        });
-        Menu_Lateral_Izquierdo.add(LBL_OFF_HOJAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 530, -1, -1));
-
-        Menu_Central.setBackground(new java.awt.Color(16, 34, 43));
-        Menu_Central.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
-        Menu_Central.setForeground(new java.awt.Color(255, 255, 255));
-        Menu_Central.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                Menu_CentralMouseClicked(evt);
-            }
-        });
-        Menu_Central.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        txt_Estadisticos.setBackground(new java.awt.Color(34, 40, 44));
-        txt_Estadisticos.setForeground(new java.awt.Color(255, 255, 255));
-        txt_Estadisticos.setText("ESTADÍSTICOS");
-        txt_Estadisticos.setOpaque(true);
-        Menu_Central.add(txt_Estadisticos, new org.netbeans.lib.awtextra.AbsoluteConstraints(-100, 31, -1, -1));
-
-        txt_CLIENTES.setBackground(new java.awt.Color(34, 40, 44));
-        txt_CLIENTES.setForeground(new java.awt.Color(255, 255, 255));
-        txt_CLIENTES.setText("CLIENTES");
-        txt_CLIENTES.setOpaque(true);
-        Menu_Central.add(txt_CLIENTES, new org.netbeans.lib.awtextra.AbsoluteConstraints(-100, 150, -1, -1));
-
-        txt_VENTAS.setBackground(new java.awt.Color(34, 40, 44));
-        txt_VENTAS.setForeground(new java.awt.Color(255, 255, 255));
-        txt_VENTAS.setText("VENTAS");
-        txt_VENTAS.setOpaque(true);
-        Menu_Central.add(txt_VENTAS, new org.netbeans.lib.awtextra.AbsoluteConstraints(-100, 200, -1, -1));
-
-        txt_ALMACEN.setBackground(new java.awt.Color(34, 40, 44));
-        txt_ALMACEN.setForeground(new java.awt.Color(255, 255, 255));
-        txt_ALMACEN.setText("ALMACEN");
-        txt_ALMACEN.setOpaque(true);
-        Menu_Central.add(txt_ALMACEN, new org.netbeans.lib.awtextra.AbsoluteConstraints(-100, 250, -1, -1));
-
-        txt_Producto.setBackground(new java.awt.Color(34, 40, 44));
-        txt_Producto.setForeground(new java.awt.Color(255, 255, 255));
-        txt_Producto.setText("+ PRODUCTO");
-        txt_Producto.setOpaque(true);
-        Menu_Central.add(txt_Producto, new org.netbeans.lib.awtextra.AbsoluteConstraints(-100, 300, -1, -1));
-
-        txt_Informes.setBackground(new java.awt.Color(34, 40, 44));
-        txt_Informes.setForeground(new java.awt.Color(255, 255, 255));
-        txt_Informes.setText("INFORMES");
-        txt_Informes.setOpaque(true);
-        Menu_Central.add(txt_Informes, new org.netbeans.lib.awtextra.AbsoluteConstraints(-100, 350, -1, -1));
-
-        jScrollPane1.setBorder(null);
-
-        jPanel5.setBackground(new java.awt.Color(10, 15, 42));
-        jPanel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel5MouseClicked(evt);
-            }
-        });
-        jPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        OPCIONES_PANEL_DESLIZABLE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        OPCIONES_PANEL_DESLIZABLE.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        CLIENTES_PANEL1.setBackground(new java.awt.Color(6, 10, 28));
-        CLIENTES_PANEL1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseExited(java.awt.event.MouseEvent evt) {
-                CLIENTES_PANEL1MouseExited(evt);
-            }
-        });
-        CLIENTES_PANEL1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        CLIENTES_jDesktopPane1.setBackground(new java.awt.Color(6, 10, 28));
-        CLIENTES_jDesktopPane1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-
-        javax.swing.GroupLayout CLIENTES_jDesktopPane1Layout = new javax.swing.GroupLayout(CLIENTES_jDesktopPane1);
-        CLIENTES_jDesktopPane1.setLayout(CLIENTES_jDesktopPane1Layout);
-        CLIENTES_jDesktopPane1Layout.setHorizontalGroup(
-            CLIENTES_jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 556, Short.MAX_VALUE)
-        );
-        CLIENTES_jDesktopPane1Layout.setVerticalGroup(
-            CLIENTES_jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 870, Short.MAX_VALUE)
-        );
-
-        CLIENTES_PANEL1.add(CLIENTES_jDesktopPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 50, 556, 870));
-
-        jLabel69.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        jLabel69.setForeground(new java.awt.Color(255, 255, 255));
-        CLIENTES_PANEL1.add(jLabel69, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 180, 30));
-
-        logo_claro2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_rocket_take_off_50px.png"))); // NOI18N
-        CLIENTES_PANEL1.add(logo_claro2, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, -1, 60));
-
-        ESTRELLA_35.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_starfish_20px_2.png"))); // NOI18N
-        CLIENTES_PANEL1.add(ESTRELLA_35, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 0, 30, 30));
-
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel7.setText("CERRAR");
-        jLabel7.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel7MouseClicked(evt);
-            }
-        });
-        CLIENTES_PANEL1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 20, -1, -1));
-        CLIENTES_PANEL1.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 160, 20));
-
-        OPCIONES_PANEL_DESLIZABLE.add(CLIENTES_PANEL1, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 560, 940));
-
-        jPanel5.add(OPCIONES_PANEL_DESLIZABLE, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 550, 940));
-
-        Panel_Ganancias.setBackground(new java.awt.Color(1, 1, 1));
-        Panel_Ganancias.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel1.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(0, 214, 105));
-        jLabel1.setText("0");
-        Panel_Ganancias.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(445, 130, -1, -1));
-
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 48)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(4, 28, 48));
-        jLabel2.setText("______________");
-        Panel_Ganancias.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(148, 148, 149));
-        jLabel4.setText("hoy");
-        Panel_Ganancias.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(445, 80, -1, -1));
-
-        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel13.setText("GANANCIAS");
-        Panel_Ganancias.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, -1, -1));
-
-        jLabel14.setFont(new java.awt.Font("Arial", 0, 48)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 214, 105));
-        jLabel14.setText("0");
-        Panel_Ganancias.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 30, -1, -1));
-        Panel_Ganancias.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 90, 20));
-
-        ESTRELLA_14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_saturn_planet_50px.png"))); // NOI18N
-        Panel_Ganancias.add(ESTRELLA_14, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 340, -1, -1));
-
-        HOJA_14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/IMAGENES/icons8_nature_50px.png"))); // NOI18N
-        Panel_Ganancias.add(HOJA_14, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 340, -1, -1));
-
-        jPanel5.add(Panel_Ganancias, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 190, 490, 410));
-
-        jPanel7.setBackground(new java.awt.Color(1, 1, 1));
-        jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel22.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel22.setText("PRODUCTOS VENCIDOS");
-        jPanel7.add(jLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-
-        jLabel12.setFont(new java.awt.Font("Arial", 0, 48)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("0");
-        jPanel7.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
-
-        ESTRELLA_16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_pluto_dwarf_planet_30px.png"))); // NOI18N
-        jPanel7.add(ESTRELLA_16, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, 40, -1));
-
-        HOJA_16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/IMAGENES/icons8_turtle_30px_3.png"))); // NOI18N
-        jPanel7.add(HOJA_16, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, 40, -1));
-
-        jPanel5.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 400, 510, 200));
-
-        jPanel8.setBackground(new java.awt.Color(1, 1, 1));
-        jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel21.setFont(new java.awt.Font("Arial", 0, 48)); // NOI18N
-        jLabel21.setForeground(new java.awt.Color(0, 214, 105));
-        jLabel21.setText("0");
-        jPanel8.add(jLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
-
-        jLabel19.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel19.setForeground(new java.awt.Color(148, 148, 149));
-        jLabel19.setText("hoy");
-        jPanel8.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
-
-        jLabel24.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel24.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel24.setText("PRODUCTOS FACTURADOS");
-        jPanel8.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-
-        jPanel5.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 400, 240, 200));
-
-        jPanel9.setBackground(new java.awt.Color(1, 1, 1));
-        jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel11.setText("PRODUCTOS PRÓXIMOS A ACABARSEN");
-        jPanel9.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-        jPanel9.add(jSeparator5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 90, 20));
-
-        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(148, 148, 149));
-        jLabel15.setText("hoy");
-        jPanel9.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
-
-        jLabel16.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(0, 214, 105));
-        jLabel16.setText("0");
-        jPanel9.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
-
-        jLabel25.setFont(new java.awt.Font("Arial", 0, 48)); // NOI18N
-        jLabel25.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel25.setText("0");
-        jPanel9.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
-
-        ESTRELLA_15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_astronaut_40px.png"))); // NOI18N
-        jPanel9.add(ESTRELLA_15, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, -1, -1));
-
-        HOJA_15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/IMAGENES/icons8_penguin_40px_1.png"))); // NOI18N
-        jPanel9.add(HOJA_15, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, -1, -1));
-
-        jPanel5.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(750, 190, 510, 200));
-
-        jPanel10.setBackground(new java.awt.Color(1, 1, 1));
-        jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel17.setText("PRODUCTOS VENDIDOS");
-        jPanel10.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-
-        jLabel18.setFont(new java.awt.Font("Arial", 0, 48)); // NOI18N
-        jLabel18.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel18.setText("0");
-        jPanel10.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
-        jPanel10.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 90, 20));
-
-        jLabel20.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel20.setForeground(new java.awt.Color(0, 214, 105));
-        jLabel20.setText("0");
-        jPanel10.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
-
-        jLabel23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel23.setForeground(new java.awt.Color(148, 148, 149));
-        jLabel23.setText("hoy");
-        jPanel10.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
-
-        jPanel5.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 190, 240, 200));
-
-        jPanel11.setBackground(new java.awt.Color(1, 1, 1));
-        jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel26.setFont(new java.awt.Font("Arial", 0, 48)); // NOI18N
-        jLabel26.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel26.setText("0");
-        jPanel11.add(jLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
-
-        jLabel28.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel28.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel28.setText("TRABAJADORES");
-        jPanel11.add(jLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-
-        jLabel44.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel44.setForeground(new java.awt.Color(0, 214, 105));
-        jLabel44.setText("0");
-        jPanel11.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
-
-        jLabel45.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel45.setForeground(new java.awt.Color(148, 148, 149));
-        jLabel45.setText("hoy");
-        jPanel11.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
-
-        jPanel5.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 820, 240, 190));
-
-        jPanel12.setBackground(new java.awt.Color(1, 1, 1));
-        jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel29.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel29.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel29.setText("CLIENTES");
-        jPanel12.add(jLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-
-        jLabel30.setFont(new java.awt.Font("Arial", 0, 48)); // NOI18N
-        jLabel30.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel30.setText("0");
-        jPanel12.add(jLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
-        jPanel12.add(jSeparator8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 90, 20));
-
-        jLabel31.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel31.setForeground(new java.awt.Color(0, 214, 105));
-        jLabel31.setText("0");
-        jPanel12.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
-
-        jLabel32.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel32.setForeground(new java.awt.Color(148, 148, 149));
-        jLabel32.setText("hoy");
-        jPanel12.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
-
-        jPanel5.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 610, 240, 200));
-
-        jPanel13.setBackground(new java.awt.Color(1, 1, 1));
-        jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel33.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel33.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel33.setText("PROVEEDORES");
-        jPanel13.add(jLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-        jPanel13.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 90, 20));
-
-        jLabel34.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel34.setForeground(new java.awt.Color(148, 148, 149));
-        jLabel34.setText("hoy");
-        jPanel13.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
-
-        jLabel35.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel35.setForeground(new java.awt.Color(0, 214, 105));
-        jLabel35.setText("0");
-        jPanel13.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
-
-        jLabel36.setFont(new java.awt.Font("Arial", 0, 48)); // NOI18N
-        jLabel36.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel36.setText("0");
-        jPanel13.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
-
-        jPanel5.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 610, 240, 200));
-
-        jPanel14.setBackground(new java.awt.Color(1, 1, 1));
-        jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel37.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel37.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel37.setText("TIENDAS");
-        jPanel14.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-
-        jLabel38.setFont(new java.awt.Font("Arial", 0, 48)); // NOI18N
-        jLabel38.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel38.setText("0");
-        jPanel14.add(jLabel38, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
-
-        jLabel46.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
-        jLabel46.setForeground(new java.awt.Color(0, 214, 105));
-        jLabel46.setText("0");
-        jPanel14.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
-
-        jLabel47.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        jLabel47.setForeground(new java.awt.Color(148, 148, 149));
-        jLabel47.setText("hoy");
-        jPanel14.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
-
-        jPanel5.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 820, 240, 190));
-
-        jPanel15.setBackground(new java.awt.Color(1, 1, 1));
-        jPanel15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel42.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jLabel42.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel42.setText("CANTIDAD DE PRODUCTOS EN BODEGA");
-        jPanel15.add(jLabel42, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
-
-        jLabel39.setFont(new java.awt.Font("Arial", 0, 48)); // NOI18N
-        jLabel39.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel39.setText("0");
-        jPanel15.add(jLabel39, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
-        jPanel15.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 90, 20));
-
-        ESTRELLA_17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_shooting_stars_50px.png"))); // NOI18N
-        jPanel15.add(ESTRELLA_17, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 20, -1, -1));
-
-        HOJA_17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/IMAGENES/icons8_bug_50px.png"))); // NOI18N
-        jPanel15.add(HOJA_17, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 20, -1, -1));
-
-        jPanel5.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 610, 760, 400));
-
-        BTN_HOY.setBackground(new java.awt.Color(11, 24, 29));
-        BTN_HOY.setForeground(new java.awt.Color(255, 255, 255));
-        BTN_HOY.setText("HOY");
-        BTN_HOY.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel5.add(BTN_HOY, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 140, 70, 30));
-
-        BTN_AYER.setBackground(new java.awt.Color(11, 24, 29));
-        BTN_AYER.setForeground(new java.awt.Color(255, 255, 255));
-        BTN_AYER.setText("AYER");
-        BTN_AYER.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel5.add(BTN_AYER, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 140, 70, 30));
-
-        BTN_SEMANA.setBackground(new java.awt.Color(11, 24, 29));
-        BTN_SEMANA.setForeground(new java.awt.Color(255, 255, 255));
-        BTN_SEMANA.setText("SEMANA");
-        BTN_SEMANA.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel5.add(BTN_SEMANA, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 140, 80, 30));
-
-        BTN_MES.setBackground(new java.awt.Color(11, 24, 29));
-        BTN_MES.setForeground(new java.awt.Color(255, 255, 255));
-        BTN_MES.setText("MES");
-        BTN_MES.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel5.add(BTN_MES, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 140, 70, 30));
-
-        BTN_FECHA.setBackground(new java.awt.Color(11, 24, 29));
-        BTN_FECHA.setForeground(new java.awt.Color(255, 255, 255));
-        BTN_FECHA.setText("FECHA");
-        BTN_FECHA.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel5.add(BTN_FECHA, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 140, 70, 30));
-
-        BTN_TODO.setBackground(new java.awt.Color(11, 24, 29));
-        BTN_TODO.setForeground(new java.awt.Color(255, 255, 255));
-        BTN_TODO.setText("TODO");
-        BTN_TODO.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel5.add(BTN_TODO, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 140, 70, 30));
-
-        BTN_USUARIOS.setBackground(new java.awt.Color(11, 24, 29));
-        BTN_USUARIOS.setForeground(new java.awt.Color(255, 255, 255));
-        BTN_USUARIOS.setText("USUARIO");
-        BTN_USUARIOS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel5.add(BTN_USUARIOS, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 140, -1, 30));
-
-        jLabel3.setFont(new java.awt.Font("STXinwei", 1, 36)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("AUTOSERVICIO 20 DE JULIO");
-        jPanel5.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 90, 520, 50));
-
-        LBL_CERRAR.setBackground(new java.awt.Color(34, 40, 44));
-        LBL_CERRAR.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        LBL_CERRAR.setForeground(new java.awt.Color(255, 255, 255));
-        LBL_CERRAR.setText("CERRAR");
-        LBL_CERRAR.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        LBL_CERRAR.setOpaque(true);
-        LBL_CERRAR.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                LBL_CERRARMouseClicked(evt);
-            }
-        });
-        jPanel5.add(LBL_CERRAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, -1, 30));
-
-        lbl_buscar.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        lbl_buscar.setForeground(new java.awt.Color(255, 255, 255));
-        lbl_buscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Buscar2_1.png"))); // NOI18N
-        lbl_buscar.setText("BUSCAR");
-        lbl_buscar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                lbl_buscarMouseClicked(evt);
-            }
-        });
-        jPanel5.add(lbl_buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(215, 45, -1, 30));
-
-        LBL_MAXIMIZAR.setBackground(new java.awt.Color(34, 40, 44));
-        LBL_MAXIMIZAR.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        LBL_MAXIMIZAR.setForeground(new java.awt.Color(255, 255, 255));
-        LBL_MAXIMIZAR.setText("MAXIMIZAR");
-        LBL_MAXIMIZAR.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        LBL_MAXIMIZAR.setOpaque(true);
-        LBL_MAXIMIZAR.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                LBL_MAXIMIZARMouseClicked(evt);
-            }
-        });
-        jPanel5.add(LBL_MAXIMIZAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 100, -1, 30));
-
-        LBL_MINIMIZAR.setBackground(new java.awt.Color(34, 40, 44));
-        LBL_MINIMIZAR.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        LBL_MINIMIZAR.setForeground(new java.awt.Color(255, 255, 255));
-        LBL_MINIMIZAR.setText("MINIMIZAR");
-        LBL_MINIMIZAR.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        LBL_MINIMIZAR.setOpaque(true);
-        LBL_MINIMIZAR.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                LBL_MINIMIZARMouseClicked(evt);
-            }
-        });
-        jPanel5.add(LBL_MINIMIZAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 100, -1, 30));
-
-        LBL_REDIMENCIONAR.setBackground(new java.awt.Color(34, 40, 44));
-        LBL_REDIMENCIONAR.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        LBL_REDIMENCIONAR.setForeground(new java.awt.Color(255, 255, 255));
-        LBL_REDIMENCIONAR.setText("REDIMENCIONAR");
-        LBL_REDIMENCIONAR.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        LBL_REDIMENCIONAR.setOpaque(true);
-        LBL_REDIMENCIONAR.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                LBL_REDIMENCIONARMouseClicked(evt);
-            }
-        });
-        jPanel5.add(LBL_REDIMENCIONAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 160, -1, 30));
-
-        BTN_BUSCAR.setBackground(new java.awt.Color(11, 24, 29));
-        BTN_BUSCAR.setForeground(new java.awt.Color(255, 255, 255));
-        BTN_BUSCAR.setText("BUSCAR");
-        BTN_BUSCAR.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jPanel5.add(BTN_BUSCAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 40, 90, 40));
-
-        jLabel10.setBackground(new java.awt.Color(255, 255, 255));
-        jLabel10.setFont(new java.awt.Font("STLiti", 0, 48)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setText("Jetxcel");
-        jPanel5.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 130, 50));
-
-        BOX_BUSCAR.setBackground(new java.awt.Color(16, 34, 43));
-        BOX_BUSCAR.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
-        BOX_BUSCAR.setForeground(new java.awt.Color(255, 255, 255));
-        BOX_BUSCAR.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                BOX_BUSCARMouseClicked(evt);
-            }
-        });
-        jPanel5.add(BOX_BUSCAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 40, 940, 40));
-
-        ESTRELLA_10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_starfish_10px.png"))); // NOI18N
-        jPanel5.add(ESTRELLA_10, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 100, -1, -1));
-
-        HOJA_10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/IMAGENES/icons8_koala_10px.png"))); // NOI18N
-        jPanel5.add(HOJA_10, new org.netbeans.lib.awtextra.AbsoluteConstraints(980, 100, -1, -1));
-
-        ESTRELLA_6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_starfish_20px.png"))); // NOI18N
-        jPanel5.add(ESTRELLA_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 10, 30, 30));
-
-        HOJA_6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_natural_food_20px.png"))); // NOI18N
-        jPanel5.add(HOJA_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 10, 30, 30));
-
-        ESTRELLA_12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_starfish_32px.png"))); // NOI18N
-        jPanel5.add(ESTRELLA_12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 100, -1, -1));
-
-        HOJA_12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/IMAGENES/icons8_wood_32px.png"))); // NOI18N
-        jPanel5.add(HOJA_12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 100, -1, -1));
-
-        ESTRELLA_13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_launch_30px_3.png"))); // NOI18N
-        jPanel5.add(ESTRELLA_13, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 140, 40, 40));
-
-        HOJA_13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/IMAGENES/icons8_bird_30px.png"))); // NOI18N
-        jPanel5.add(HOJA_13, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 140, 40, 40));
-
-        ESTRELLA_4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_starfish_32px.png"))); // NOI18N
-        jPanel5.add(ESTRELLA_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, -1, -1));
-
-        HOJA_4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_koala_32px.png"))); // NOI18N
-        jPanel5.add(HOJA_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 20, -1, -1));
-
-        ESTRELLA_3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_rocket_40px.png"))); // NOI18N
-        jPanel5.add(ESTRELLA_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 50, 50));
-
-        HOJA_3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_cactus_40px.png"))); // NOI18N
-        jPanel5.add(HOJA_3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 50, 50));
-
-        ESTRELLA_5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_starfish_20px_2.png"))); // NOI18N
-        jPanel5.add(ESTRELLA_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, 30, 30));
-
-        HOJA_5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_snail_20px_1.png"))); // NOI18N
-        jPanel5.add(HOJA_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 10, 30, 30));
-
-        ESTRELLA_11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_starfish_20px_2.png"))); // NOI18N
-        jPanel5.add(ESTRELLA_11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 130, 30, 30));
-
-        HOJA_11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/IMAGENES/icons8_tea_20px.png"))); // NOI18N
-        jPanel5.add(HOJA_11, new org.netbeans.lib.awtextra.AbsoluteConstraints(1000, 130, 30, 30));
-
-        ESTRELLA_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_astronaut_40px_1.png"))); // NOI18N
-        jPanel5.add(ESTRELLA_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 50, 50));
-
-        HOJA_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_maple_leaf_40px_1.png"))); // NOI18N
-        jPanel5.add(HOJA_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, 50, 50));
-
-        ESTRELLA_9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_jupiter_planet_20px.png"))); // NOI18N
-        jPanel5.add(ESTRELLA_9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 20, 30, -1));
-
-        HOJA_9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/src/IMAGENES/icons8_slug_eating_20px.png"))); // NOI18N
-        jPanel5.add(HOJA_9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 20, 30, -1));
-
-        ESTRELLA_7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_asteroid_50px_4.png"))); // NOI18N
-        jPanel5.add(ESTRELLA_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 130, 60, 50));
-
-        HOJA_7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_acacia_60px.png"))); // NOI18N
-        jPanel5.add(HOJA_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 130, 60, 50));
-
-        ESTRELLAS_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_shooting_stars_50px_1.png"))); // NOI18N
-        jPanel5.add(ESTRELLAS_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 60, 60));
-
-        ESTRELLA_8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_starfish_10px_1.png"))); // NOI18N
-        jPanel5.add(ESTRELLA_8, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 10, 20, 20));
-
-        HOJA_8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_cactus_10px.png"))); // NOI18N
-        jPanel5.add(HOJA_8, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 10, 20, 20));
-
-        HOJA_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_leaf_40px.png"))); // NOI18N
-        jPanel5.add(HOJA_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 120, 60, 60));
-
-        logo_claro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_rocket_take_off_50px.png"))); // NOI18N
-        jPanel5.add(logo_claro, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 35, -1, -1));
-
-        logo_oscuro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_rocket_take_off_50px_1.png"))); // NOI18N
-        jPanel5.add(logo_oscuro, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 35, -1, -1));
-
-        jScrollPane1.setViewportView(jPanel5);
-
-        Menu_Central.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 8, 1290, 940));
+        Menu_Lateral_Izquierdo.add(Iconos_Off, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 500, 40, 40));
+
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel6.setText("ICONOS");
+        Menu_Lateral_Izquierdo.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 540, -1, -1));
 
         jPanel3.setBackground(new java.awt.Color(51, 0, 51));
-        jPanel3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jPanel3MouseClicked(evt);
-            }
-        });
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         BTN_MENU.setForeground(new java.awt.Color(255, 255, 255));
@@ -1219,7 +633,6 @@ public class Startt2 extends javax.swing.JFrame {
         txt_CONFIGURACION.setText("AJUSTES");
         txt_CONFIGURACION.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txt_CONFIGURACION.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        txt_CONFIGURACION.setOpaque(true);
         txt_CONFIGURACION.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         txt_CONFIGURACION.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1242,7 +655,6 @@ public class Startt2 extends javax.swing.JFrame {
         txt_CHATBOT.setText("CHAT BOT");
         txt_CHATBOT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txt_CHATBOT.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        txt_CHATBOT.setOpaque(true);
         txt_CHATBOT.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         txt_CHATBOT.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -1262,7 +674,6 @@ public class Startt2 extends javax.swing.JFrame {
         txt_BUSQUEDA.setText("BUSCAR");
         txt_BUSQUEDA.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txt_BUSQUEDA.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        txt_BUSQUEDA.setOpaque(true);
         txt_BUSQUEDA.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         txt_BUSQUEDA.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -1276,140 +687,74 @@ public class Startt2 extends javax.swing.JFrame {
 
         jPanel3.add(Menu_deslizable_Panel_Contenedor_Botones, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 130, 76, 460));
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Menu_Lateral_Izquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(Menu_Central, javax.swing.GroupLayout.DEFAULT_SIZE, 1308, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(6, 6, 6))
+        ScrollDesktop.setMinimumSize(new java.awt.Dimension(0, 0));
+
+        jDesktopPane1.setPreferredSize(new java.awt.Dimension(1157, 688));
+
+        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
+        jDesktopPane1.setLayout(jDesktopPane1Layout);
+        jDesktopPane1Layout.setHorizontalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Menu_Lateral_Izquierdo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Menu_Central, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        jDesktopPane1Layout.setVerticalGroup(
+            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        jPanel1.add(jPanel2, java.awt.BorderLayout.CENTER);
+        ScrollDesktop.setViewportView(jDesktopPane1);
+
+        javax.swing.GroupLayout HomePrincipalLayout = new javax.swing.GroupLayout(HomePrincipal);
+        HomePrincipal.setLayout(HomePrincipalLayout);
+        HomePrincipalLayout.setHorizontalGroup(
+            HomePrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HomePrincipalLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(Menu_Lateral_Izquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1187, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+            .addGroup(HomePrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(HomePrincipalLayout.createSequentialGroup()
+                    .addGap(103, 103, 103)
+                    .addComponent(ScrollDesktop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGap(98, 98, 98)))
+        );
+        HomePrincipalLayout.setVerticalGroup(
+            HomePrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(HomePrincipalLayout.createSequentialGroup()
+                .addComponent(Menu_Lateral_Izquierdo, javax.swing.GroupLayout.PREFERRED_SIZE, 730, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(HomePrincipalLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 722, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(47, Short.MAX_VALUE))
+            .addGroup(HomePrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(HomePrincipalLayout.createSequentialGroup()
+                    .addComponent(ScrollDesktop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 90, Short.MAX_VALUE)))
+        );
+
+        jPanel1.add(HomePrincipal, java.awt.BorderLayout.CENTER);
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
 
-        setSize(new java.awt.Dimension(1513, 989));
+        setSize(new java.awt.Dimension(1376, 819));
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseEntered
-        //-----> SALIDA HACIA LA DERECHA DE TEXTO ESTADISTICOS
-        Color Estadísticos_Azúl = new Color(54, 81, 207);
-        jButton2.setBackground(Estadísticos_Azúl);
-        AnimationClass ESTADISTICOS = new AnimationClass();//ESTADISTICOS
-        ESTADISTICOS.jLabelXLeft(-100, 20, 5, 8, txt_Estadisticos);//(Posición Actual, Posición futura, velocidad, velocidad, nombre del objeto)// MUESTRA EL TEXTO DE ESTADISTICOS
-    }//GEN-LAST:event_jButton2MouseEntered
-
-    private void jButton2MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseExited
-        //<----- ENTRADA HACIA LA IZQUIERDA DE TEXTO ESTADISTICOS
-        jButton2.setBackground(null);
-        AnimationClass ESTADISTICOSS = new AnimationClass();//ESTADISTICOS
-        ESTADISTICOSS.jLabelXLeft(20, -100, 5, 8, txt_Estadisticos);//(Posición Actual, Posición futura, velocidad, velocidad, nombre del objeto)// MUESTRA EL TEXTO DE ESTADISTICOS
-    }//GEN-LAST:event_jButton2MouseExited
-
-    private void jButton3MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseEntered
+    private void BTN_CLIENTESMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_CLIENTESMouseEntered
         //-----> SALIDA HACIA LA DERECHA EL TEXTO DE AGREGAR USUARIO
         Color AG_USUARIOS_AZUL = new Color(54, 81, 207);
-        jButton3.setBackground(AG_USUARIOS_AZUL);
-        AnimationClass AG_USUARIOS = new AnimationClass();//USUARIOS
-        AG_USUARIOS.jLabelXLeft(-100, 20, 5, 8, txt_Ag_Usuario);//(Posición Actual, Posición futura, velocidad, velocidad, nombre del objeto)// MUESTRA EL TEXTO DE ESTADISTICOS
-    }//GEN-LAST:event_jButton3MouseEntered
+        BTN_CLIENTES.setBackground(AG_USUARIOS_AZUL);
+        
+    }//GEN-LAST:event_BTN_CLIENTESMouseEntered
 
-    private void jButton3MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseExited
+    private void BTN_CLIENTESMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_CLIENTESMouseExited
         //<----- ENTRADA HACIA LA IZQUIERDA EL TEXTO DE AGREGAR USUARIO
-        jButton3.setBackground(null);
+        BTN_CLIENTES.setBackground(null);
         AnimationClass AG_USUARIOSS = new AnimationClass();//ESTADISTICOS
-        AG_USUARIOSS.jLabelXLeft(20, -100, 5, 8, txt_Ag_Usuario);//(Posición Actual, Posición futura, velocidad, velocidad, nombre del objeto)// MUESTRA EL TEXTO DE ESTADISTICOS
-    }//GEN-LAST:event_jButton3MouseExited
-
-    private void jButton4MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseEntered
-        //-----> SALIDA HACIA LA DERECHA DE EL TEXTO DE VENTAS
-        Color Color_Ventas_Azul = new Color(54, 81, 207);
-        jButton4.setBackground(Color_Ventas_Azul);
-        AnimationClass VENTAS = new AnimationClass();//VENTAS
-        VENTAS.jLabelXLeft(-100, 20, 5, 8, txt_Ventas);//(Posición Actual, Posición futura, velocidad, velocidad, nombre del objeto)// MUESTRA EL TEXTO DE ESTADISTICOS
-    }//GEN-LAST:event_jButton4MouseEntered
-
-    private void jButton4MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseExited
-        //<----- ENTRADA HACIA LA IZQUIERDA DE EL TEXTO DE VENTAS
-        jButton4.setBackground(null);
-        AnimationClass VENTASS = new AnimationClass();//VENTAS
-        VENTASS.jLabelXLeft(20, -100, 5, 8, txt_Ventas);//(Posición Actual, Posición futura, velocidad, velocidad, nombre del objeto)// MUESTRA EL TEXTO DE ESTADISTICOS
-    }//GEN-LAST:event_jButton4MouseExited
-
-    private void jButton5MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseEntered
-        //-----> SALIDA HACIA LA DERECHA DE EL TEXTO DE BODEGA
-        Color BODE_COLOR_AZUL = new Color(54, 81, 207);
-        jButton5.setBackground(BODE_COLOR_AZUL);
-        AnimationClass BODEGA = new AnimationClass();//BODEGA
-        BODEGA.jLabelXLeft(-100, 20, 5, 8, txt_bodega);//(Posición Actual, Posición futura, velocidad, velocidad, nombre del objeto)// MUESTRA EL TEXTO DE ESTADISTICOS// 
-    }//GEN-LAST:event_jButton5MouseEntered
-
-    private void jButton5MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseExited
-        //<----- ENTRADA HACIA LA IZQUIERDA DE EL TEXTO DE BODEGA
-        jButton5.setBackground(null);
-        AnimationClass BODEGAA = new AnimationClass();//BODEGA
-        BODEGAA.jLabelXLeft(20, -100, 5, 8, txt_bodega);//(Posición Actual, Posición futura, velocidad, velocidad, nombre del objeto)// MUESTRA EL TEXTO DE ESTADISTICOS// 
-    }//GEN-LAST:event_jButton5MouseExited
-
-    private void jButton6MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseEntered
-        //-----> SALIDA HACIA LA DERECHA DE EL TEXTO PRODUCTO
-        Color PRODUCTO_COLOR_AZUL = new Color(54, 81, 207);
-        jButton6.setBackground(PRODUCTO_COLOR_AZUL);
-        AnimationClass PRODUCTO = new AnimationClass();//PRODUCTO
-        PRODUCTO.jLabelXLeft(-100, 20, 5, 8, txt_Producto);//(Posición Actual, Posición futura, velocidad, velocidad, nombre del objeto)// MUESTRA EL TEXTO DE ESTADISTICOS// 
-    }//GEN-LAST:event_jButton6MouseEntered
-
-    private void jButton6MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseExited
-        //<----- SALIDA HACIA LA IZQUIERDA DE EL TEXTO DE PRODUCTO
-        jButton6.setBackground(null);
-        AnimationClass PRODUCTOO = new AnimationClass();//PRODUCTO
-        PRODUCTOO.jLabelXLeft(20, -100, 5, 8, txt_Producto);//(Posición Actual, Posición futura, velocidad, velocidad, nombre del objeto)// MUESTRA EL TEXTO DE ESTADISTICOS// 
-    }//GEN-LAST:event_jButton6MouseExited
-
-    private void jButton7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseEntered
-        //-----> SALIDA HACIA LA DERECHA DE EL TEXTO INFORMES
-        Color INFORMES_COLOR_AZUL = new Color(54, 81, 207);
-        jButton7.setBackground(INFORMES_COLOR_AZUL);
-        AnimationClass INFORME = new AnimationClass();//INFORMES
-        INFORME.jLabelXLeft(-100, 20, 5, 8, txt_Informes);//(Posición Actual, Posición futura, velocidad, velocidad, nombre del objeto)// MUESTRA EL TEXTO DE ESTADISTICOS// 
-    }//GEN-LAST:event_jButton7MouseEntered
-
-    private void jButton7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseExited
-        //<----- SALIDA HACIA LA IZQUIERDA DE EL TEXTO INFORMES
-        jButton7.setBackground(null);
-        AnimationClass INFORMEE = new AnimationClass();//INFORMES
-        INFORMEE.jLabelXLeft(20, -100, 5, 8, txt_Informes);//(Posición Actual, Posición futura, velocidad, velocidad, nombre del objeto)// MUESTRA EL TEXTO DE ESTADISTICOS//
-    }//GEN-LAST:event_jButton7MouseExited
-
-    private void jButton1MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseEntered
-        //-----> SALIDA HACIA ABAJO EL TEXTO LICENCIA
-        Color LICENCIA_COLOR_AZUL = new Color(54, 81, 207);
-        jButton1.setBackground(LICENCIA_COLOR_AZUL);
-        AnimationClass LICENCIA = new AnimationClass();//LICENCIA
-        LICENCIA.jLabelYDown(590, 610, 5, 10, txt_Licencia);//(Posición Actual, Posición futura, velocidad, velocidad, nombre del objeto)// MUESTRA EL TEXTO DE ESTADISTICOS// 
-
-    }//GEN-LAST:event_jButton1MouseEntered
-
-    private void jButton1MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseExited
-        //-----> ENTRADA HACIA ARRIBA EL TEXTO LICENCIA
-        jButton1.setBackground(null);
-        AnimationClass LICENCIAA = new AnimationClass();//LICENCIA
-        LICENCIAA.jLabelYUp(610, 590, 5, 10, txt_Licencia);//(Posición Actual, Posición futura, velocidad, velocidad, nombre del objeto)// MUESTRA EL TEXTO DE ESTADISTICOS// 
-
-    }//GEN-LAST:event_jButton1MouseExited
+    }//GEN-LAST:event_BTN_CLIENTESMouseExited
 
     private void Contenedor_LicenciaMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Contenedor_LicenciaMouseExited
 
@@ -1420,7 +765,7 @@ public class Startt2 extends javax.swing.JFrame {
     }//GEN-LAST:event_Contenedor_LicenciaMouseEntered
 
     private void BTN_MENUMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_MENUMouseClicked
-            //SALE EL MENÚ PRUEBA LATERAL HACIA LA IZQUIERDA 
+        //SALE EL MENÚ PRUEBA LATERAL HACIA LA IZQUIERDA 
         if (Menu_deslizable_Panel_Contenedor_Botones.getX() == 110) {
             desplace.desplazarIzquierda(Menu_deslizable_Panel_Contenedor_Botones, Menu_deslizable_Panel_Contenedor_Botones.getX(), 0, 10, 10);
         } else if (Menu_deslizable_Panel_Contenedor_Botones.getX() == 0) {
@@ -1453,74 +798,15 @@ public class Startt2 extends javax.swing.JFrame {
         txt_BUSQUEDA.setBackground(null);
     }//GEN-LAST:event_txt_BUSQUEDAMouseExited
 
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-      // general.OpenWindows(WinUser_1, null);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3MouseClicked
-
-    public void ActivarModosClort(boolean x){
-            BTN_MODO_DIA.setEnabled(x);
-        BTN_MODO_DIA.setVisible(x);
-        TXT_DIA.setEnabled(x);
-        TXT_DIA.setVisible(x);
-        BTN_MODO_NOCHE.setVisible(!x);
-        BTN_MODO_NOCHE.setEnabled(!x);
-        TXT_NOCHE.setVisible(!x);
-    }
+  
     private void BTN_MODO_NOCHEMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_MODO_NOCHEMouseClicked
-
-        //PARA PASAR A MODO OSCURO 
-        jButton1.setBackground(null);
-        jButton2.setBackground(null);
-        jButton3.setBackground(null);
-        jButton4.setBackground(null);
-        jButton5.setBackground(null);
-        jButton6.setBackground(null);
-        jButton7.setBackground(null);
-        ActivarModosClort(true);
-        //PARA PASAR A MODO OSCURO 
-
-        Color Menu_Izquierdo_Oscuro = new Color(21, 25, 28);//CAMBIA AL COLOR ORIGINAL EL MENÚ LATERAL IZQUIERDO
-        Color Menu_Central_Oscuro = new Color(34, 40, 44);
-        Color Menu_De_Fondo_Oscuro = new Color(34, 40, 44);
-        Color Menu_Lateral_Derecho_Oscuro = new Color(51, 0, 51);
-        Color Contenedor_btnLicencia_Oscuro = new Color(21, 25, 28);
-        Color ColorOscuro_txt_Modo_Oscuro = new Color(21, 25, 28);
-        Color Color_btn_noche_oscuro = new Color(64, 64, 64);
-       
-        
-        
-        Color ColorJPanel[] = {Menu_Izquierdo_Oscuro,Menu_Central_Oscuro,Menu_De_Fondo_Oscuro,ColorOscuro_txt_Modo_Oscuro,ColorOscuro_txt_Modo_Oscuro,ColorOscuro_txt_Modo_Oscuro,Color_btn_noche_oscuro};
-        JPanel panelesColor[] ={ Menu_Lateral_Izquierdo,Menu_Central,jPanel2,Menu_deslizable_Panel_Contenedor_Botones,jPanel3,Contenedor_Licencia};
-        general.CambiarColoresClaro(panelesColor, ColorJPanel, null, null, null, null, null);
+CambiarModo(false, BTN, Text, Botones_Panel, PanelEstadisticas, txtEstadisticas, Estadistica.Home, Lateal,Separador);
+    
     }//GEN-LAST:event_BTN_MODO_NOCHEMouseClicked
 
     private void BTN_MODO_DIAMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_MODO_DIAMouseClicked
-        //MODO CLARO 
-        jButton1.setBackground(null);
-        jButton2.setBackground(null);
-        jButton3.setBackground(null);
-        jButton4.setBackground(null);
-        jButton5.setBackground(null);
-        jButton6.setBackground(null);
-        jButton7.setBackground(null);
-        txt_CONFIGURACION.setBackground(null);
-        txt_CHATBOT.setBackground(null);
-        txt_BUSQUEDA.setBackground(null);
+        CambiarModo(true, BTN, Text, Botones_Panel, PanelEstadisticas, txtEstadisticas, Estadistica.Home, Lateal,Separador);
 
-        //PARA PASAR A MODO CLARO
-        Menu_deslizable_Panel_Contenedor_Botones.setBackground(Color.DARK_GRAY);
-        BTN_MODO_NOCHE.setEnabled(true);
-        TXT_NOCHE.setEnabled(true);
-        BTN_MODO_NOCHE.setVisible(true);
-        TXT_NOCHE.setVisible(true);
-        Menu_Lateral_Izquierdo.setBackground(Color.DARK_GRAY);
-        Menu_Central.setBackground(Color.WHITE);
-        jPanel2.setBackground(Color.GRAY);
-        jPanel3.setBackground(Color.DARK_GRAY);
-
-        Contenedor_Licencia.setBackground(Color.DARK_GRAY);
-        TXT_NOCHE.setBackground(Color.DARK_GRAY);
-        TXT_DIA.setBackground(Color.DARK_GRAY);
     }//GEN-LAST:event_BTN_MODO_DIAMouseClicked
 
     private void jLabel6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel6MouseClicked
@@ -1531,72 +817,171 @@ public class Startt2 extends javax.swing.JFrame {
         this.dispose();// CIERRA LA VENTANA
     }//GEN-LAST:event_jLabel8MouseClicked
 
-    private void jLabel7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel7MouseClicked
-        setExtendedState(MAXIMIZED_BOTH);// MAXIMIZA LA VENTANA PRINCIPAL
-    }//GEN-LAST:event_jLabel7MouseClicked
-
     private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
         Dimension d = new Dimension(1350, 675);//REDIMENSIONA LA VENTANA
         this.setSize(d);//PARTE DE LA ACCIÓN DE REDIMENSIONAR
         this.setLocationRelativeTo(null);//CENTRA LA VENTANA
     }//GEN-LAST:event_jLabel9MouseClicked
 
-    private void jButton7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseClicked
-        //ABRIR LA VENTANA DE INFORMES
-       
-    }//GEN-LAST:event_jButton7MouseClicked
-
     private void txt_CHATBOTMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_CHATBOTMouseEntered
         Color COLOR_AZUL_OSCURO = new Color(0, 0, 102);
         txt_CHATBOT.setBackground(COLOR_AZUL_OSCURO);
     }//GEN-LAST:event_txt_CHATBOTMouseEntered
 
-    private void BTN_MODO_NOCHEMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_MODO_NOCHEMouseEntered
-        Color COLOR_AZUL_OSCURO = new Color(54, 81, 207);
-        BTN_MODO_NOCHE.setBackground(COLOR_AZUL_OSCURO);
-    }//GEN-LAST:event_BTN_MODO_NOCHEMouseEntered
+    private void txt_CONFIGURACIONMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_CONFIGURACIONMouseClicked
+        general.OpenWindows(WinConf_1, null);        // TODO add your handling code here:
+    }//GEN-LAST:event_txt_CONFIGURACIONMouseClicked
+   
+    
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+       try{
+        JInternalFrame[] pruebas = jDesktopPane1.getAllFrames();
+            if (pruebas.length == 0) {
+               // CrearUser= new CrearUsuario(); 
+                 Estadistica.setVisible(true);
+                 jDesktopPane1.add(Estadistica);
+            }
+        for (int i = 0; i < pruebas.length; i++) {
+            if (CrearUser.isVisible() ) {
+                System.out.println("la ventana ya esta abierta "); 
+            }else{
+             Estadistica= new Estadisticas(); 
+             Estadistica.setVisible(true);
+             jDesktopPane1.add(Estadistica);
+            }
+        }
+        }catch(Exception ex){
+            System.out.println("error " +ex);
+        }
 
-    private void BTN_MODO_NOCHEMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_MODO_NOCHEMouseExited
-        BTN_MODO_NOCHE.setBackground(null);
-    }//GEN-LAST:event_BTN_MODO_NOCHEMouseExited
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void BTN_CLIENTESActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_CLIENTESActionPerformed
+/*        try{
+        JInternalFrame[] pruebas = jDesktopPane1.getAllFrames();
+            if (pruebas.length == 0) {
+               // CrearUser= new CrearUsuario(); 
+                 CrearUser.setVisible(true);
+                 jDesktopPane1.add(CrearUser);
+            }
+        for (int i = 0; i < pruebas.length; i++) {
+            if (CrearUser.isVisible() ) {
+                System.out.println("la ventana ya esta abierta "); 
+            }else{
+             CrearUser= new CrearUsuario(null,true); 
+             CrearUser.setVisible(true);
+             jDesktopPane1.add(CrearUser);
+            }
+        }
+        }catch(Exception ex){
+            System.out.println("error " +ex);
+        }*/
+general.AbrirJInternalFrame(Estadistica, jDesktopPane1, null, true);
+    }//GEN-LAST:event_BTN_CLIENTESActionPerformed
+
+    private void Iconos_TrueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Iconos_TrueMouseClicked
+        Iconos_Off.setVisible(true);
+        Iconos_True.setVisible(false);
+        ////////////////
+        ActivarEstrellas(false);
+        ActivarHojas(false);        
+    
+        
+    }//GEN-LAST:event_Iconos_TrueMouseClicked
+
+    private void Iconos_OffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Iconos_OffMouseClicked
+        Iconos_Off.setVisible(false);
+        Iconos_True.setVisible(true);
+        if (IconosModo) {
+             ActivarHojas(true);
+        }else{
+            ActivarEstrellas(true);
+        }
+
+       
+    }//GEN-LAST:event_Iconos_OffMouseClicked
+
+    private void BtLicenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BtLicenciaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BtLicenciaActionPerformed
+
+    private void BTN_VENTASActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_VENTASActionPerformed
+for (int i = 0; i < jDesktopPane1.getAllFrames().length; i++) {
+            System.out.println(jDesktopPane1.getAllFramesInLayer(i).getClass());
+            System.out.println(CrearUsuario.class);
+        }
+//general.OpenWindows(WinUser_1, jPanel1);
+    }//GEN-LAST:event_BTN_VENTASActionPerformed
+
+    private void BTN_VENTASMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_VENTASMouseEntered
+        //-----> SALIDA HACIA LA DERECHA DE EL TEXTO DE VENTAS
+        Color Color_Ventas_Azul = new Color(54, 81, 207);
+        BTN_VENTAS.setBackground(Color_Ventas_Azul);
+        AnimationClass VENTAS = new AnimationClass();//VENTAS
+    }//GEN-LAST:event_BTN_VENTASMouseEntered
+
+    private void BTN_VENTASMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_VENTASMouseExited
+        //<----- ENTRADA HACIA LA IZQUIERDA DE EL TEXTO DE VENTAS
+        BTN_VENTAS.setBackground(null);
+        AnimationClass VENTASS = new AnimationClass();//VENTAS
+    }//GEN-LAST:event_BTN_VENTASMouseExited
+
+    private void BTN_ALMACENMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_ALMACENMouseExited
+        //<----- ENTRADA HACIA LA IZQUIERDA DE EL TEXTO DE BODEGA
+        BTN_ALMACEN.setBackground(null);
+        AnimationClass BODEGAA = new AnimationClass();//BODEGA
+        //(Posición Actual, Posición futura, velocidad, velocidad, nombre del objeto)// MUESTRA EL TEXTO DE ESTADISTICOS// */
+    }//GEN-LAST:event_BTN_ALMACENMouseExited
+
+    private void BTN_ALMACENMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_ALMACENMouseEntered
+        //-----> SALIDA HACIA LA DERECHA DE EL TEXTO DE BODEGA
+        Color BODE_COLOR_AZUL = new Color(54, 81, 207);
+        BTN_ALMACEN.setBackground(BODE_COLOR_AZUL);
+        AnimationClass BODEGA = new AnimationClass();//BODEGA
+        //(Posición Actual, Posición futura, velocidad, velocidad, nombre del objeto)// MUESTRA EL TEXTO DE ESTADISTICOS// */
+    }//GEN-LAST:event_BTN_ALMACENMouseEntered
+
+    private void jButton7MouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseExited
+        //<----- SALIDA HACIA LA IZQUIERDA DE EL TEXTO INFORMES
+        jButton7.setBackground(null);
+        AnimationClass INFORMEE = new AnimationClass();//INFORMES
+    }//GEN-LAST:event_jButton7MouseExited
+
+    private void jButton7MouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton7MouseEntered
+        //-----> SALIDA HACIA LA DERECHA DE EL TEXTO INFORMES
+        Color INFORMES_COLOR_AZUL = new Color(54, 81, 207);
+        jButton7.setBackground(INFORMES_COLOR_AZUL);
+        AnimationClass INFORME = new AnimationClass();//INFORMES
+
+    }//GEN-LAST:event_jButton7MouseEntered
+
+    private void BTN_PRODUCTOSMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_PRODUCTOSMouseExited
+        //<----- SALIDA HACIA LA IZQUIERDA DE EL TEXTO DE PRODUCTO
+        BTN_PRODUCTOS.setBackground(null);
+        AnimationClass PRODUCTOO = new AnimationClass();//PRODUCTO
+        ;//(Posición Actual, Posición futura, velocidad, velocidad, nombre del objeto)// MUESTRA EL TEXTO DE ESTADISTICOS//
+    }//GEN-LAST:event_BTN_PRODUCTOSMouseExited
+
+    private void BTN_PRODUCTOSMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_PRODUCTOSMouseEntered
+        //-----> SALIDA HACIA LA DERECHA DE EL TEXTO PRODUCTO
+        Color PRODUCTO_COLOR_AZUL = new Color(54, 81, 207);
+        BTN_PRODUCTOS.setBackground(PRODUCTO_COLOR_AZUL);
+        AnimationClass PRODUCTO = new AnimationClass();//PRODUCTO
+        //(Posición Actual, Posición futura, velocidad, velocidad, nombre del objeto)// MUESTRA EL TEXTO DE ESTADISTICOS// */
+    }//GEN-LAST:event_BTN_PRODUCTOSMouseEntered
 
     private void BTN_MODO_DIAMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_MODO_DIAMouseEntered
-        Color COLOR_AZUL_OSCURO = new Color(54, 81, 207);
-        BTN_MODO_DIA.setBackground(COLOR_AZUL_OSCURO);
+        // TODO add your handling code here:
     }//GEN-LAST:event_BTN_MODO_DIAMouseEntered
 
-    private void BTN_MODO_DIAMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_MODO_DIAMouseExited
-        BTN_MODO_DIA.setBackground(null);
-    }//GEN-LAST:event_BTN_MODO_DIAMouseExited
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-    general.OpenWindows(WinUser_1, null);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void BTN_MODO_NOCHEMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_BTN_MODO_NOCHEMouseEntered
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_BTN_MODO_NOCHEMouseEntered
 
-    private void jButton7AncestorAdded(javax.swing.event.AncestorEvent evt) {//GEN-FIRST:event_jButton7AncestorAdded
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7AncestorAdded
-
-    private void txt_CONFIGURACIONMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txt_CONFIGURACIONMouseClicked
-general.OpenWindows(WinConf_1, null);        // TODO add your handling code here:
-    }//GEN-LAST:event_txt_CONFIGURACIONMouseClicked
-
-    private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
-general.OpenWindows(WinCrearBG_1, null);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5MouseClicked
-
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-general.OpenWindows(WindFnidad_1, null);        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton4MouseClicked
-
-    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
-general.OpenWindows(CrearProducto, null);  
-CrearProducto.InicioProducto();// TODO add your handling code here:
-    }//GEN-LAST:event_jButton6MouseClicked
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        
+                // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2MouseClicked
 
     /**
      * @param args the command line arguments
@@ -1609,7 +994,7 @@ CrearProducto.InicioProducto();// TODO add your handling code here:
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -1624,38 +1009,7 @@ CrearProducto.InicioProducto();// TODO add your handling code here:
             java.util.logging.Logger.getLogger(Startt2.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
+   
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -1663,78 +1017,43 @@ CrearProducto.InicioProducto();// TODO add your handling code here:
             }
         });
     }
-      public GENERAL_CLASS general = new GENERAL_CLASS();
-        public  FAMILIA1 WinFm1_1;
-        public  FAMILIA2 WinFm2_1  ;
-        public  FAMILIA3 WinFm3_1  ;
-        public  UNDMEDIDA WindFnidad_1 ;
-        public  CrearBodegas WinCrearBG_1  ;
-        public  Usuario WinUser_1 ;
-        public  Configuracion WinConf_1;
-        public  CrearProducto CrearProducto;
+  
+    public Estadisticas Estadistica;
+    CrearUsuario CrearUser=null; 
+    public JSeparator Separador[];
+    public  JLabel txtEstadisticas[];
+    public JPanel Lateal[];
+    public JPanel PanelEstadisticas[];
+    public JButton Botones_Panel[];
+    public JLabel Text[];
+    public JButton BTN[]={};
+       
+    public boolean IconosModo = false;
+    public JLabel[] Hojas={};
+    public JLabel [] Extrellas={};
+    public GENERAL_CLASS general = new GENERAL_CLASS();
+    public FAMILIA1 WinFm1_1;
+    public FAMILIA2 WinFm2_1;
+    public FAMILIA3 WinFm3_1;
+    public UNDMEDIDA WindFnidad_1;
+    public CrearBodegas WinCrearBG_1;
+    public Configuracion WinConf_1;
+    public CrearProducto CrearProducto;
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField BOX_BUSCAR;
-    private javax.swing.JButton BTN_AYER;
-    private javax.swing.JButton BTN_BUSCAR;
-    private javax.swing.JButton BTN_FECHA;
-    private javax.swing.JButton BTN_HOY;
+    private javax.swing.JButton BTN_ALMACEN;
+    private javax.swing.JButton BTN_CLIENTES;
     private javax.swing.JLabel BTN_MENU;
-    private javax.swing.JButton BTN_MES;
     private javax.swing.JLabel BTN_MODO_DIA;
     private javax.swing.JLabel BTN_MODO_NOCHE;
-    private javax.swing.JButton BTN_SEMANA;
-    private javax.swing.JButton BTN_TODO;
-    private javax.swing.JButton BTN_USUARIOS;
-    private javax.swing.JPanel CLIENTES_PANEL1;
-    private javax.swing.JDesktopPane CLIENTES_jDesktopPane1;
-    private javax.swing.JLabel ESTRELLAS_1;
-    private javax.swing.JLabel ESTRELLA_10;
-    private javax.swing.JLabel ESTRELLA_11;
-    private javax.swing.JLabel ESTRELLA_12;
-    private javax.swing.JLabel ESTRELLA_13;
-    private javax.swing.JLabel ESTRELLA_14;
-    private javax.swing.JLabel ESTRELLA_15;
-    private javax.swing.JLabel ESTRELLA_16;
-    private javax.swing.JLabel ESTRELLA_17;
-    private javax.swing.JLabel ESTRELLA_2;
-    private javax.swing.JLabel ESTRELLA_3;
-    private javax.swing.JLabel ESTRELLA_35;
-    private javax.swing.JLabel ESTRELLA_4;
-    private javax.swing.JLabel ESTRELLA_5;
-    private javax.swing.JLabel ESTRELLA_6;
-    private javax.swing.JLabel ESTRELLA_7;
-    private javax.swing.JLabel ESTRELLA_8;
-    private javax.swing.JLabel ESTRELLA_9;
-    private javax.swing.JLabel HOJA_1;
-    private javax.swing.JLabel HOJA_10;
-    private javax.swing.JLabel HOJA_11;
-    private javax.swing.JLabel HOJA_12;
-    private javax.swing.JLabel HOJA_13;
-    private javax.swing.JLabel HOJA_14;
-    private javax.swing.JLabel HOJA_15;
-    private javax.swing.JLabel HOJA_16;
-    private javax.swing.JLabel HOJA_17;
-    private javax.swing.JLabel HOJA_2;
-    private javax.swing.JLabel HOJA_3;
-    private javax.swing.JLabel HOJA_4;
-    private javax.swing.JLabel HOJA_5;
-    private javax.swing.JLabel HOJA_6;
-    private javax.swing.JLabel HOJA_7;
-    private javax.swing.JLabel HOJA_8;
-    private javax.swing.JLabel HOJA_9;
-    private javax.swing.JLabel LBL_CERRAR;
-    private javax.swing.JLabel LBL_MAXIMIZAR;
-    private javax.swing.JLabel LBL_MINIMIZAR;
-    private javax.swing.JLabel LBL_OFF_ESTRELLAS;
-    private javax.swing.JLabel LBL_OFF_HOJAS;
-    private javax.swing.JLabel LBL_ON_ESTRELLAS;
-    private javax.swing.JLabel LBL_ON_HOJAS;
-    private javax.swing.JLabel LBL_REDIMENCIONAR;
-    private javax.swing.JPanel Menu_Central;
+    private javax.swing.JButton BTN_PRODUCTOS;
+    private javax.swing.JButton BTN_VENTAS;
+    private javax.swing.JButton BtLicencia;
+    private javax.swing.JPanel HomePrincipal;
+    private javax.swing.JLabel Iconos_Off;
+    private javax.swing.JLabel Iconos_True;
     private javax.swing.JPanel Menu_Lateral_Izquierdo;
     private javax.swing.JPanel Menu_deslizable_Panel_Contenedor_Botones;
-    private javax.swing.JPanel OPCIONES_PANEL_DESLIZABLE;
-    private javax.swing.JPanel Panel_Ganancias;
+    private javax.swing.JScrollPane ScrollDesktop;
     private javax.swing.JLabel TXT_DIA;
     private javax.swing.JLabel TXT_NOCHE;
     private javax.swing.JLabel estrella4;
@@ -1748,7 +1067,6 @@ CrearProducto.InicioProducto();// TODO add your handling code here:
     private javax.swing.JLabel estrella_8;
     private javax.swing.JLabel estrella_9;
     private javax.swing.JLabel hoja_1;
-    private javax.swing.JLabel hoja_10;
     private javax.swing.JLabel hoja_2;
     private javax.swing.JLabel hoja_3;
     private javax.swing.JLabel hoja_4;
@@ -1757,90 +1075,18 @@ CrearProducto.InicioProducto();// TODO add your handling code here:
     private javax.swing.JLabel hoja_7;
     private javax.swing.JLabel hoja_8;
     private javax.swing.JLabel hoja_9;
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
-    private javax.swing.JLabel jLabel13;
-    private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel15;
-    private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
-    private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel22;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
-    private javax.swing.JLabel jLabel25;
-    private javax.swing.JLabel jLabel26;
-    private javax.swing.JLabel jLabel28;
-    private javax.swing.JLabel jLabel29;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
-    private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel42;
-    private javax.swing.JLabel jLabel44;
-    private javax.swing.JLabel jLabel45;
-    private javax.swing.JLabel jLabel46;
-    private javax.swing.JLabel jLabel47;
+    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel69;
-    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel10;
-    private javax.swing.JPanel jPanel11;
-    private javax.swing.JPanel jPanel12;
-    private javax.swing.JPanel jPanel13;
-    private javax.swing.JPanel jPanel14;
-    private javax.swing.JPanel jPanel15;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel5;
-    private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
-    private javax.swing.JPanel jPanel9;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JSeparator jSeparator10;
-    private javax.swing.JSeparator jSeparator11;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
-    private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JSeparator jSeparator6;
-    private javax.swing.JSeparator jSeparator7;
-    private javax.swing.JSeparator jSeparator8;
-    private javax.swing.JSeparator jSeparator9;
-    private javax.swing.JLabel lbl_buscar;
-    private javax.swing.JLabel logo_claro;
-    private javax.swing.JLabel logo_claro2;
-    private javax.swing.JLabel logo_oscuro;
-    private javax.swing.JLabel txt_ALMACEN;
     private javax.swing.JLabel txt_BUSQUEDA;
     private javax.swing.JLabel txt_CHATBOT;
-    private javax.swing.JLabel txt_CLIENTES;
     private javax.swing.JLabel txt_CONFIGURACION;
-    private javax.swing.JLabel txt_Estadisticos;
-    private javax.swing.JLabel txt_Informes;
-    private javax.swing.JLabel txt_Producto;
-    private javax.swing.JLabel txt_VENTAS;
     // End of variables declaration//GEN-END:variables
 }

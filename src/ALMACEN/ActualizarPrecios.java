@@ -16,8 +16,6 @@ package ALMACEN;
 
 import Proveedor.AgregarProveedoresProductos;
 import CLASS.GENERAL_CLASS;
-import HOME.EsperarCargar;
-
 
 
 
@@ -213,13 +211,7 @@ public class ActualizarPrecios extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        try {
-               EsperarCargar windo = new EsperarCargar();
-        general.OpenWindows(windo, null);  
-            // TODO add your handling code here:
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

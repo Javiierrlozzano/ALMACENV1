@@ -7,7 +7,9 @@ package CLASS;
 
 
 
-import HOME.EsperarCargar;
+
+import HOME.Estadisticas;
+import USUARIO.CrearUsuario;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlInput;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
@@ -46,8 +48,41 @@ import net.sf.jasperreports.view.JasperViewer;
  * @author JAVIER
  */
 public class GENERAL_CLASS {
+    
+    
+    
+    //Funcion para agregar InternalFrame al DesktopPane Evaluando si el panel esta Abierto 
+     public void AbrirJInternalFrame(JInternalFrame Windows ,JDesktopPane Panel,MySQL_Query QuerySQL, boolean ActivarPanel){
+         try{
+            JInternalFrame[] pruebas = Panel.getAllFrames();
+            if (pruebas.length == 0) {
+             
+                 Windows.setVisible(true);
+                 Panel.add(Windows);
+            }
+            for (int i = 0; i < pruebas.length; i++) {
+            //Cada vez que se cree un InternalFrame Se tiene que hacer esta funcion.
+            if (Windows.isVisible() ) {
+               if (Windows.getClass() == Estadisticas.class) {
+                    Windows= new Estadisticas(); 
+                    Windows.setVisible(true);
+                    Panel.add(Windows);
+                }else if  (Windows.getClass() == CrearUsuario.class){
+                    Windows= new CrearUsuario(QuerySQL,ActivarPanel); 
+                    Windows.setVisible(true);
+                    Panel.add(Windows);
+                }
+            }else{
+                System.out.println("ventana abierta ");
+            }
+        }
+        }catch(Exception ex){
+            System.out.println("error " +ex);
+        }
+    }
+    
   
-    //Agregar  Text 
+    //Agregar  Texto 
     public void TextProp(JTextField TxtField[] ,String PropText[]){
             TextPrompt Tx;
             for (int i = 0; i < TxtField.length; i++) {

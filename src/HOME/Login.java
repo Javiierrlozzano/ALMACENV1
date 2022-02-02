@@ -18,13 +18,16 @@ import Producto.UNDMEDIDA;
 import ALMACEN.EntradaMercancia;
 import ALMACEN.InventarioGeneral;
 import ALMACEN.OrdenesPedido;
-import USUARIO.Usuario;
+
 
 import CLASS.GENERAL_CLASS;
 import CLASS.MySQL_Query;
 import java.awt.Color;
+import javafx.scene.input.KeyEvent;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
+
 
 /**
  *
@@ -38,10 +41,11 @@ public class Login extends javax.swing.JFrame {
      */
     public Login() throws InterruptedException {
         initComponents();
+        Ingresar.setVisible(false);
         UIManager.put( "nimbusOrange", new Color( 0, 163, 0) );
     }
 
-    public static void CargarVentanas(FAMILIA1 WinFm_1,FAMILIA2 WinFm_2,FAMILIA3 WinFm_3,UNDMEDIDA WindFnidad_,CrearBodegas WinCrearBG_,Usuario WinUser_,Configuracion WinConf_){
+    public static void CargarVentanas(FAMILIA1 WinFm_1,FAMILIA2 WinFm_2,FAMILIA3 WinFm_3,UNDMEDIDA WindFnidad_,CrearBodegas WinCrearBG_,Configuracion WinConf_){
     
     
             WinFm1 =WinFm_1;
@@ -54,8 +58,8 @@ public class Login extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,WindFnidad.toString());
             WinCrearBG  =WinCrearBG_;
             JOptionPane.showMessageDialog(null,WinCrearBG.toString());
-            WinUser =WinUser_;
-            JOptionPane.showMessageDialog(null,WinUser.toString());
+          
+        
             WinConf=WinConf_;
             JOptionPane.showMessageDialog(null,WinConf.toString());
            // st= new Start(WinFm_1,WinFm_2,WinFm_3,WindFnidad_,WinCrearBG_,WinUser_,WinConf_);
@@ -82,6 +86,7 @@ public class Login extends javax.swing.JFrame {
         Titulo_InicioSesion = new javax.swing.JLabel();
         Texto_Usuario = new javax.swing.JLabel();
         btnCerrar = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
         jTextField1 = new javax.swing.JTextField();
         jPasswordField1 = new javax.swing.JPasswordField();
         Ingresar = new javax.swing.JLabel();
@@ -153,6 +158,17 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(btnCerrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 10, -1, -1));
 
+        jButton1.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
+        jButton1.setText("Iniciar");
+        jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(382, 457, -1, -1));
+
         jTextField1.setBackground(new java.awt.Color(35, 49, 62));
         jTextField1.setFont(new java.awt.Font("Century Gothic", 0, 14)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
@@ -165,6 +181,11 @@ public class Login extends javax.swing.JFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
+        jTextField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField1KeyTyped(evt);
+            }
+        });
         getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 360, 230, 25));
 
         jPasswordField1.setBackground(new java.awt.Color(35, 49, 62));
@@ -173,6 +194,11 @@ public class Login extends javax.swing.JFrame {
         jPasswordField1.setBorder(null);
         jPasswordField1.setCaretColor(new java.awt.Color(255, 255, 255));
         jPasswordField1.setOpaque(false);
+        jPasswordField1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jPasswordField1KeyTyped(evt);
+            }
+        });
         getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 410, 210, 22));
 
         Ingresar.setFont(new java.awt.Font("Century Gothic", 0, 16)); // NOI18N
@@ -299,10 +325,35 @@ public class Login extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_loadingbarStateChanged
 
+    private void jPasswordField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPasswordField1KeyTyped
+        char cTeclaPresionada=evt.getKeyChar();
+        
+        if (cTeclaPresionada==java.awt.event.KeyEvent.VK_ENTER) {
+            jButton1.doClick();
+            
+        }
+    }//GEN-LAST:event_jPasswordField1KeyTyped
+
+    private void jTextField1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyTyped
+        char cTeclaPresionada=evt.getKeyChar();
+        
+        if (cTeclaPresionada==java.awt.event.KeyEvent.VK_ENTER) {
+            jButton1.doClick();
+            
+        }
+    }//GEN-LAST:event_jTextField1KeyTyped
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        st.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) throws InterruptedException {
+
+        
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -310,7 +361,7 @@ public class Login extends javax.swing.JFrame {
          */
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
+                if ("Windows".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
                 }
@@ -337,6 +388,7 @@ public class Login extends javax.swing.JFrame {
                 Thread.sleep(20);
                  if(i==1){
                     Querys = new MySQL_Query(Dtas);
+                    Es= new Estadisticas();
                 }
              if (i==5) {
                   WindFnidad  = new UNDMEDIDA(Querys,true);
@@ -353,7 +405,7 @@ public class Login extends javax.swing.JFrame {
                 }if (i == 30) {
                     WinConf= new  Configuracion(Querys,false);
                 }if (i==40) {
-                    WinUser= new Usuario(Querys,false );
+              
                 }if (i==50) {
                     WinImpuesto = new IMPUESTO (Querys,true);
                 }
@@ -361,7 +413,7 @@ public class Login extends javax.swing.JFrame {
                     win = new CrearProducto(Querys, false, WinCrearBG, WinImpuesto, WinFm1, WinFm2, WinFm3, WindFnidad);
                 }
                 if(i==70){
-                st= new Startt(WinFm1, WinFm2, WinFm3, WindFnidad, WinCrearBG, WinUser, WinConf,win);
+                st= new Startt2(WinFm1, WinFm2, WinFm3, WindFnidad, WinCrearBG, WinConf,win,Es);
                 }
                 
                 loadingnum.setText(Integer.toString(i)+"%");// Acà se incrementan los nùmeros de porcentaje de cargando, hay un error, los nùmeros no para de cargar
@@ -382,13 +434,13 @@ public class Login extends javax.swing.JFrame {
             }
        
     }
+        public static Estadisticas Es;
         public static MySQL_Query Querys ;
         public static FAMILIA1 WinFm1;
         public static FAMILIA2 WinFm2  ;
         public static FAMILIA3 WinFm3  ;
         public static UNDMEDIDA WindFnidad ;
         public static CrearBodegas WinCrearBG  ;
-        public  static Usuario WinUser ;
         public static Configuracion WinConf;
         public static   CrearProducto win;
     // Declaracion de Variables
@@ -407,7 +459,7 @@ public class Login extends javax.swing.JFrame {
    public static   GENERAL_CLASS Clases = new GENERAL_CLASS();
    
   
-   static Startt st;
+   static Startt2 st;
 
     
     
@@ -424,6 +476,7 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel Texto_Usuario;
     private javax.swing.JLabel Titulo_InicioSesion;
     private javax.swing.JLabel btnCerrar;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
