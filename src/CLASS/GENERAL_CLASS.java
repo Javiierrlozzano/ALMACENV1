@@ -9,6 +9,9 @@ package CLASS;
 
 
 import HOME.Estadisticas;
+import Producto.FAMILIA1_1;
+import Producto.FAMILIA2_2;
+import Producto.UNIDADMEDIDA;
 import USUARIO.CrearUsuario;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlInput;
@@ -26,7 +29,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.http.HttpResponse;
 import java.sql.ResultSet;
+import java.util.Dictionary;
+import java.util.Hashtable;
 
 import java.util.Map;
 import java.util.Vector;
@@ -41,6 +47,8 @@ import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.engine.JasperReport;
 import net.sf.jasperreports.engine.util.JRLoader;
 import net.sf.jasperreports.view.JasperViewer;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 
 /**
@@ -62,20 +70,47 @@ public class GENERAL_CLASS {
             }
             for (int i = 0; i < pruebas.length; i++) {
             //Cada vez que se cree un InternalFrame Se tiene que hacer esta funcion.
-            if (Windows.isVisible() ) {
+            if (!Windows.isVisible() ) {
                if (Windows.getClass() == Estadisticas.class) {
-                    Windows= new Estadisticas(); 
-                    Windows.setVisible(true);
-                    Panel.add(Windows);
-                }else if  (Windows.getClass() == CrearUsuario.class){
-                    Windows= new CrearUsuario(QuerySQL,ActivarPanel); 
-                    Windows.setVisible(true);
-                    Panel.add(Windows);
+                    
+                    if (!Windows.isVisible()) {
+                       Windows= new Estadisticas(); 
+                       Windows.setVisible(true);
+                       Panel.add(Windows);
+                   }
+                   
+                } if  (Windows.getClass()== CrearUsuario.class){
+                       if (!Windows.isVisible()) {
+                       Windows= new CrearUsuario(QuerySQL,ActivarPanel); 
+                       Windows.setVisible(true);
+                       Panel.add(Windows);
+                   }
+                } if  (Windows.getClass()== UNIDADMEDIDA.class){
+                       if (!Windows.isVisible()) {
+                       Windows= new UNIDADMEDIDA(QuerySQL,ActivarPanel); 
+                       Windows.setVisible(true);
+                       Panel.add(Windows);
+                   }
+                }if  (Windows.getClass()== FAMILIA1_1.class){
+                       if (!Windows.isVisible()) {
+                       Windows= new FAMILIA1_1(QuerySQL,ActivarPanel); 
+                       Windows.setVisible(true);
+                       Panel.add(Windows);
+                   }
                 }
-            }else{
+                if  (Windows.getClass()== FAMILIA2_2.class){
+                       if (!Windows.isVisible()) {
+                       Windows= new FAMILIA2_2(QuerySQL,ActivarPanel); 
+                       Windows.setVisible(true);
+                       Panel.add(Windows);
+                   }
+                }
+              
+            }
+         else{
                 System.out.println("ventana abierta ");
             }
-        }
+            }
         }catch(Exception ex){
             System.out.println("error " +ex);
         }
@@ -276,7 +311,7 @@ public class GENERAL_CLASS {
         }
         
     }
- 
+     
     //Insertar Imagenes a un Label 
       public void InsertarImagenLabel(byte[] imagen, JLabel Label){
             if (imagen.length != 0 || imagen !=null ) {
@@ -285,7 +320,6 @@ public class GENERAL_CLASS {
                 InputStream in = new ByteArrayInputStream(imagen);
                 image = ImageIO.read(in);
                 ImageIcon imgi = new ImageIcon(image.getScaledInstance(60, 60, 0));
-                
                 Label.setIcon(imgi);
             }catch(IOException ex){ 
                 JOptionPane.showMessageDialog(null,"Error insertar Imagen "+ ex.getMessage()); 
@@ -295,7 +329,109 @@ public class GENERAL_CLASS {
         }
     } 
     
+       public void AgregarTableAPI (JTable Table , String Colum[],  String ResultadoAPI  ){
+         DefaultTableModel  modelo ;
+        try{
+         modelo =(DefaultTableModel) Table.getModel();
+         modelo.setRowCount(0);
+         JSONArray arreglo = new JSONArray(ResultadoAPI);
+         String datos[] = new String[Colum.length];
+     
+         for (int indicex = 0;indicex < arreglo.length();indicex++){
+            JSONObject atributo = arreglo.getJSONObject(indicex);
+             for (int indicey = 0; indicey < datos.length; indicey++) {
+                    datos[indicey] = String.valueOf(atributo.get(Colum[indicey])) ;
+                }
+            modelo.addRow(datos);
+     }
+         
+            
+        }
+        catch(Exception x){
+            System.out.print("Error al llenar "+x.getMessage());
+        }
+    }
+        public  Dictionary<String, String>  DiccionarioAPI( String[] Colum,String ResultadoAPI){
+         Dictionary<String,String> Diccionario = null;
+        try{
+          Diccionario =new Hashtable<String,String>();
+  
+         JSONArray arreglo = new JSONArray(ResultadoAPI);
+         String datos[] = new String[Colum.length];
+     
+         for (int indicex = 0;indicex < arreglo.length();indicex++){
+            JSONObject atributo = arreglo.getJSONObject(indicex);
+            
+             for (int indicey = 0; indicey < datos.length; indicey++) {
+                    datos[indicey] = String.valueOf(atributo.get(Colum[indicey])) ;
+             }             
+             Diccionario.put(datos[1], datos[0]);
+        }
+           
+        return Diccionario;   
+        }
+        catch(Exception x){
+            System.out.print("Error al llenar "+x.getMessage());
+        }
+           
+           
+           try {
+          
+            
+            
+           
+            
+        }
+        catch(Exception ex){
+        
+        }
+     return Diccionario;
+    }
+       
+public  void AgregarDatosComboboxAPI(JComboBox Combobox, String[] Colum,String ResultadoAPI){
+         //Dictionary<String,String> Diccionario = null;
+        try{
+        //  Diccionario =new Hashtable<String,String>();
+          Combobox.removeAllItems();
+          Combobox.addItem("Seleccionar");
+          Combobox.setSelectedIndex(0);
+         JSONArray arreglo = new JSONArray(ResultadoAPI);
+         String datos[] = new String[Colum.length];
+     
+         for (int indicex = 0;indicex < arreglo.length();indicex++){
+            JSONObject atributo = arreglo.getJSONObject(indicex);
+            
+             for (int indicey = 0; indicey < datos.length; indicey++) {
+                    datos[indicey] = String.valueOf(atributo.get(Colum[indicey])) ;
+                  //  System.out.println(atributo.get(Colum[indicey]));
+                  //  System.out.println(datos[indicey] + " "+indicey);
+                Combobox.addItem(datos[indicey]);
+                }
+         //    Diccionario.put(datos[1], datos[0]);
+              //System.out.println(datos[1] +""+ datos[0]);
+        }
+           
+      //  return Diccionario;   
+        }
+        catch(Exception x){
+            System.out.print("Error al llenar "+x.getMessage());
+        }
+           
+           
+           try {
+          
+            
+            
+           
+            
+        }
+        catch(Exception ex){
+        
+        }
+     //return Diccionario;
+    }
       //Agregar Resultados en Tablas de MySQL
+      
     public void AgregarTable(JTable Table , int Colum[], ResultSet rs ){
          DefaultTableModel  modelo ;
         try{

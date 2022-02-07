@@ -2,4 +2,4 @@
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools |the properties is of @InputSystem
---><Document><ConexionMySQL><NameBD >almacen.pos  </NameBD><NameHost>127.0.0.1</NameHost ><Password>123</Password><NameUser>usuario</NameUser></ConexionMySQL></Document>
+--><Document><ConexionMySQL><NameBD >almacen.pos  </NameBD><NameHost>127.0.0.1</NameHost ><Password>123</Password><NameUser>usuario</NameUser><Port>8080</Port></ConexionMySQL></Document>

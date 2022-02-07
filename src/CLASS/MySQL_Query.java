@@ -5,17 +5,21 @@
  */
 package CLASS;
 
-import java.awt.image.BufferedImage;
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
+import java.net.URI;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import javax.imageio.ImageIO;
-import javax.swing.ImageIcon;
-
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import org.json.JSONArray;
+import org.json.JSONObject;
 
 
 /**
@@ -24,8 +28,14 @@ import javax.swing.JOptionPane;
  */
 //Generador Querys de Busqueda y modificacion de datos 
 public class MySQL_Query extends CONEXION_MySQL  {
+    public String  ServidorAPI= "caja02";
+    public String PuertoAPI ="8080";
+    
+    
+    
     
     private JLabel  TextCarga;
+    
      // Abrir Conexion y heredar de la clase Conexion, se realiza para llamar los datos de MySQL
     public MySQL_Query(JLabel TextCarga1 ){
         Conexion();
@@ -56,7 +66,7 @@ public class MySQL_Query extends CONEXION_MySQL  {
         }
     }
     
-public void InsertarCosto(String id,String  ImpuestoQuerys ,String  ValorImpuestoQuerys ,String  CostoBaseQuerys ,String  UtilidaProQuerys ,String  UtilidadValorQuerys , String  CantUnitariaQuerys ,String  CantidadPaqueteQuerys ,String  CantidadTotalQuerys ,String  CostoCantidadTotalQuerys ,String  PrecioPublicoQuerys ,String  ComisionProQuerys , String  ComisionValorQuerys ,String  ValorGanarQuerys ,String  ValorFleteQuerys ,String  PesoKGQuerys ,String ProveedorQuerys){
+    public void InsertarCosto(String id,String  ImpuestoQuerys ,String  ValorImpuestoQuerys ,String  CostoBaseQuerys ,String  UtilidaProQuerys ,String  UtilidadValorQuerys , String  CantUnitariaQuerys ,String  CantidadPaqueteQuerys ,String  CantidadTotalQuerys ,String  CostoCantidadTotalQuerys ,String  PrecioPublicoQuerys ,String  ComisionProQuerys , String  ComisionValorQuerys ,String  ValorGanarQuerys ,String  ValorFleteQuerys ,String  PesoKGQuerys ,String ProveedorQuerys){
     String Impuestos = null ;
     String Proveedor = null;
      try{
@@ -119,21 +129,12 @@ public void InsertarCosto(String id,String  ImpuestoQuerys ,String  ValorImpuest
         return resultado ;
 
     }
-    public void CodigoAlternos(){
-    String SQL = "";
-    }
+  
     //Buscar Proveedor Nombre y Nit 
     public ResultSet BuscarUsuarioNit(){
          ResultSet resultado = null ;
          try{
-             /* 
-              resultado = Buscar ("SELECT us.NombreUsuari , us.NDocumento FROM `almacen.pos`.`proveedor`  AS pro   \n" +
-        "INNER JOIN `almacen.pos`.`usuariobasico` AS us ON us.IdUsuario = pro.UsuarioBasico_IdUsuario \n" +
-        "INNER JOIN  `almacen.pos`.`estados` as es  ON \n" +
-        "us.Estado = es.idEstado WHERE es.NombreEstado ='Activo' \n" +
-        "\n" +
-        "ORDER BY `NombreUsuari` DESC, `UsuarioBasico_IdUsuario` ASC LIMIT 1000;");
-             */
+ 
          resultado = Buscar ("SELECT us.NombreUsuari , us.NDocumento FROM `almacen.pos`.`proveedor`  AS pro   \n" +
         "INNER JOIN `almacen.pos`.`usuariobasico` AS us ON us.IdUsuario = pro.UsuarioBasico_IdUsuario \n" +
         "WHERE  us.Estado ='Activo' ORDER BY `NombreUsuari` DESC, `UsuarioBasico_IdUsuario` ASC LIMIT 1000;");
@@ -199,17 +200,7 @@ public void InsertarCosto(String id,String  ImpuestoQuerys ,String  ValorImpuest
     }
     //Parametros Unidad
     //iniciar datos
-    public ResultSet IniUnidad(){
-            ResultSet resultado ;
-        try {
-            resultado  =Buscar("SELECT idUnidadMedida ,Descripcion, Valor , Estado FROM `almacen.pos`.`unidadmedida`");
-           TextCarga.setText("Iniciando Unidad de Medida....");
-            return resultado;
-        }catch(Exception ex){
-        JOptionPane.showMessageDialog(null,"Error" + ex.getMessage());
-        }
-        return resultado = null;
-    }
+
     //ingresar datos 
     public void InsertUnidad(String Estado,String Valor,String Descripcion){
              
@@ -249,22 +240,8 @@ public void InsertarCosto(String id,String  ImpuestoQuerys ,String  ValorImpuest
             }catch(Exception ex){
         JOptionPane.showMessageDialog(null,"Error" + ex.getMessage());
         }}   
-    //Actualizar Datos 
-    public void UpdateUnidad(String id,String Estado,String Valor,String Descripcion){
-     String idEstados = null ;    
-        try {/*
-            ResultSet  resultado  =Buscar("SELECT Estado   FROM estados  WHERE  NombreEstado = '"+Estado+"' LIMIT 1");
-                while (resultado.next()){
-                   idEstados =  resultado.getString(1);}*/
-            Ingresar("UPDATE `almacen.pos`.`unidadmedida` SET " +
-                        "`Descripcion`='"+Descripcion+"' ," +
-                        "`Valor` = '"+Valor+"' ," +
-                        "Estado = '"+Estado+"'" +
-                        "WHERE `idUnidadMedida`="+id+";");
-            }catch(Exception ex){
-        JOptionPane.showMessageDialog(null,"Error" + ex.getMessage());
-        }
-    }
+
+
     //Inicios Agregar Producto
     //Insertar codigos;
     public void InsertarCodigos(String codig ,String Cantidad,String Valor ,String id){

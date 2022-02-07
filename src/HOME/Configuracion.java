@@ -38,7 +38,7 @@ public final class Configuracion extends javax.swing.JFrame {
          ini= inic;
          activa(ini);
          Conn= new CONEXION_MySQL();
-         Queryes.SetLabel(NameUser,ContraUser,HotsName,NameBD);
+         Queryes.SetLabel(NameUser,ContraUser,HotsName,NameBD,HotsName1);
          try{
          IniciarData();
          }catch(SQLException ex){
@@ -119,6 +119,7 @@ public final class Configuracion extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         jLabel22 = new javax.swing.JLabel();
         jLabel23 = new javax.swing.JLabel();
+        HotsName1 = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
@@ -365,7 +366,7 @@ public final class Configuracion extends javax.swing.JFrame {
         jPanel2.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 30, 130, 140));
 
         HotsName.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
-        jPanel2.add(HotsName, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 180, 30));
+        jPanel2.add(HotsName, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 220, 180, 30));
 
         NameUser.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
         jPanel2.add(NameUser, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, 170, 30));
@@ -425,6 +426,9 @@ public final class Configuracion extends javax.swing.JFrame {
         jLabel23.setForeground(new java.awt.Color(255, 255, 0));
         jLabel23.setText("al usuario y contraseña designados, sino la conexión será");
         jPanel2.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 290, -1, -1));
+
+        HotsName1.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
+        jPanel2.add(HotsName1, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 170, 180, 30));
 
         jTabbedPane1.addTab("CONFIGURACION BD", jPanel2);
 
@@ -612,6 +616,7 @@ activa(true);        // TODO add your handling code here:
     private javax.swing.JTextField Direccion;
     private javax.swing.JTextField Email;
     private javax.swing.JTextField HotsName;
+    private javax.swing.JTextField HotsName1;
     private javax.swing.JTextField IntidacorCo;
     private javax.swing.JTextField NameBD;
     private javax.swing.JTextField NameUser;

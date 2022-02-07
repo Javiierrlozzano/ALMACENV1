@@ -5,17 +5,24 @@
  */
 package HOME;
 
+
+
+
+
 /**
  *
  * @author JAVIER
  */
 public class Estadisticas extends javax.swing.JInternalFrame {
+   
 
     /**
      * Creates new form Estadisticas1
      */
     public Estadisticas() {
+    
         initComponents();
+        
     }
 
     /**
@@ -129,8 +136,17 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         EstadoPro = new javax.swing.JComboBox<>();
         hoja_10 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+        setBorder(null);
+        setClosable(true);
+        setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
+        setIconifiable(true);
+        setMaximizable(true);
+        setOpaque(true);
+
         Home.setBackground(new java.awt.Color(10, 15, 42));
         Home.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Home.setPreferredSize(new java.awt.Dimension(1080, 500));
         Home.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 HomeMouseClicked(evt);
@@ -163,12 +179,12 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         Panel_Ganancias.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 90, 20));
 
         ESTRELLA_14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_saturn_planet_50px.png"))); // NOI18N
-        Panel_Ganancias.add(ESTRELLA_14, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, -1, -1));
+        Panel_Ganancias.add(ESTRELLA_14, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, -1, -1));
 
         HOJA_14.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_nature_50px.png"))); // NOI18N
-        Panel_Ganancias.add(HOJA_14, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 200, -1, -1));
+        Panel_Ganancias.add(HOJA_14, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, -1, -1));
 
-        Home.add(Panel_Ganancias, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, 450, 270));
+        Home.add(Panel_Ganancias, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 450, 210));
 
         jPanel7.setBackground(new java.awt.Color(1, 1, 1));
         jPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -189,7 +205,7 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         HOJA_16.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_unchecked_checkbox_32px.png"))); // NOI18N
         jPanel7.add(HOJA_16, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 170, 40, -1));
 
-        Home.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 400, 360, 150));
+        Home.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 330, 290, 110));
 
         jPanel8.setBackground(new java.awt.Color(1, 1, 1));
         jPanel8.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -209,7 +225,7 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         jLabel24.setText("PRODUCTOS FACTURADOS");
         jPanel8.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
 
-        Home.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 400, 240, 150));
+        Home.add(jPanel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 330, 240, 110));
 
         jPanel9.setBackground(new java.awt.Color(1, 1, 1));
         jPanel9.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -223,12 +239,12 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         jLabel15.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(148, 148, 149));
         jLabel15.setText("hoy");
-        jPanel9.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
+        jPanel9.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, -1, -1));
 
         jLabel16.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(0, 214, 105));
         jLabel16.setText("0");
-        jPanel9.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+        jPanel9.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         jLabel25.setFont(new java.awt.Font("Arial", 0, 48)); // NOI18N
         jLabel25.setForeground(new java.awt.Color(255, 255, 255));
@@ -236,12 +252,12 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         jPanel9.add(jLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
         ESTRELLA_15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_astronaut_40px.png"))); // NOI18N
-        jPanel9.add(ESTRELLA_15, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, -1, -1));
+        jPanel9.add(ESTRELLA_15, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, -1, -1));
 
         HOJA_15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_penguin_40px_1.png"))); // NOI18N
-        jPanel9.add(HOJA_15, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 30, -1, -1));
+        jPanel9.add(HOJA_15, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 40, -1, -1));
 
-        Home.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 190, 370, 200));
+        Home.add(jPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 150, 340, 170));
 
         jPanel10.setBackground(new java.awt.Color(1, 1, 1));
         jPanel10.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -260,14 +276,14 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         jLabel20.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel20.setForeground(new java.awt.Color(0, 214, 105));
         jLabel20.setText("0");
-        jPanel10.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
+        jPanel10.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
         jLabel23.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel23.setForeground(new java.awt.Color(148, 148, 149));
         jLabel23.setText("hoy");
-        jPanel10.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
+        jPanel10.add(jLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
 
-        Home.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 190, 230, 200));
+        Home.add(jPanel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 150, 230, 170));
 
         jPanel11.setBackground(new java.awt.Color(1, 1, 1));
         jPanel11.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -285,14 +301,14 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         jLabel44.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel44.setForeground(new java.awt.Color(0, 214, 105));
         jLabel44.setText("0");
-        jPanel11.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
+        jPanel11.add(jLabel44, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 30, -1, -1));
 
         jLabel45.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel45.setForeground(new java.awt.Color(148, 148, 149));
         jLabel45.setText("hoy");
-        jPanel11.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, -1, -1));
+        jPanel11.add(jLabel45, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 60, -1, -1));
 
-        Home.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 650, 240, 140));
+        Home.add(jPanel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 240, 100));
 
         jPanel12.setBackground(new java.awt.Color(1, 1, 1));
         jPanel12.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -311,14 +327,14 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         jLabel31.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel31.setForeground(new java.awt.Color(0, 214, 105));
         jLabel31.setText("0");
-        jPanel12.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 110, -1, -1));
+        jPanel12.add(jLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, -1, -1));
 
         jLabel32.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel32.setForeground(new java.awt.Color(148, 148, 149));
         jLabel32.setText("hoy");
-        jPanel12.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, -1, -1));
+        jPanel12.add(jLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 90, -1, -1));
 
-        Home.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 470, 240, 170));
+        Home.add(jPanel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 370, 240, 130));
 
         jPanel13.setBackground(new java.awt.Color(1, 1, 1));
         jPanel13.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -332,19 +348,19 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         jLabel34.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel34.setForeground(new java.awt.Color(148, 148, 149));
         jLabel34.setText("hoy");
-        jPanel13.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, -1, -1));
+        jPanel13.add(jLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, -1, -1));
 
         jLabel35.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel35.setForeground(new java.awt.Color(0, 214, 105));
         jLabel35.setText("0");
-        jPanel13.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 100, -1, -1));
+        jPanel13.add(jLabel35, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, -1, -1));
 
         jLabel36.setFont(new java.awt.Font("Arial", 0, 48)); // NOI18N
         jLabel36.setForeground(new java.awt.Color(255, 255, 255));
         jLabel36.setText("0");
         jPanel13.add(jLabel36, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 30, -1, -1));
 
-        Home.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 470, 210, 170));
+        Home.add(jPanel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 370, 210, 140));
 
         jPanel14.setBackground(new java.awt.Color(1, 1, 1));
         jPanel14.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -362,14 +378,14 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         jLabel46.setFont(new java.awt.Font("Arial", 0, 24)); // NOI18N
         jLabel46.setForeground(new java.awt.Color(0, 214, 105));
         jLabel46.setText("0");
-        jPanel14.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+        jPanel14.add(jLabel46, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 20, -1, -1));
 
         jLabel47.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel47.setForeground(new java.awt.Color(148, 148, 149));
         jLabel47.setText("hoy");
-        jPanel14.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 120, -1, -1));
+        jPanel14.add(jLabel47, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 50, -1, -1));
 
-        Home.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 650, 200, 140));
+        Home.add(jPanel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 520, 210, 100));
 
         jPanel15.setBackground(new java.awt.Color(1, 1, 1));
         jPanel15.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -386,83 +402,88 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         jPanel15.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 90, 20));
 
         ESTRELLA_17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_bug_50px.png"))); // NOI18N
-        jPanel15.add(ESTRELLA_17, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, -1, -1));
+        jPanel15.add(ESTRELLA_17, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, -1, -1));
 
         HOJA_17.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_bug_50px.png"))); // NOI18N
-        jPanel15.add(HOJA_17, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 10, -1, -1));
+        jPanel15.add(HOJA_17, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 10, -1, -1));
 
-        Home.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 560, 610, 190));
+        Home.add(jPanel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 450, 490, 160));
 
         BTN_HOY.setBackground(new java.awt.Color(11, 24, 29));
         BTN_HOY.setForeground(new java.awt.Color(255, 255, 255));
         BTN_HOY.setText("HOY");
-        BTN_HOY.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Home.add(BTN_HOY, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 130, 70, 30));
+        BTN_HOY.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        BTN_HOY.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN_HOYActionPerformed(evt);
+            }
+        });
+        Home.add(BTN_HOY, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, 70, 30));
 
         BTN_AYER.setBackground(new java.awt.Color(11, 24, 29));
         BTN_AYER.setForeground(new java.awt.Color(255, 255, 255));
         BTN_AYER.setText("AYER");
-        BTN_AYER.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BTN_AYER.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         BTN_AYER.setOpaque(false);
-        Home.add(BTN_AYER, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, 70, 30));
+        Home.add(BTN_AYER, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 70, 30));
 
         BTN_SEMANA.setBackground(new java.awt.Color(11, 24, 29));
         BTN_SEMANA.setForeground(new java.awt.Color(255, 255, 255));
         BTN_SEMANA.setText("SEMANA");
-        BTN_SEMANA.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BTN_SEMANA.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         BTN_SEMANA.setOpaque(false);
-        Home.add(BTN_SEMANA, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 130, 80, 30));
+        Home.add(BTN_SEMANA, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 110, 80, 30));
 
         BTN_MES.setBackground(new java.awt.Color(11, 24, 29));
         BTN_MES.setForeground(new java.awt.Color(255, 255, 255));
         BTN_MES.setText("MES");
-        BTN_MES.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BTN_MES.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         BTN_MES.setOpaque(false);
-        Home.add(BTN_MES, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 130, 70, 30));
+        Home.add(BTN_MES, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 110, 70, 30));
 
         BTN_FECHA.setBackground(new java.awt.Color(11, 24, 29));
         BTN_FECHA.setForeground(new java.awt.Color(255, 255, 255));
         BTN_FECHA.setText("FECHA");
-        BTN_FECHA.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BTN_FECHA.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         BTN_FECHA.setOpaque(false);
-        Home.add(BTN_FECHA, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 130, 70, 30));
+        Home.add(BTN_FECHA, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 110, 70, 30));
 
         BTN_TODO.setBackground(new java.awt.Color(11, 24, 29));
         BTN_TODO.setForeground(new java.awt.Color(255, 255, 255));
         BTN_TODO.setText("TODO");
-        BTN_TODO.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BTN_TODO.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         BTN_TODO.setOpaque(false);
-        Home.add(BTN_TODO, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 130, 70, 30));
+        Home.add(BTN_TODO, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 110, 70, 30));
 
         BTN_USUARIOS.setBackground(new java.awt.Color(11, 24, 29));
         BTN_USUARIOS.setForeground(new java.awt.Color(255, 255, 255));
         BTN_USUARIOS.setText("USUARIO");
-        BTN_USUARIOS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BTN_USUARIOS.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         BTN_USUARIOS.setOpaque(false);
-        Home.add(BTN_USUARIOS, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 130, -1, 30));
+        Home.add(BTN_USUARIOS, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 110, -1, 30));
 
         jLabel3.setFont(new java.awt.Font("STXinwei", 1, 36)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("AUTOSERVICIO 20 DE JULIO");
-        Home.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 70, 520, 50));
+        Home.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 60, 520, 50));
 
         BTN_BUSCAR.setBackground(new java.awt.Color(0, 102, 255));
         BTN_BUSCAR.setForeground(new java.awt.Color(255, 255, 255));
         BTN_BUSCAR.setText("BUSCAR");
-        BTN_BUSCAR.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        Home.add(BTN_BUSCAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 30, 90, 40));
+        BTN_BUSCAR.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Home.add(BTN_BUSCAR, new org.netbeans.lib.awtextra.AbsoluteConstraints(910, 10, 90, 40));
 
         jLabel10.setBackground(new java.awt.Color(255, 255, 255));
         jLabel10.setFont(new java.awt.Font("STLiti", 0, 48)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Jetxcel");
-        Home.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 160, 50));
+        Home.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 160, 50));
 
         ESTRELLA_10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_starfish_10px.png"))); // NOI18N
-        Home.add(ESTRELLA_10, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 100, -1, -1));
+        Home.add(ESTRELLA_10, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 80, -1, -1));
 
         HOJA_10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_koala_10px.png"))); // NOI18N
-        Home.add(HOJA_10, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 100, -1, -1));
+        Home.add(HOJA_10, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 80, -1, -1));
 
         ESTRELLA_6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_starfish_20px.png"))); // NOI18N
         Home.add(ESTRELLA_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 10, 30, 30));
@@ -471,16 +492,16 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         Home.add(HOJA_6, new org.netbeans.lib.awtextra.AbsoluteConstraints(770, 10, 30, 30));
 
         ESTRELLA_12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_starfish_32px.png"))); // NOI18N
-        Home.add(ESTRELLA_12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 90, -1, -1));
+        Home.add(ESTRELLA_12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 70, -1, -1));
 
         HOJA_12.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_wood_32px.png"))); // NOI18N
-        Home.add(HOJA_12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 90, -1, -1));
+        Home.add(HOJA_12, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 70, -1, -1));
 
         ESTRELLA_13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_launch_30px_3.png"))); // NOI18N
-        Home.add(ESTRELLA_13, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 130, 40, 40));
+        Home.add(ESTRELLA_13, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 110, 40, 40));
 
         HOJA_13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_bird_30px.png"))); // NOI18N
-        Home.add(HOJA_13, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 130, 40, 40));
+        Home.add(HOJA_13, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 110, 40, 40));
 
         ESTRELLA_4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_starfish_32px.png"))); // NOI18N
         Home.add(ESTRELLA_4, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 0, -1, -1));
@@ -501,16 +522,16 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         Home.add(HOJA_5, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 0, 30, 30));
 
         ESTRELLA_11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_starfish_20px_2.png"))); // NOI18N
-        Home.add(ESTRELLA_11, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 120, 30, 30));
+        Home.add(ESTRELLA_11, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 100, 30, 30));
 
         HOJA_11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_tea_20px.png"))); // NOI18N
-        Home.add(HOJA_11, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 120, 30, 30));
+        Home.add(HOJA_11, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 100, 30, 30));
 
         ESTRELLA_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_astronaut_40px_1.png"))); // NOI18N
-        Home.add(ESTRELLA_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 50, 50));
+        Home.add(ESTRELLA_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 50, 50));
 
         HOJA_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_maple_leaf_40px_1.png"))); // NOI18N
-        Home.add(HOJA_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 140, 50, 50));
+        Home.add(HOJA_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 70, 50, 50));
 
         ESTRELLA_9.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_jupiter_planet_20px.png"))); // NOI18N
         Home.add(ESTRELLA_9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 20, 30, -1));
@@ -519,13 +540,13 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         Home.add(HOJA_9, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 20, 30, -1));
 
         ESTRELLA_7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_asteroid_50px_4.png"))); // NOI18N
-        Home.add(ESTRELLA_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 120, 60, 50));
+        Home.add(ESTRELLA_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 100, 60, 50));
 
         HOJA_7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_acacia_60px.png"))); // NOI18N
-        Home.add(HOJA_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 120, 60, 50));
+        Home.add(HOJA_7, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 100, 60, 50));
 
         ESTRELLAS_1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_shooting_stars_50px_1.png"))); // NOI18N
-        Home.add(ESTRELLAS_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 60, 60));
+        Home.add(ESTRELLAS_1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 60, 60));
 
         ESTRELLA_8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_starfish_10px_1.png"))); // NOI18N
         Home.add(ESTRELLA_8, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 10, 20, 20));
@@ -534,19 +555,19 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         Home.add(HOJA_8, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 10, 20, 20));
 
         HOJA_2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_leaf_40px.png"))); // NOI18N
-        Home.add(HOJA_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, 60, 60));
+        Home.add(HOJA_2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 60, 60));
 
         logo_claro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_rocket_take_off_50px.png"))); // NOI18N
-        Home.add(logo_claro, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 50, -1));
+        Home.add(logo_claro, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, 50, -1));
 
         logo_oscuro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_rocket_take_off_50px_1.png"))); // NOI18N
-        Home.add(logo_oscuro, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, -1, -1));
+        Home.add(logo_oscuro, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 0, -1, -1));
 
         EstadoPro.setBackground(new java.awt.Color(204, 204, 204));
         EstadoPro.setEditable(true);
         EstadoPro.setFont(new java.awt.Font("Arial", 0, 18)); // NOI18N
         EstadoPro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Buscar", "Crear Usuario", "Crear Producto", "Bodega", "Estadisticas" }));
-        EstadoPro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        EstadoPro.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         org.jdesktop.swingx.autocomplete.AutoCompleteDecorator.decorate(EstadoPro);
         EstadoPro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -558,10 +579,10 @@ public class Estadisticas extends javax.swing.JInternalFrame {
                 EstadoProKeyReleased(evt);
             }
         });
-        Home.add(EstadoPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 30, 640, 40));
+        Home.add(EstadoPro, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 20, 640, 40));
 
         hoja_10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_comet_15px.png"))); // NOI18N
-        Home.add(hoja_10, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 850, 20, 40));
+        Home.add(hoja_10, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 550, 20, 40));
 
         jScrollPane1.setViewportView(Home);
 
@@ -569,13 +590,11 @@ public class Estadisticas extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1150, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 49, Short.MAX_VALUE))
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 634, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -592,6 +611,10 @@ public class Estadisticas extends javax.swing.JInternalFrame {
     private void HomeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_HomeMouseClicked
 
     }//GEN-LAST:event_HomeMouseClicked
+
+    private void BTN_HOYActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_HOYActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BTN_HOYActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

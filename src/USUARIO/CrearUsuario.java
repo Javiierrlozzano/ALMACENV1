@@ -607,6 +607,7 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         logo_claro = new javax.swing.JLabel();
         jLabel70 = new javax.swing.JLabel();
 
+        setBorder(null);
         setClosable(true);
         setIconifiable(true);
         setResizable(true);
@@ -633,7 +634,7 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         Panel.add(jLabel52, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 350, -1, -1));
 
         jLabel63.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_starfish_20px_2.png"))); // NOI18N
-        Panel.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 270, 30, 30));
+        Panel.add(jLabel63, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 260, 30, 40));
 
         jLabel27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_starfish_10px.png"))); // NOI18N
         Panel.add(jLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(740, 130, -1, -1));
@@ -661,7 +662,7 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         jTabbedPane5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTabbedPane5.setForeground(new java.awt.Color(255, 255, 255));
         jTabbedPane5.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
-        jTabbedPane5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jTabbedPane5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jTabbedPane5.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         jTabbedPane5.setOpaque(true);
 
@@ -858,7 +859,7 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         jLabel37.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel37.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Satelite2.png"))); // NOI18N
         jLabel37.setText(" ");
-        jLabel37.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel37.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ClienteDo.add(jLabel37, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 30, 40, 60));
 
         jLabel39.setFont(new java.awt.Font("Tahoma", 0, 16)); // NOI18N
@@ -929,7 +930,7 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         jLabel41.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel41.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Mundo2.png"))); // NOI18N
         jLabel41.setText(" ");
-        jLabel41.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel41.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         ClienteDo.add(jLabel41, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 100, 100));
 
         jSeparator2.setToolTipText("");
@@ -996,7 +997,7 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         Proveedor1.setBackground(new java.awt.Color(255, 255, 255));
         Proveedor1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         Proveedor1.setText("Usuario Sistema ");
-        Proveedor1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Proveedor1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Proveedor1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 Proveedor1ItemStateChanged(evt);
@@ -1028,7 +1029,7 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         Empleado1.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         Empleado1.setForeground(new java.awt.Color(255, 255, 255));
         Empleado1.setText("SALARIO %VENTAS DE PRODUCTO");
-        Empleado1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Empleado1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Empleado1.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 Empleado1ItemStateChanged(evt);
@@ -1045,7 +1046,7 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         idEmpleados.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         idEmpleados.setForeground(new java.awt.Color(255, 255, 255));
         idEmpleados.setText("EMPLEADO");
-        idEmpleados.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        idEmpleados.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         idEmpleados.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 idEmpleadosItemStateChanged(evt);
@@ -1057,7 +1058,7 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         Empleado3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         Empleado3.setForeground(new java.awt.Color(255, 255, 255));
         Empleado3.setText("INGRESADO NOMINA ");
-        Empleado3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Empleado3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Empleado3.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 Empleado3ItemStateChanged(evt);
@@ -1069,7 +1070,7 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         SalarioNominal.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         SalarioNominal.setForeground(new java.awt.Color(255, 255, 255));
         SalarioNominal.setText("SALARIO NOMINAL");
-        SalarioNominal.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        SalarioNominal.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         SalarioNominal.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 SalarioNominalItemStateChanged(evt);
@@ -1081,7 +1082,7 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         CheckVentas.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         CheckVentas.setForeground(new java.awt.Color(255, 255, 255));
         CheckVentas.setText("SALARIO %VENTAS ");
-        CheckVentas.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        CheckVentas.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         CheckVentas.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 CheckVentasItemStateChanged(evt);
@@ -1231,7 +1232,7 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         NBanco.setBackground(new java.awt.Color(204, 204, 204));
         NBanco.setFont(new java.awt.Font("Segoe UI Light", 1, 12)); // NOI18N
         NBanco.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "SELECCIONAR", "BANCO AGRARIO", "NEQUI", "BANCO AV VILLAS", "BANCO CAJA SOCIAL", "SCOTIABANK COLPATRIA", "BANCO COOPERATIVO COOPCETRAL", "BANCO DAVIVIENDA", "BANCO DE BOGOTA", "BANCO DE OCCIDENTE", "BANCO FALABELLA", "BANCO PICHINCHA S.A.", "BANCO BBVA COLOMBIA S.A.", "CITIBANK", "BANCO ITAU", "CONFIAR COOPERATIVA FINANCIERA", "DAVIPLATA", "BANCO DE LAS MICROFINANZAS BANCAMIA", "COLTEFINANCIERA", "CFA COOPERATIVA FINANCIERA", "BANCO CREDIFINANCIERA", "RAPPIPAY", "COTRAFA", "BANCO SANTANDER COLOMBIA", "BANCO SERFINANZA", "GIROS Y FINANZAS" }));
-        NBanco.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        NBanco.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         NBanco.setEnabled(false);
         org.jdesktop.swingx.autocomplete.AutoCompleteDecorator.decorate(NBanco);
         Panel.add(NBanco, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 260, 200, 30));
@@ -1252,7 +1253,7 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         Proveedor.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         Proveedor.setForeground(new java.awt.Color(255, 255, 255));
         Proveedor.setText("PROVEEDOR");
-        Proveedor.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Proveedor.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Proveedor.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 ProveedorItemStateChanged(evt);
@@ -1269,7 +1270,7 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         Empleado.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         Empleado.setForeground(new java.awt.Color(255, 255, 255));
         Empleado.setText("EMPLEADO");
-        Empleado.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Empleado.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Empleado.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 EmpleadoItemStateChanged(evt);
@@ -1312,7 +1313,7 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         sCliente.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         sCliente.setForeground(new java.awt.Color(255, 255, 255));
         sCliente.setText("CLIENTE");
-        sCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        sCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         sCliente.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 sClienteActionPerformed(evt);
@@ -1328,7 +1329,7 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         });
         Panel.add(NCuenta, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 290, 200, 30));
 
-        jPanel5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jPanel5.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jPanel5.setOpaque(false);
         jPanel5.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1341,7 +1342,7 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Usuario5.png"))); // NOI18N
         jLabel1.setToolTipText("");
         jLabel1.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jLabel1.setVerticalTextPosition(javax.swing.SwingConstants.TOP);
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -1363,7 +1364,7 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         btAdicionar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btAdicionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Agregar.png"))); // NOI18N
         btAdicionar.setText("ADICIONAR");
-        btAdicionar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btAdicionar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btAdicionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btAdicionarActionPerformed(evt);
@@ -1374,13 +1375,13 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
                 btAdicionarKeyReleased(evt);
             }
         });
-        Panel.add(btAdicionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 640, 150, 40));
+        Panel.add(btAdicionar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 670, 150, 40));
 
         btModificar.setBackground(new java.awt.Color(255, 255, 255));
         btModificar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btModificar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Modificar.png"))); // NOI18N
         btModificar.setText("INFORME");
-        btModificar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btModificar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btModificarActionPerformed(evt);
@@ -1391,13 +1392,13 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
                 btModificarKeyReleased(evt);
             }
         });
-        Panel.add(btModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 630, 150, 50));
+        Panel.add(btModificar, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 640, 150, 50));
 
         btGuardar.setBackground(new java.awt.Color(255, 255, 255));
         btGuardar.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btGuardar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Guardar.png"))); // NOI18N
         btGuardar.setText("GUARDAR");
-        btGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btGuardar.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btGuardarActionPerformed(evt);
@@ -1446,7 +1447,7 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         EstadoPro.setEditable(true);
         EstadoPro.setFont(new java.awt.Font("Arial", 0, 14)); // NOI18N
         EstadoPro.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccionar", "Activo", "Inactivo", "Agotado" }));
-        EstadoPro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        EstadoPro.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         org.jdesktop.swingx.autocomplete.AutoCompleteDecorator.decorate(EstadoPro);
         EstadoPro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -1470,7 +1471,7 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         btModificar1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         btModificar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Buscar2.png"))); // NOI18N
         btModificar1.setText("BUSCAR");
-        btModificar1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btModificar1.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         btModificar1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btModificar1ActionPerformed(evt);
@@ -1487,7 +1488,7 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
         Cuenta.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
         Cuenta.setForeground(new java.awt.Color(255, 255, 255));
         Cuenta.setText("CUENTA BANCARIA");
-        Cuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Cuenta.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Cuenta.addItemListener(new java.awt.event.ItemListener() {
             public void itemStateChanged(java.awt.event.ItemEvent evt) {
                 CuentaItemStateChanged(evt);
@@ -1659,7 +1660,7 @@ public class CrearUsuario extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(Panel, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 11, Short.MAX_VALUE))
+                .addGap(0, 18, Short.MAX_VALUE))
         );
 
         pack();

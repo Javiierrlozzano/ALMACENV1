@@ -29,20 +29,20 @@ public class CrearProducto extends javax.swing.JFrame {
             boolean ini,
             CrearBodegas WinBG1, 
             IMPUESTO WinImpuesto1,
-            FAMILIA1 WinFm11 ,
-            FAMILIA2 WinFm21,
-            FAMILIA3 WinFm31,
-            UNDMEDIDA WindFnidad1
-             ) {
+       //     FAMILIA1 WinFm11 ,
+            FAMILIA2 WinFm21
+            //FAMILIA3 WinFm31
+//            UNDMEDIDA WindFnidad1
+             ){
         
         initComponents();
          Querys = QuerysIni;
          WinBG =WinBG1;
          WinImpuesto=WinImpuesto1;
-         WinFm1= WinFm11;
+        // WinFm1= WinFm11;
          WinFm2 = WinFm21;
-         WinFm3=WinFm31;
-         WindFnidad=WindFnidad1;
+        // WinFm3=WinFm31;
+//         WindFnidad=WindFnidad1;
          Act=ini;
 
         
@@ -81,7 +81,7 @@ btAdicionar1.setVisible(!x);
         activar(Act) ;
         NombreBuscar= false;
         NDocumento=false;
-        ResultSet Unidad =Querys.IniUnidad();
+//        ResultSet Unidad =Querys.IniUnidad();
         ResultSet UsiarioNit =Querys.BuscarUsuarioNit();
         ResultSet Familia3 =Querys.InicioFamilia3();
         ResultSet Inpuestos =Querys.IniImpuesto();
@@ -90,7 +90,7 @@ btAdicionar1.setVisible(!x);
         try{
             JComboBox cm []={NomProveedor,idProveedor};
             general.AgregarDatosCombobox(Impuesto, Inpuestos, 2);
-            general.AgregarDatosCombobox(UnidadMedida, Unidad, 2);
+           // general.AgregarDatosCombobox(UnidadMedida, Unidad, 2);
             general.AgregarDatosComboboxMysql(cm, UsiarioNit,1);
             general.AgregarDatosCombobox(Bodegas, Bodega,2);
             general.AgregarDatosCombobox(Tipo1, Familia3, 2);
@@ -2194,13 +2194,13 @@ general.OpenWindows(WinFm2, jPanel1);         // TODO add your handling code her
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
-general.OpenWindows(WinFm3, jPanel1);  
+//general.OpenWindows(WinFm3, jPanel1);  
 
     
     }//GEN-LAST:event_jButton9ActionPerformed
 
     private void jButton10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10ActionPerformed
-general.OpenWindows(WindFnidad, jPanel1);         // TODO add your handling code here:
+//general.OpenWindows(WindFnidad, jPanel1);         // TODO add your handling code here:
     }//GEN-LAST:event_jButton10ActionPerformed
 
     private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
@@ -3281,8 +3281,8 @@ TablaCombos(evt);          // TODO add your handling code here:
     IMPUESTO WinImpuesto ;
     FAMILIA1 WinFm1;
     FAMILIA2 WinFm2 ;
-    FAMILIA3 WinFm3 ;
-    UNDMEDIDA WindFnidad;
+//    FAMILIA3 WinFm3 ;
+//    UNDMEDIDA WindFnidad;
     GENERAL_CLASS general = new GENERAL_CLASS() ;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel BSD;

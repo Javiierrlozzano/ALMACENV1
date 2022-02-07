@@ -13,24 +13,22 @@ import javax.swing.JButton;
 import javax.swing.plaf.basic.BasicButtonUI;
 import AppPackage.AnimationClass;//Acá importé la librería para los nombres desplazables de los botones
 import CLASS.GENERAL_CLASS;
+import CLASS.MySQL_Query;
 import HOME.*;
 import Producto.CrearProducto;
 import Producto.FAMILIA1;
+import Producto.FAMILIA1_1;
 import Producto.FAMILIA2;
-import Producto.FAMILIA3;
-import Producto.UNDMEDIDA;
+import Producto.FAMILIA2_2;
+
+import Producto.UNIDADMEDIDA;
 import USUARIO.CrearUsuario;
 
 import java.awt.Dimension;
 import desplazable.Desface;//ACÁ IMPORTÉ LA LIBRERÍA PARA EL MENÚ DESPLAZABLE DE LA DERECHA
-import javax.swing.JDesktopPane;
-import javax.swing.JInternalFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-
-import javax.swing.plaf.basic.BasicScrollBarUI;
 import javax.swing.JSeparator;
-import javax.swing.UIManager;
 
 /**
  *
@@ -43,7 +41,7 @@ public class Startt2 extends javax.swing.JFrame {
     /**
      * Creates new form Startt
      *
-     * @param WinFm1
+     * @param WinFm1 
      * @param WinFm2
      * @param WinFm3
      * @param WindFnidad
@@ -51,19 +49,20 @@ public class Startt2 extends javax.swing.JFrame {
      * @param WinUser
      * @param WinConf
      */
-    public Startt2(FAMILIA1 WinFm1, FAMILIA2 WinFm2, FAMILIA3 WinFm3, UNDMEDIDA WindFnidad, CrearBodegas WinCrearBG,  
-            Configuracion WinConf, CrearProducto win, Estadisticas es1 ) {
-       
+    public Startt2(FAMILIA1_1 WinFm1, FAMILIA2_2 WinFm2, UNIDADMEDIDA WindFnidad, CrearBodegas WinCrearBG,  
+            Configuracion WinConf, CrearProducto win, Estadisticas es1,MySQL_Query Querys1 ) {
+        Querys =Querys1;
             initComponents();
-      
+            //api
+            UnidadMedidas = WindFnidad;
             Estadistica =es1;
        // JScrollBar barra  = new ScrollBar( );
-        ScrollDesktop.getVerticalScrollBar().setUnitIncrement(15);
+            ScrollDesktop.getVerticalScrollBar().setUnitIncrement(15);
             ScrollDesktop.getHorizontalScrollBar().setUnitIncrement(15);
-            WinFm1_1 = WinFm1;
-            WinFm2_1 = WinFm2;
-            WinFm3_1 = WinFm3;
-            WindFnidad_1 = WindFnidad;
+            Familia1 = WinFm1;
+            Familia2 = WinFm2;
+           // WinFm3_1 = WinFm3;
+           
             WinCrearBG_1 = WinCrearBG;
         
             WinConf_1 = WinConf;
@@ -355,7 +354,7 @@ public class Startt2 extends javax.swing.JFrame {
         txt_CHATBOT = new javax.swing.JLabel();
         txt_BUSQUEDA = new javax.swing.JLabel();
         ScrollDesktop = new javax.swing.JScrollPane();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        DeskPanel = new javax.swing.JDesktopPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -368,7 +367,7 @@ public class Startt2 extends javax.swing.JFrame {
 
         jButton2.setBackground(new java.awt.Color(7, 16, 19));
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Estadisticos_42px.png"))); // NOI18N
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton2.setPreferredSize(new java.awt.Dimension(40, 40));
         jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -385,7 +384,7 @@ public class Startt2 extends javax.swing.JFrame {
         BTN_CLIENTES.setBackground(new java.awt.Color(7, 16, 19));
         BTN_CLIENTES.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/AAgregar_Usuario.png"))); // NOI18N
         BTN_CLIENTES.setMnemonic('C');
-        BTN_CLIENTES.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BTN_CLIENTES.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         BTN_CLIENTES.setPreferredSize(new java.awt.Dimension(40, 40));
         BTN_CLIENTES.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -405,7 +404,7 @@ public class Startt2 extends javax.swing.JFrame {
         BTN_VENTAS.setBackground(new java.awt.Color(7, 16, 19));
         BTN_VENTAS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Money_42PX.png"))); // NOI18N
         BTN_VENTAS.setMnemonic('V');
-        BTN_VENTAS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BTN_VENTAS.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         BTN_VENTAS.setPreferredSize(new java.awt.Dimension(40, 40));
         BTN_VENTAS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -425,7 +424,7 @@ public class Startt2 extends javax.swing.JFrame {
         BTN_ALMACEN.setBackground(new java.awt.Color(7, 16, 19));
         BTN_ALMACEN.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Bodega_42Px.png"))); // NOI18N
         BTN_ALMACEN.setMnemonic('A');
-        BTN_ALMACEN.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BTN_ALMACEN.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         BTN_ALMACEN.setPreferredSize(new java.awt.Dimension(40, 40));
         BTN_ALMACEN.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -435,12 +434,17 @@ public class Startt2 extends javax.swing.JFrame {
                 BTN_ALMACENMouseExited(evt);
             }
         });
+        BTN_ALMACEN.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN_ALMACENActionPerformed(evt);
+            }
+        });
         Menu_Lateral_Izquierdo.add(BTN_ALMACEN, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 240, 40, 40));
 
         BTN_PRODUCTOS.setBackground(new java.awt.Color(7, 16, 19));
         BTN_PRODUCTOS.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Producto_New_32Px.png"))); // NOI18N
         BTN_PRODUCTOS.setMnemonic('P');
-        BTN_PRODUCTOS.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BTN_PRODUCTOS.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         BTN_PRODUCTOS.setPreferredSize(new java.awt.Dimension(40, 40));
         BTN_PRODUCTOS.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -450,11 +454,16 @@ public class Startt2 extends javax.swing.JFrame {
                 BTN_PRODUCTOSMouseExited(evt);
             }
         });
+        BTN_PRODUCTOS.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BTN_PRODUCTOSActionPerformed(evt);
+            }
+        });
         Menu_Lateral_Izquierdo.add(BTN_PRODUCTOS, new org.netbeans.lib.awtextra.AbsoluteConstraints(15, 290, 40, 40));
 
         jButton7.setBackground(new java.awt.Color(7, 16, 19));
         jButton7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Resumen.png"))); // NOI18N
-        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton7.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton7.setPreferredSize(new java.awt.Dimension(40, 40));
         jButton7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -471,7 +480,7 @@ public class Startt2 extends javax.swing.JFrame {
 
         BTN_MODO_NOCHE.setBackground(new java.awt.Color(7, 16, 19));
         BTN_MODO_NOCHE.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_toggle_on_32px.png"))); // NOI18N
-        BTN_MODO_NOCHE.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BTN_MODO_NOCHE.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         BTN_MODO_NOCHE.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BTN_MODO_NOCHEMouseClicked(evt);
@@ -484,7 +493,7 @@ public class Startt2 extends javax.swing.JFrame {
 
         BTN_MODO_DIA.setBackground(new java.awt.Color(21, 25, 28));
         BTN_MODO_DIA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_toggle_off_32px.png"))); // NOI18N
-        BTN_MODO_DIA.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BTN_MODO_DIA.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         BTN_MODO_DIA.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BTN_MODO_DIAMouseClicked(evt);
@@ -529,7 +538,7 @@ public class Startt2 extends javax.swing.JFrame {
 
         BtLicencia.setBackground(new java.awt.Color(7, 16, 19));
         BtLicencia.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Licencia_32PX.png"))); // NOI18N
-        BtLicencia.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BtLicencia.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         BtLicencia.setPreferredSize(new java.awt.Dimension(40, 40));
         BtLicencia.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -582,7 +591,7 @@ public class Startt2 extends javax.swing.JFrame {
         Iconos_True.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Iconos_True.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_checked_checkbox_32px.png"))); // NOI18N
         Iconos_True.setToolTipText("APAGAR ICONOS");
-        Iconos_True.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Iconos_True.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Iconos_True.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         Iconos_True.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -595,7 +604,7 @@ public class Startt2 extends javax.swing.JFrame {
         Iconos_Off.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         Iconos_Off.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/icons8_unchecked_checkbox_32px.png"))); // NOI18N
         Iconos_Off.setToolTipText("ENCENDER ICONOS");
-        Iconos_Off.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Iconos_Off.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         Iconos_Off.setHorizontalTextPosition(javax.swing.SwingConstants.RIGHT);
         Iconos_Off.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -614,7 +623,7 @@ public class Startt2 extends javax.swing.JFrame {
 
         BTN_MENU.setForeground(new java.awt.Color(255, 255, 255));
         BTN_MENU.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Menu_tres_lineas.png"))); // NOI18N
-        BTN_MENU.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        BTN_MENU.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         BTN_MENU.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 BTN_MENUMouseClicked(evt);
@@ -631,7 +640,7 @@ public class Startt2 extends javax.swing.JFrame {
         txt_CONFIGURACION.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txt_CONFIGURACION.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Configuraciones_42Px.png"))); // NOI18N
         txt_CONFIGURACION.setText("AJUSTES");
-        txt_CONFIGURACION.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txt_CONFIGURACION.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txt_CONFIGURACION.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         txt_CONFIGURACION.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         txt_CONFIGURACION.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -653,7 +662,7 @@ public class Startt2 extends javax.swing.JFrame {
         txt_CHATBOT.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txt_CHATBOT.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Chat_Bot.png"))); // NOI18N
         txt_CHATBOT.setText("CHAT BOT");
-        txt_CHATBOT.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txt_CHATBOT.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txt_CHATBOT.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         txt_CHATBOT.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         txt_CHATBOT.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -672,7 +681,7 @@ public class Startt2 extends javax.swing.JFrame {
         txt_BUSQUEDA.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txt_BUSQUEDA.setIcon(new javax.swing.ImageIcon(getClass().getResource("/IMAGENES/Buscar_32px.png"))); // NOI18N
         txt_BUSQUEDA.setText("BUSCAR");
-        txt_BUSQUEDA.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        txt_BUSQUEDA.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         txt_BUSQUEDA.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         txt_BUSQUEDA.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         txt_BUSQUEDA.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -689,20 +698,21 @@ public class Startt2 extends javax.swing.JFrame {
 
         ScrollDesktop.setMinimumSize(new java.awt.Dimension(0, 0));
 
-        jDesktopPane1.setPreferredSize(new java.awt.Dimension(1157, 688));
+        DeskPanel.setBackground(new java.awt.Color(0, 0, 0));
+        DeskPanel.setPreferredSize(new java.awt.Dimension(1157, 687));
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout DeskPanelLayout = new javax.swing.GroupLayout(DeskPanel);
+        DeskPanel.setLayout(DeskPanelLayout);
+        DeskPanelLayout.setHorizontalGroup(
+            DeskPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        DeskPanelLayout.setVerticalGroup(
+            DeskPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        ScrollDesktop.setViewportView(jDesktopPane1);
+        ScrollDesktop.setViewportView(DeskPanel);
 
         javax.swing.GroupLayout HomePrincipalLayout = new javax.swing.GroupLayout(HomePrincipal);
         HomePrincipal.setLayout(HomePrincipalLayout);
@@ -732,7 +742,7 @@ public class Startt2 extends javax.swing.JFrame {
             .addGroup(HomePrincipalLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(HomePrincipalLayout.createSequentialGroup()
                     .addComponent(ScrollDesktop, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 90, Short.MAX_VALUE)))
+                    .addGap(0, 91, Short.MAX_VALUE)))
         );
 
         jPanel1.add(HomePrincipal, java.awt.BorderLayout.CENTER);
@@ -834,49 +844,12 @@ CambiarModo(false, BTN, Text, Botones_Panel, PanelEstadisticas, txtEstadisticas,
    
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-       try{
-        JInternalFrame[] pruebas = jDesktopPane1.getAllFrames();
-            if (pruebas.length == 0) {
-               // CrearUser= new CrearUsuario(); 
-                 Estadistica.setVisible(true);
-                 jDesktopPane1.add(Estadistica);
-            }
-        for (int i = 0; i < pruebas.length; i++) {
-            if (CrearUser.isVisible() ) {
-                System.out.println("la ventana ya esta abierta "); 
-            }else{
-             Estadistica= new Estadisticas(); 
-             Estadistica.setVisible(true);
-             jDesktopPane1.add(Estadistica);
-            }
-        }
-        }catch(Exception ex){
-            System.out.println("error " +ex);
-        }
-
+     general.AbrirJInternalFrame(Estadistica, DeskPanel, null, true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void BTN_CLIENTESActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_CLIENTESActionPerformed
-/*        try{
-        JInternalFrame[] pruebas = jDesktopPane1.getAllFrames();
-            if (pruebas.length == 0) {
-               // CrearUser= new CrearUsuario(); 
-                 CrearUser.setVisible(true);
-                 jDesktopPane1.add(CrearUser);
-            }
-        for (int i = 0; i < pruebas.length; i++) {
-            if (CrearUser.isVisible() ) {
-                System.out.println("la ventana ya esta abierta "); 
-            }else{
-             CrearUser= new CrearUsuario(null,true); 
-             CrearUser.setVisible(true);
-             jDesktopPane1.add(CrearUser);
-            }
-        }
-        }catch(Exception ex){
-            System.out.println("error " +ex);
-        }*/
-general.AbrirJInternalFrame(Estadistica, jDesktopPane1, null, true);
+
+
     }//GEN-LAST:event_BTN_CLIENTESActionPerformed
 
     private void Iconos_TrueMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Iconos_TrueMouseClicked
@@ -906,10 +879,9 @@ general.AbrirJInternalFrame(Estadistica, jDesktopPane1, null, true);
     }//GEN-LAST:event_BtLicenciaActionPerformed
 
     private void BTN_VENTASActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_VENTASActionPerformed
-for (int i = 0; i < jDesktopPane1.getAllFrames().length; i++) {
-            System.out.println(jDesktopPane1.getAllFramesInLayer(i).getClass());
-            System.out.println(CrearUsuario.class);
-        }
+    
+        general.AbrirJInternalFrame(UnidadMedidas, DeskPanel, Querys, false);
+       
 //general.OpenWindows(WinUser_1, jPanel1);
     }//GEN-LAST:event_BTN_VENTASActionPerformed
 
@@ -983,6 +955,15 @@ for (int i = 0; i < jDesktopPane1.getAllFrames().length; i++) {
                 // TODO add your handling code here:
     }//GEN-LAST:event_jButton2MouseClicked
 
+    private void BTN_ALMACENActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_ALMACENActionPerformed
+        general.AbrirJInternalFrame(Familia1, DeskPanel, Querys, false);
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BTN_ALMACENActionPerformed
+
+    private void BTN_PRODUCTOSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BTN_PRODUCTOSActionPerformed
+      general.AbrirJInternalFrame(Familia2, DeskPanel, Querys, false);
+    }//GEN-LAST:event_BTN_PRODUCTOSActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1017,7 +998,9 @@ for (int i = 0; i < jDesktopPane1.getAllFrames().length; i++) {
             }
         });
     }
-  
+      public FAMILIA1_1 Familia1;
+    public FAMILIA2_2 Familia2;
+    
     public Estadisticas Estadistica;
     CrearUsuario CrearUser=null; 
     public JSeparator Separador[];
@@ -1027,15 +1010,14 @@ for (int i = 0; i < jDesktopPane1.getAllFrames().length; i++) {
     public JButton Botones_Panel[];
     public JLabel Text[];
     public JButton BTN[]={};
-       
+    private  MySQL_Query Querys;   
     public boolean IconosModo = false;
     public JLabel[] Hojas={};
     public JLabel [] Extrellas={};
     public GENERAL_CLASS general = new GENERAL_CLASS();
-    public FAMILIA1 WinFm1_1;
-    public FAMILIA2 WinFm2_1;
-    public FAMILIA3 WinFm3_1;
-    public UNDMEDIDA WindFnidad_1;
+
+//    public FAMILIA3 WinFm3_1;
+    public UNIDADMEDIDA UnidadMedidas;
     public CrearBodegas WinCrearBG_1;
     public Configuracion WinConf_1;
     public CrearProducto CrearProducto;
@@ -1048,6 +1030,7 @@ for (int i = 0; i < jDesktopPane1.getAllFrames().length; i++) {
     private javax.swing.JButton BTN_PRODUCTOS;
     private javax.swing.JButton BTN_VENTAS;
     private javax.swing.JButton BtLicencia;
+    private javax.swing.JDesktopPane DeskPanel;
     private javax.swing.JPanel HomePrincipal;
     private javax.swing.JLabel Iconos_Off;
     private javax.swing.JLabel Iconos_True;
@@ -1077,7 +1060,6 @@ for (int i = 0; i < jDesktopPane1.getAllFrames().length; i++) {
     private javax.swing.JLabel hoja_9;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton7;
-    private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;

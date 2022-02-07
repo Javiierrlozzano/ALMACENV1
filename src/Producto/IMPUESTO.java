@@ -5,11 +5,11 @@
  */
 package Producto;
 
-import CLASS.CONEXION_MySQL;
+
 import CLASS.GENERAL_CLASS;
 import CLASS.MySQL_Query;
 import HOME.*;
-import java.sql.ResultSet;
+
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -365,7 +365,7 @@ public class IMPUESTO extends javax.swing.JFrame {
             IniciarData();
             activa(false);
         } catch (SQLException ex) {
-            Logger.getLogger(UNDMEDIDA.class.getName()).log(Level.SEVERE, null, ex);
+           // Logger.getLogger(UNDMEDIDA.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btActualizarActionPerformed
      public void Keys(java.awt.event.KeyEvent evt){

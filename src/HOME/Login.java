@@ -12,18 +12,18 @@ import ALMACEN.CrearInventario;
 import Producto.CrearProducto;
 import Producto.FAMILIA1;
 import Producto.FAMILIA2;
-import Producto.FAMILIA3;
+
 import Producto.IMPUESTO;
-import Producto.UNDMEDIDA;
+
 import ALMACEN.EntradaMercancia;
 import ALMACEN.InventarioGeneral;
 import ALMACEN.OrdenesPedido;
-
-
 import CLASS.GENERAL_CLASS;
 import CLASS.MySQL_Query;
+import Producto.FAMILIA1_1;
+import Producto.FAMILIA2_2;
+import Producto.UNIDADMEDIDA;
 import java.awt.Color;
-import javafx.scene.input.KeyEvent;
 import javax.swing.JOptionPane;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
@@ -45,27 +45,7 @@ public class Login extends javax.swing.JFrame {
         UIManager.put( "nimbusOrange", new Color( 0, 163, 0) );
     }
 
-    public static void CargarVentanas(FAMILIA1 WinFm_1,FAMILIA2 WinFm_2,FAMILIA3 WinFm_3,UNDMEDIDA WindFnidad_,CrearBodegas WinCrearBG_,Configuracion WinConf_){
-    
-    
-            WinFm1 =WinFm_1;
-            JOptionPane.showMessageDialog(null,WinFm1.toString());
-            WinFm2= WinFm_2 ;
-             JOptionPane.showMessageDialog(null,WinFm2.toString());
-            WinFm3  =WinFm_3;
-            JOptionPane.showMessageDialog(null,WinFm3.toString());
-            WindFnidad =WindFnidad_ ;
-            JOptionPane.showMessageDialog(null,WindFnidad.toString());
-            WinCrearBG  =WinCrearBG_;
-            JOptionPane.showMessageDialog(null,WinCrearBG.toString());
-          
-        
-            WinConf=WinConf_;
-            JOptionPane.showMessageDialog(null,WinConf.toString());
-           // st= new Start(WinFm_1,WinFm_2,WinFm_3,WindFnidad_,WinCrearBG_,WinUser_,WinConf_);
-           //JOptionPane.showMessageDialog(null,st.toString());
-            
-    }
+   
     /*   private Login() {
     throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }*/
@@ -391,17 +371,17 @@ public class Login extends javax.swing.JFrame {
                     Es= new Estadisticas();
                 }
              if (i==5) {
-                  WindFnidad  = new UNDMEDIDA(Querys,true);
+                  UnidadMedida  = new UNIDADMEDIDA(Querys,true);
                 }  
                 if (i==10) {
                     WinCrearBG =new CrearBodegas(Querys,false);
                 }
                 if (i==15) {
-                    WinFm3 =  new FAMILIA3 (Querys,true);
+                    //WinFm3 =  new FAMILIA3 (Querys,true);
                 }if (i==20) {
-                    WinFm2 = new FAMILIA2(Querys,true);
+                    Familia2 = new FAMILIA2_2(Querys,true);
                 }if (i==25){
-                    WinFm1= new FAMILIA1(Querys,true);
+                    WinFm1= new FAMILIA1_1(Querys,true);
                 }if (i == 30) {
                     WinConf= new  Configuracion(Querys,false);
                 }if (i==40) {
@@ -410,10 +390,10 @@ public class Login extends javax.swing.JFrame {
                     WinImpuesto = new IMPUESTO (Querys,true);
                 }
                 if (i==60) {
-                    win = new CrearProducto(Querys, false, WinCrearBG, WinImpuesto, WinFm1, WinFm2, WinFm3, WindFnidad);
+                    win = new CrearProducto(Querys, false, WinCrearBG, WinImpuesto, null);
                 }
                 if(i==70){
-                st= new Startt2(WinFm1, WinFm2, WinFm3, WindFnidad, WinCrearBG, WinConf,win,Es);
+                st= new Startt2(WinFm1, Familia2, UnidadMedida, WinCrearBG, WinConf,win,Es,Querys);
                 }
                 
                 loadingnum.setText(Integer.toString(i)+"%");// Acà se incrementan los nùmeros de porcentaje de cargando, hay un error, los nùmeros no para de cargar
@@ -434,12 +414,16 @@ public class Login extends javax.swing.JFrame {
             }
        
     }
+        //api 
         public static Estadisticas Es;
+        public static UNIDADMEDIDA UnidadMedida ;
+        public static FAMILIA1_1 WinFm1;
+          //no API
         public static MySQL_Query Querys ;
-        public static FAMILIA1 WinFm1;
-        public static FAMILIA2 WinFm2  ;
-        public static FAMILIA3 WinFm3  ;
-        public static UNDMEDIDA WindFnidad ;
+  
+        public static FAMILIA2_2 Familia2  ;
+       // public static FAMILIA3 WinFm3  ;
+      
         public static CrearBodegas WinCrearBG  ;
         public static Configuracion WinConf;
         public static   CrearProducto win;
